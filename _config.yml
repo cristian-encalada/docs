@@ -18,7 +18,7 @@ timezone: America/Montevideo
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Cristian Encalada # the main title
+title: Cristian Encalada's Blog # the main title
 
 tagline: "1st rule of programming - If the code works, Don't touch it!" # it will display as the sub-title
 
@@ -73,7 +73,7 @@ theme_mode: # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn:
+img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
 avatar: 'assets/img/logo_dev.png'
@@ -82,11 +82,10 @@ avatar: 'assets/img/logo_dev.png'
 toc: true
 
 comments:
-  active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
+  active: disqus  # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
   # The active options are as follows:
   disqus:
-    shortname: cec-blog-1.disqus.com
-    # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+    shortname: 'cec-blog'  # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
   utterances:
     repo: # <gh-username>/<repo>
