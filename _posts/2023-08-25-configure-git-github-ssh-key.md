@@ -21,7 +21,7 @@ Many times there is a confussion between Git and GitHub, but they are not the sa
 ## Table of contents
 
 1.  [Install Git](#install-git)
-2.  [Create a GitHub account](#create-a-gitHub-account)
+2.  [Create a GitHub account](#create-a-github-account)
 3.  [Setup Git](#setup-git)
 4.  [Create an SSH key](#create-an-ssh-key)
 5.  [Link your SSH key with GitHub](#link-your-ssh-key-with-github)
@@ -52,7 +52,7 @@ Make sure your Git version is __at least 2.28__ by running this command:
 git --version
 ```
 
-## Create a new GitHub account
+## Create a GitHub account
 
 Go to [GitHub.com](https://github.com/) and create a new account
 
