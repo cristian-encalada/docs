@@ -5,8 +5,8 @@ date: 2023-08-11 20:00:00 +0300
 image:
   path: https://raw.githubusercontent.com/cristian-encalada/cristian-encalada/output/github-contribution-grid-snake.svg
   alt: Snake-eating Graph generated dynamically from Github contributions
-categories: Github, Github-Actions, Github-Profile
-tags: jekyll github open-source markdown
+categories: [GitHub, Github-Actions]
+tags: [github github-actions]
 pin: true
 ---
 

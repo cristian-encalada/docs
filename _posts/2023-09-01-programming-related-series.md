@@ -5,8 +5,8 @@ date: 2023-09-01 20:00:00 +0300
 image:
   path: "/assets/img/2023-09-01-programming-series/2023-09-01-silicon-valley.webp"
   alt: Silicon Valley - Comedy TV Serie
-categories: Free-Time, TV-Series, Entertainment
-tags: entertainment tv-series
+categories: [Entertainment, TV-Series]
+tags: [entertainment tv-series]
 pin: true
 ---
 
@@ -25,7 +25,7 @@ __Note:__ The following list has no particular order. I just mentioned some seri
 ## Mr Robot
 
 * __Genre:__ Psychological Thriller, Drama, Cybersecurity
-* __Where to Watch:__ Amazon Prime Video, USA Network
+* __Where to Watch:__ Amazon Prime Video
 * __Number of Episodes:__ 45 (4 seasons)
 
 {% include embed/youtube.html id='N6HGuJC--rk' %}
@@ -37,7 +37,7 @@ __Summary:__ The main character is Elliot, a computer cybersecurity engineer by 
 ## Silicon Valley
 
 * __Genre:__ Comedy, Tech Industry Satire
-* __Where to Watch:__ HBO, Hulu, Amazon Prime Video
+* __Where to Watch:__ HBO Max
 * __Number of Episodes:__ 53 (6 seasons)
 
 {% include embed/youtube.html id='suHAySTvWBw' %}
@@ -48,7 +48,7 @@ __Summary:__ This funny series is about an introverted computer programmer named
 ## The Big Bang Theory
 
 * __Genre:__ Comedy, Nerd Culture
-* __Where to Watch:__ Netflix, CBS
+* __Where to Watch:__ HBO Max
 * __Number of Episodes:__ 279 (12 seasons)
 
 
@@ -60,8 +60,8 @@ __Summary:__ Leonard and Sheldon are brilliant physicists who know a ton about q
 
 ## The IT Crowd
 
-* __Genre:__ Comedy, Workplace
-* __Where to Watch:__ Netflix, Channel 4 (UK)
+* __Genre:__ Comedy
+* __Where to Watch:__ Netflix, Amazon Prime Video
 * __Number of Episodes:__ 25 (4 seasons)
 
 {% include embed/youtube.html id='MwwTfkXk7U0' %}

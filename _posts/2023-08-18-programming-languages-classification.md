@@ -5,8 +5,8 @@ date: 2023-08-18 20:00:00 +0300
 image:
   path: "/assets/img/2023-08-23-programming-languages-classification/different-programming-languages.png"
   alt: Different types of programming languages
-categories: Programming-Languages, General-Knowledge
-tags: programming-languages general-knowledge
+categories: [General-Knowledge, Programming-Languages]
+tags: [programming-languages general-knowledge]
 pin: true
 ---
 
