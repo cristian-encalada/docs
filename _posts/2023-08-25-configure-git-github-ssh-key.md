@@ -10,8 +10,6 @@ tags: git github linux
 pin: true
 ---
 
-## Introduction
-
 [Git](https://git-scm.com/) is a very popular version control system. 
 
 [GitHub](https://github.com/) is a service that allows you to upload, host, and manage your code using Git with a nice web interface.
