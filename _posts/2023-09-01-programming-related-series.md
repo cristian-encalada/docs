@@ -16,13 +16,13 @@ __Note:__ The following list has no particular order. I just mentioned some seri
 
 ## Table of contents
 
-* [Mr. Robot](#mr.-robot)
+* [Mr. Robot](#mr-robot)
 * [Silicon Valley](#silicon-valley)
 * [The Big Bang Theory](#the-big-bang-theory)
 * [The IT Crowd](#the-it-crowd)
 * [Black Mirror](#black-mirror)
 
-## Mr. Robot
+## Mr Robot
 
 * __Genre:__ Psychological Thriller, Drama, Cybersecurity
 * __Where to Watch:__ Amazon Prime Video, USA Network
