@@ -6,7 +6,7 @@ image:
   path: "/assets/img/2023-08-23-programming-languages-classification/different-programming-languages.png"
   alt: Different types of programming languages
 categories: [General-Knowledge, Programming-Languages]
-tags: [programming-languages general-knowledge]
+tags: [programming-languages, general-knowledge]
 pin: true
 ---
 
@@ -199,6 +199,6 @@ Thanks for reading!
 
 ## References
 
-* https://www.freecodecamp.org/news/an-introduction-to-programming-paradigms/
-* https://codelearn.com/blog/classification-of-programming-languages/
-* https://cs.lmu.edu/~ray/notes/pltypes/
+* [FreeCodeCamp Blog - Programming Languages](https://www.freecodecamp.org/news/an-introduction-to-programming-paradigms/)
+* [Code Learn Blog - Classification of Programming Languages](https://codelearn.com/blog/classification-of-programming-languages/)
+* [Loyola Marymount University Notes - Classifying Programming Languages](https://cs.lmu.edu/~ray/notes/pltypes/)

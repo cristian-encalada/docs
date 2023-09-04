@@ -6,7 +6,7 @@ image:
   path: "/assets/img/2023-08-25-configure-git-github-ssh-key/ssh-key.png"
   alt: An SSH Key is an access credential in the SSH protocol
 categories: [GitHub, Git]
-tags: [git github linux ssh]
+tags: [git, github, linux ssh]
 pin: true
 ---
 

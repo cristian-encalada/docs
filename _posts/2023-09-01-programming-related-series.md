@@ -6,7 +6,7 @@ image:
   path: "/assets/img/2023-09-01-programming-series/2023-09-01-silicon-valley.webp"
   alt: Silicon Valley - Comedy TV Serie
 categories: [Entertainment, TV-Series]
-tags: [entertainment tv-series]
+tags: [entertainment, tv-series]
 pin: true
 ---
 

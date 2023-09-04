@@ -6,7 +6,7 @@ image:
   path: https://raw.githubusercontent.com/cristian-encalada/cristian-encalada/output/github-contribution-grid-snake.svg
   alt: Snake-eating Graph generated dynamically from Github contributions
 categories: [GitHub, Github-Actions]
-tags: [github github-actions]
+tags: [github, github-actions]
 pin: true
 ---
 
