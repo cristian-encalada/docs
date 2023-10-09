@@ -15,11 +15,11 @@ pin: true
 ## Table of contents
 
 * [X Window System](#x-window-system)
-* [Desktop Environments (DE)](#desktop-environments-(de))
-* [Window Managers (WM)](#window-managers-(wm))
-* [Why Use a Window Manager?](#why-use-a-window-manager?)
-* [Why Use a Desktop Environment?](#why-use-a-desktop-environment?)
-* [Which One to Pick?](#which-one-to-pick?)
+* [Desktop Environments (DE)](#desktop-environments)
+* [Window Managers (WM)](#window-managers)
+* [Why Use a Window Manager?](#why-use-a-window-manager)
+* [Why Use a Desktop Environment?](#why-use-a-desktop-environment)
+* [Which One to Pick?](#which-one-to-pick)
 * [References](#references)
 
 
@@ -28,15 +28,15 @@ If you're a Linux user, you've probably heard the terms `Desktop Environment (DE
 
 There are basically `three layers` that can be included in a `Linux desktop`:
 
-## X Windows System
+## X Window System
 
 The X Window System (X11 or X Windows) is an open source, cross platform, client-server computer software system that provides a GUI in a distributed network environment. 
 
 This is the foundation that allows for graphic elements to be drawn on the display. [X Windows](https://en.wikipedia.org/wiki/X_Window_System) builds the primitive framework that allows moving of windows, interactions with keyboard and mouse, and draws windows. This is required for any graphical desktop.
 
-## Window Managers (WM)
+## Window Managers
 
-The Window Manager is the piece of the puzzle that controls the placement and appearance of windows. __Window managers require X Windows but not a desktop environment__.
+The Window Manager (WM) is the piece of the puzzle that controls the placement and appearance of windows. __Window managers require X Windows but not a desktop environment__.
 
 There are 2 types of Window Managers:
 
@@ -64,9 +64,9 @@ Some examples of stacking window managers include:
 * [Openbox](http://openbox.org/wiki/Main_Page)
 * [KWin](https://en.wikipedia.org/wiki/KWin)
 
-## Desktop Environments (DE)
+## Desktop Environments
 
-A Desktop Environment includes a Window Manager but builds upon it. The Desktop Environment typically is a far more fully integrated system than a Window Manager. __Desktop Environments requiree both X Windows and a Window Manager__.
+A Desktop Environment (DE) includes a Window Manager but builds upon it. The Desktop Environment typically is a far more fully integrated system than a Window Manager. __Desktop Environments requiree both X Windows and a Window Manager__.
 
 __Note:__ Is important to mention that while desktop environments are not entirely independent of Linux distributions, they are not tied exclusively to one distribution. Users have the freedom to choose and install their preferred desktop environment on various Linux distributions, making Linux a versatile platform that accommodates a wide range of preferences and needs
 
@@ -93,20 +93,19 @@ Each Desktop Environment has its style. Some examples of Linux Desktop Environme
 ![XFCE DE](/assets/img/2023-09-15-linux-desktop-environments-vs-window-managers/MATE-DE.jpg)
 
 
-
-## Why Use a Desktop Environment?
+## Why Use a Desktop Environment
 
 * __Easy for New Users:__ Desktop Environments are user-friendly and need less setup.
 * __Easy to configure the look and feel:__ They often have built-in tools to let you tweak how your system looks.
 * __Many options to Choose From:__ Different Linux versions come with various Desktop Environments to suit different tastes.
 
-## Why Use a Window Manager?
+## Why Use a Window Manager
 
 * __Saves Resources:__ Window Managers use less computer power than Desktop Environments.
 * __Pick and choose what you want on your system:__ Unlike Desktop Environments that come with a bunch of stuff already installed.
 * __Work Faster:__ After a bit of setup, Window Managers can be super quick, thanks to keyboard shortcuts.
 
-## Which One to Pick?
+## Which One to Pick
 
 The choice is all about what you need and like. If you're new to Linux, want to start quickly, or like things ready-made, go for a Desktop Environment. If you want a more customized and efficient system, give a Window Manager a try.
 
