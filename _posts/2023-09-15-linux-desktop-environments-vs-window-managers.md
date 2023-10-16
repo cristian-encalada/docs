@@ -10,7 +10,7 @@ tags: [Linux]
 pin: true
 ---
 
-
+What are the differences between Desktop environments and Windows Managers in Linux? Let's review it.
 
 ## Table of contents
 
