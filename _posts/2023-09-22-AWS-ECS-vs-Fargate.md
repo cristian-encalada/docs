@@ -57,6 +57,12 @@ ECS was created as a simple alternative as an orchestrator that requires to use 
 
 ## EC2 vs Fargate
 
+__ECS:__ Only works with containers, when a container is deployed, it still has to run in a physical or a virtual machine, but ECS does not act as a server, ECS does not have any service or compute power. 
+
+ECS can only create and delete containers, but still needs the underlined infrastructure to be able to run those containers on.
+
+__ECS Cluster:__ Is a bunch of resources (underlined resources) that the containers are going to run on. Is the physical infrastructure.
+
 ECS has two launch types:
 
 1. EC2 based launch type (EC2 = AWS Compute Service)
@@ -64,22 +70,53 @@ ECS has two launch types:
 
 ![EC2 vs Fargate](/assets/img/2023-09-22-AWS-ECS-vs-Fargate/5-EC2-Launch_types.png)
 
+__EC2 Launch:__ We have to manage the underlying EC2 instances (infrastructure). We have to create the individual EC2 instances.
+
+- You still need to manage the underlying __infrastructure__ (EC2)
+- ECS manages the __containers__
+- Full __control__ over your infrastructure
+
 ![EC2 Launch](/assets/img/2023-09-22-AWS-ECS-vs-Fargate/6-EC2-launch.png)
+
+__ECS Fargate Launch:__ AWS manages the underlying infrastructure (serverless deployment)
+
+- Follows a __serverless__ architecture
+- Fargate will create servers on __demand__
+- No need to provision/mantain EC2 servers
+- You only pay for what you use
 
 ![Fargate Launch](/assets/img/2023-09-22-AWS-ECS-vs-Fargate/7-Fargate-service.png)
 
 ## EC2 Task
 
+### ECS Task Definition
+
+- Is a blueprint that describes how containers should launch (intructions)
+- How much CPU/MEM
+- Image/Ports/Volumes
+
 ![EC2 Task definition](/assets/img/2023-09-22-AWS-ECS-vs-Fargate/ECS-Task-definition-file.png)
+
+### ECS Task
+
+- An instance of a Task Definition
+- A running container(s) with setting defined in the Task Definition
 
 ![EC2 Task Instance](/assets/img/2023-09-22-AWS-ECS-vs-Fargate/ECS-Task-instance.png)
 
 
-## EC2 Services
+## ECS Services
 
-![EC2 Services](/assets/img/2023-09-22-AWS-ECS-vs-Fargate/10-ECS-Services.png)
+- A service ensures that a certain number if __Tasks__ are running at __all__ times
+- Restarts containers that have exited/crashed
+- If a EC2 instance fails, the Service will restart the task on a __working__ EC2 instance
+
+![ECS Services](/assets/img/2023-09-22-AWS-ECS-vs-Fargate/10-ECS-Services.png)
 
 ## Load Balancers
+
+- A Load Balancer can be assigned to __route__ external traffic of your server.
+- Aditionally, after each deploy using AWS Fargate, a new IP address is generated, the Load Balancer can redirect all traffic comming to those dynamic IPs generated to a static URL configured.
 
 ![Load Balancers](/assets/img/2023-09-22-AWS-ECS-vs-Fargate/11-Load-balancer.png)
 
