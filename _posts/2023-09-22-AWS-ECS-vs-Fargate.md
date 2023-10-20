@@ -19,7 +19,7 @@ Amazon Elastic Container Service (Amazon ECS) is a powerful and flexible contain
 * [ECS competitors](#ecs-competitors)
 * [EC2 vs Fargate](#ec2-vs-fargate)
 * [EC2 Task](#ec2-task)
-* [EC2 Services](#ec2-services)
+* [EC2 Services](#ecs-services)
 * [Load Balancers](#load-balancers)
 * [References](#references)
 
