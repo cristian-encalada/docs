@@ -1,22 +1,22 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Next.js i18n Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js, i18n and Tailwind.css',
+  author: 'Cristian Encalada',
+  headerTitle: 'Cristian Encalada',
+  description: 'Personal blog created with Next.js, i18n and Tailwind.css',
   language: 'en',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog-i18n.vercel.app/',
-  siteRepo: 'https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n',
+  siteUrl: 'https://cristian-encalada-blog.vercel.app/',
+  siteRepo: 'https://github.com/cristian-encalada/docs',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
+  email: 'cris.encalada.camargo@gmail.com',
+  github: 'https://github.com/cristian-encalada',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/cristian-encalada-45099616a/',
   locale: 'en',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
