@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js i18n Starter Blog',
+  title: 'Uruguay',
   author: 'Cristian Encalada',
   headerTitle: 'Cristian Encalada | Developer',
   description: 'Personal blog created with Next.js, i18n and Tailwind.css',
