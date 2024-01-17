@@ -1,0 +1,134 @@
+---
+title: ¿Qué es Amazon ECS? Conceptos básicos de AWS
+date: '2023-09-22'
+language: es
+localeid: 'awsecsvsfargate'
+tags: ['devops', 'aws']
+authors: ['default']
+draft: false
+summary: Amazon Elastic Container Service (Amazon ECS) es un servicio potente y flexible de orquestación de contenedores ofrecido por AWS.
+---
+
+<div className="flex justify-center">
+  <div className="w-full max-w-screen-md overflow-hidden">
+    <img
+      src="/static/images/2023-09-22-AWS-ECS-vs-Fargate/AWS-ECS.webp"
+      alt="Linux - Desktop environments vs Windows managers"
+      className="mx-auto"
+    />
+  </div>
+</div>
+
+Amazon Elastic Container Service (Amazon ECS) es un servicio potente y flexible de orquestación de contenedores ofrecido por AWS. Simplifica el proceso de implementación, gestión y escalado de aplicaciones en contenedores mediante el uso de contenedores Docker.
+
+## Índice
+
+* [¿Qué es ECS?](#¿qué-es-ecs?)
+* [Competidores de ECS](#competidores-de-ecs)
+* [EC2 vs Fargate](#ec2-vs-fargate)
+* [Tarea EC2](#tarea-ec2)
+* [Servicios EC2](#servicios-ec2)
+* [Balanceadores de Carga](#balanceadores-de-carga)
+* [Referencias](#referencias)
+
+
+## ¿Qué es ECS?
+
+![What is ECS?](/static/images/2023-09-22-AWS-ECS-vs-Fargate/0-what-is-ECS.png)
+
+### ¿Cuáles son los propósitos principales de los orquestadores?
+
+* Gestionar el ciclo de vida de los contenedores: crear/reiniciar/destruir
+* Implementar y equilibrar la carga de la aplicación en varios servidores
+* Escalado automático para manejar las variaciones en el tráfico
+* Implementar cambios en la aplicación de manera gradual
+
+## Competidores de ECS
+
+### Implementación con Docker Compose
+
+La ampliación con Docker Compose es más difícil.
+
+Solo podemos implementar en un solo servidor a la vez. Para implementar en diferentes servidores podríamos copiar el archivo docker-compose.yml, pero no es totalmente un sistema orquestado.
+
+![Docker compose deployment](/static/images/2023-09-22-AWS-ECS-vs-Fargate/2-Docker-compose-deployment.png)
+
+
+### Orquestadores tradicionales vs. Amazon ECS
+
+Orquestadores tradicionales como Kubernetes requieren mucho esfuerzo para ponerlos en marcha.
+
+ECS se creó como una alternativa sencilla, como un orquestador que requiere el uso de una Interfaz Gráfica de Usuario (GUI) para configurar casi todo el proceso para diferentes servicios.
+
+![EC2 vs traditional orchestrators](/static/images/2023-09-22-AWS-ECS-vs-Fargate/4-ECS-vs-others.png)
+
+
+## EC2 vs Fargate
+
+__ECS:__ Solo funciona con contenedores. Cuando se implementa un contenedor, aún tiene que ejecutarse en una máquina física o virtual, pero ECS no actúa como un servidor y no tiene ningún poder de servicio o cómputo.
+
+__Clúster de ECS:__ Es un conjunto de recursos (recursos subyacentes) en los que se ejecutarán los contenedores. Es la infraestructura física.
+
+ECS tiene dos tipos de inicio:
+
+1. Tipo de inicio basado en EC2 (EC2 = Servicio de Cómputo de AWS)
+2. Servicio Fargate
+
+![EC2 vs Fargate](/static/images/2023-09-22-AWS-ECS-vs-Fargate/5-EC2-Launch_types.png)
+
+__Inicio de EC2:__ Debemos gestionar las instancias de EC2 subyacentes (infraestructura). Debemos crear las instancias individuales de EC2.
+
+- Aún necesitas gestionar la infraestructura subyacente (EC2).
+- ECS gestiona los contenedores.
+- Control total sobre tu infraestructura.
+
+![EC2 Launch](/static/images/2023-09-22-AWS-ECS-vs-Fargate/6-EC2-launch.png)
+
+__Inicio de ECS Fargate:__ AWS gestiona la infraestructura subyacente (implementación sin servidor).
+
+- Sigue una arquitectura sin servidor.
+- Fargate creará servidores según la demanda.
+- No es necesario aprovisionar/mantener servidores EC2.
+- Solo pagas por lo que usas.
+
+![Fargate Launch](/static/images/2023-09-22-AWS-ECS-vs-Fargate/7-Fargate-service.png)
+
+## Tarea EC2
+
+### Definición de Tarea ECS
+
+- Es un modelo que describe cómo deben iniciarse los contenedores (instrucciones).
+- Cuánta CPU/MEM
+- Imagen/Puertos/Volumenes
+
+![EC2 Task definition](/static/images/2023-09-22-AWS-ECS-vs-Fargate/ECS-Task-definition-file.png)
+
+### Tarea ECS
+
+- Una instancia de una Definición de Tarea
+- Un contenedor o contenedores en ejecución con la configuración definida en la Definición de Tarea
+
+![EC2 Task Instance](/static/images/2023-09-22-AWS-ECS-vs-Fargate/ECS-Task-instance.png)
+
+
+## Servicios ECS
+
+- Un servicio garantiza que un cierto número de Tareas estén ejecutándose en todo momento
+- Reinicia contenedores que hayan salido o fallado
+- Si una instancia EC2 falla, el Servicio reiniciará la tarea en una instancia EC2 funcionando
+
+![ECS Services](/static/images/2023-09-22-AWS-ECS-vs-Fargate/10-ECS-Services.png)
+
+## Balanceadores de Carga
+
+- Un Balanceador de Carga puede asignarse para enrutamiento de tráfico externo a tu servidor.
+- Además, después de cada implementación utilizando AWS Fargate, se genera una nueva dirección IP; el Balanceador de Carga puede redirigir todo el tráfico que llega a esas direcciones IP dinámicas a una URL estática configurada.
+
+![Load Balancers](/static/images/2023-09-22-AWS-ECS-vs-Fargate/11-Load-balancer.png)
+
+¡Gracias por leer!
+
+## Referencias
+
+- [AWS ECS Tutorial | Deploy a New Application from Scratch | KodeKloud - Youtube](https://www.youtube.com/watch?v=esISkPlnxL0)
+- [Demystifying Amazon ECS - Medium](https://medium.com/@audhilmohammed/demystifying-amazon-ecs-c9da178b31a)

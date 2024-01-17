@@ -1,0 +1,205 @@
+---
+title: Configurar Git y Github en Linux
+date: '2023-08-25'
+language: es
+localeid: 'gitsshkey'
+tags: ['git', 'github', 'linux', 'ssh', 'tutorial']
+authors: ['default']
+draft: false
+summary: Este breve tutorial te ayudará a crear y configurar una clave SSH para trabajar con Git y GitHub.
+---
+
+<div className="flex justify-center">
+  <div className="w-full max-w-screen-md overflow-hidden">
+    <img
+      src="/static/images/2023-08-25-configure-git-github-ssh-key/ssh-key.png"
+      alt="Different types of programming languages"
+      className="mx-auto"
+    />
+  </div>
+</div>
+
+[Git](https://git-scm.com/) es un sistema de control de versiones muy popular.
+
+[GitHub](https://github.com/) es un servicio que te permite cargar, alojar y gestionar tu código utilizando Git con una interfaz web agradable.
+
+Muchas veces hay confusión entre Git y GitHub, pero no son lo mismo ni fueron creados por la misma empresa.
+
+## Índice
+
+1.  [Instala Git](#instala-git)
+2.  [Crea una cuenta de GitHub](#crea-una-cuenta-de-github)
+3.  [Configura Git](#configura-git)
+4.  [Crea una clave SSH](#crea-una-clave-ssh)
+5.  [Vincula tu clave SSH con GitHub](#vincula-tu-clave-ssh-con-github)
+6.  [Verifica tu clave SSH](#verifica-tu-clave-ssh)
+7.  [Referencias](#referencias)
+
+## Instala Git
+
+Ejecuta alguno de estos comandos en la terminal según tu distribución de Linux.
+
+#### Arch Linux
+
+```sh
+sudo pacman -S git
+```
+
+#### Ubuntu Linux
+
+```sh
+sudo apt install git
+```
+
+#### Verifica tu versión de Git
+
+Asegúrate de que tu versión de Git sea, al menos, la `2.28` ejecutando este comando:
+
+```sh
+git --version
+```
+
+## Crea una cuenta de GitHub
+
+Ve a [GitHub.com](https://github.com/) y crea una cuenta nueva.
+
+Durante la configuración de la cuenta, te pedirá una dirección de correo electrónico. Este debe ser un correo real y se utilizará de forma predeterminada para identificar tus contribuciones.
+
+Si no quieres que tu dirección de correo electrónico esté disponible públicamente, asegúrate de marcar las dos siguientes casillas en la página de [Email Settings](https://github.com/settings/emails) después de iniciar sesión:
+
+![GitHub email settings](/assets/img/2023-08-25-configure-git-github-ssh-key/github_email_settings.png)
+
+Tener estas dos opciones habilitadas evitará que expongas accidentalmente tu dirección de correo electrónico personal al trabajar con Git y GitHub.
+
+También puedes notar una dirección de correo electrónico debajo de la opción __Mantener mis direcciones de correo electrónico privadas__, esta es tu dirección de correo electrónico privada de GitHub.
+
+## Configura Git
+
+Para que Git funcione correctamente, necesitamos informarle quiénes somos para que pueda vincular un usuario Git local (tú) con GitHub. Al trabajar en equipo, esto permite que las personas vean lo que has comprometido y quién ha comprometido cada línea de código.
+
+Los comandos a continuación configurarán Git. ¡Asegúrate de ingresar tu propia información dentro de las comillas (pero incluye las comillas)!
+
+```sh
+git config --global user.name "Tu Nombre"
+git config --global user.email "tucorreo@example.com"
+```
+
+Si optaste por utilizar la dirección de correo electrónico privada de GitHub, el segundo comando se verá algo así:
+
+__Nota:__ Los corchetes angulares (< >) en el fragmento de código a continuación indican que debes reemplazar esa parte del comando con la información adecuada. No incluyas los corchetes en el comando.
+
+```sh
+git config --global user.email "<#########+username@users.noreply.github.com>"
+```
+
+Recuerda usar __tu propia dirección de correo electrónico privada de GitHub__.
+
+Recientemente, GitHub cambió la rama predeterminada en los nuevos repositorios de `master` a `main`. Cambia la rama predeterminada para Git con este comando:
+
+```sh
+git config --global init.defaultBranch main
+```
+
+Para habilitar la salida con colores con git, escribe:
+
+```sh
+git config --global color.ui auto
+```
+
+También es probable que desees configurar el comportamiento predeterminado de reconciliación de la rama para fusionar:
+
+```sh
+git config --global pull.rebase false
+```
+
+Para verificar que las cosas funcionan correctamente, ingresa estos comandos y verifica si la salida coincide con tu nombre y dirección de correo electrónico.
+
+```sh
+git config --get user.name
+git config --get user.email
+```
+
+## Crea una clave SSH
+
+Una clave SSH es un identificador criptográficamente seguro. Es como una contraseña realmente larga utilizada para identificar tu máquina.
+
+GitHub utiliza claves SSH para permitirte cargar en tu repositorio sin tener que escribir tu nombre de usuario y contraseña cada vez.
+
+Primero, necesitamos verificar si ya tienes instalada una clave SSH del algoritmo Ed25519. Escribe esto en la terminal y verifica la salida con la información a continuación:
+
+```sh
+ls ~/.ssh/id_ed25519.pub
+```
+
+Si aparece un mensaje en la consola que contiene el texto `"No such file or directory"`, entonces aún no tienes una clave SSH Ed25519 y necesitarás crear una.
+
+Para crear una nueva clave SSH, ejecuta el siguiente comando dentro de tu terminal. La bandera `-C` seguida de tu dirección de correo electrónico asegura que GitHub sepa quién eres.
+
+```sh
+ssh-keygen -t ed25519 -C <youremail>
+```
+
+- Cuando te pida una ubicación para guardar la clave generada, simplemente presiona `Enter`.
+
+- A continuación, te pedirá una contraseña; introdúcela si lo deseas, pero no es obligatorio.
+
+Después de eso, la clave SSH se generará correctamente y la salida debería parecerse a esto:
+
+```sh
+Your identification has been saved in /home/cristian/.ssh/id_ed25519
+Your public key has been saved in /home/cristian/.ssh/id_ed25519.pub
+The key fingerprint is:
+
+The key's randomart image is:
++--[ED25519 256]--+
+
++----[SHA256]-----+
+```
+
+## Vincula tu clave SSH con GitHub
+
+Ahora, necesitas decirle a GitHub cuál es tu clave SSH para que puedas subir tu código __sin escribir una contraseña cada vez__.
+
+Primero, navegarás a donde GitHub recibe nuestra clave SSH. Inicia sesión en GitHub y haz clic en tu foto de perfil en la esquina superior derecha. Luego, haz clic en `Configuración` en el menú desplegable.
+
+A continuación, en el lado izquierdo, haz clic en `Claves SSH y GPG`. O simplemente haz clic en el siguiente[link](https://github.com/settings/keys)
+
+Luego, haz clic en el botón verde en la esquina superior derecha que dice `Nueva clave SSH`.
+
+Ponle un nombre a tu clave que sea lo suficientemente descriptivo para que recuerdes de dónde proviene. Deja esta ventana abierta mientras haces los siguientes pasos.
+
+Ahora necesitas copiar tu clave SSH pública. Para hacer esto, vamos a usar un comando llamado `cat` para leer el archivo en la consola. (Nota que la extensión de archivo `.pub` es importante en este caso.)
+
+```sh
+cat ~/.ssh/id_ed25519.pub
+```
+
+Resalta y copia la salida, que comienza con `ssh-ed25519` y termina con tu dirección de correo electrónico.
+
+Ahora, vuelve a GitHub en tu ventana del navegador y pega la clave que copiaste en el campo de clave. Deja el tipo de clave como `Clave de autenticación` y luego haz clic en `Agregar clave SSH`.
+
+¡Eso es todo! ¡Has agregado con éxito tu clave SSH!
+
+## Verifica tu clave SSH
+
+Copia (clona) un repositorio existente de GitHub en tu máquina local, haz clic en el botón verde `"Code"`.
+
+Luego selecciona la opción `SSH` y copia la línea debajo de ella. NOTA: DEBES hacer clic en la opción `SSH` para obtener la URL correcta.
+
+![GitHub ssh link](/assets/img/2023-08-25-configure-git-github-ssh-key/github_ssh_link.png)
+
+Por ejemplo:
+
+```ssh
+git clone git@github.com:cristian-encalada/cristian-encalada.git
+```
+
+Ahora, después de cualquier cambio, __puedes subir tu código sin escribir una contraseña cada vez__.
+
+¡Gracias por leer!
+
+## References
+
+* [The Odin Project - Foundations: Set Up Git](https://www.theodinproject.com/lessons/foundations-setting-up-git)
+
+* [The Odin Project - Foundations: Git Basics](https://www.theodinproject.com/lessons/foundations-git-basics)

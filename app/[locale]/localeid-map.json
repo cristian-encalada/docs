@@ -1,49 +1,33 @@
 {
-  "introducingstarterblogi18n": {
-    "fr": "presentation-starter-blog-tailwind-nextjs-i18n-v2.0"
+  "awsecsvsfargate": {
+    "en": "en/2023-09-22-AWS-ECS-vs-Fargate",
+    "es": "es/2023-09-22-AWS-ECS-vs-Fargate-es"
   },
-  "releasev2": {
-    "fr": "presentation-starter-blog-tailwind-nextjs-v2.0",
-    "en": "release-of-tailwind-nextjs-starter-blog-v2.0"
+  "linuxwmvsde": {
+    "en": "en/2023-09-15-linux-desktop-environments-vs-window-managers",
+    "es": "es/2023-09-15-linux-desktop-environments-vs-window-managers-es"
   },
-  "newfeaturesv1": {
-    "en": "new-features-in-v1",
-    "fr": "nouvelles-fonctionnalites-v1"
+  "archlinuxdualboot": {
+    "en": "en/2023-09-08-install-arch-linux-dual-boot-win10-UEFI"
   },
-  "nestedroutes": {
-    "en": "nested-route/introducing-multi-part-posts-with-nested-routing",
-    "fr": "route-imbriquee/presentation-publications-en-plusieurs-parties-routage-imbrique"
+  "itseries": {
+    "en": "en/2023-09-01-programming-related-series",
+    "es": "es/2023-09-01-programming-related-series-es"
   },
-  "myfancytitle": {
-    "fr": "mon-titre-fancy",
-    "en": "my-fancy-title"
+  "gitsshkey": {
+    "en": "en/2023-08-25-configure-git-github-ssh-key",
+    "es": "es/2023-08-25-configure-git-github-ssh-key-es"
   },
-  "introducingstarterblog": {
-    "en": "introducing-tailwind-nextjs-starter-blog",
-    "fr": "presentation-blog-starter-tailwind-nextjs"
+  "proglangclassification": {
+    "en": "en/2023-08-18-programming-languages-classification",
+    "es": "es/2023-08-18-programming-languages-classification-es"
   },
-  "derivingols": {
-    "fr": "derivation-estimateur-ols",
-    "en": "deriving-ols-estimator"
+  "snakegraph": {
+    "en": "en/2023-08-11-generate-snake-graph-github-actions",
+    "es": "es/2023-08-11-generate-snake-graph-github-actions-es"
   },
-  "nextjsimagesguide": {
-    "en": "guide-to-using-images-in-nextjs",
-    "fr": "guide-utilisation-images-nextjs"
-  },
-  "mardownguide": {
-    "en": "github-markdown-guide",
-    "fr": "guide-github-markdown"
-  },
-  "thetimemachine": {
-    "fr": "la-machine-a-remonter-le-temps",
-    "en": "the-time-machine"
-  },
-  "canadapictures": {
-    "en": "images-du-canada",
-    "fr": "pictures-of-canada"
-  },
-  "codesample": {
-    "en": "code-sample",
-    "fr": "exemple-code"
+  "markdownguide": {
+    "en": "en/2019-10-11-github-markdown-cheatsheet",
+    "es": "es/2019-10-11-github-markdown-cheatsheet-es"
   }
 }

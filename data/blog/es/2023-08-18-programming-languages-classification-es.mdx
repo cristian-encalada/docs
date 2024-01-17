@@ -1,0 +1,214 @@
+---
+title: Clasificación de los Lenguajes de Programación
+date: '2023-08-18'
+language: es
+localeid: 'proglangclassification'
+tags: ['general-knowledge', 'programming-languages']
+authors: ['default']
+draft: false
+summary: Este artículo será una breve introducción con ejemplos concisos. El objetivo es comenzar a ver un panorama más amplio, lo que puede facilitar la comprensión de diferentes temas relacionados en el mundo de la programación.
+---
+
+<div className="flex justify-center">
+  <div className="w-full max-w-screen-md overflow-hidden">
+    <img
+      src="/static/images/2023-08-23-programming-languages-classification/different-programming-languages.png"
+      alt="Different types of programming languages"
+      className="mx-auto"
+    />
+  </div>
+</div>
+
+
+Es interesante entender las diversas formas en que se puede construir software. Ayuda a pensar de maneras nuevas y creativas, fuera de las herramientas a las que estás acostumbrado.
+
+La clasificación es importante porque permite comprender mejor las relaciones y conexiones entre las cosas.
+
+Este artículo será una breve introducción con ejemplos cortos. El objetivo es comenzar a ver un panorama más amplio, lo que puede facilitar la comprensión de diferentes temas relacionados en el mundo de la programación.
+
+## Índice
+
+1. [Clasificación por propósito](#clasificación-por-propósito)
+  * [Lenguajes de propósito general](#lenguajes-de-propósito-general)
+  * [Lenguajes específicos del dominio](#lenguajes-específicos-del-dominio)
+2.  [Clasificación por nivel](#clasificación-por-nivel)
+  * [Lenguaje de máquina](#lenguaje-de-máquina)
+  * [Lenguajes de bajo nivel](#lenguajes-de-bajo-nivel)
+  * [Lenguajes de alto nivel](#lenguajes-de-alto-nivel)
+3.  [Clasificación por compilación](#clasificación-por-compilación)
+  * [Lenguajes interpretados](#lenguajes-interpretados)
+  * [Lenguajes compilados](#lenguajes-compilados)
+4.  [Clasificación por paradigma](#clasificación-por-paradigma)
+  * [¿Qué es un paradigma de programación?](#¿Qué-es-un-paradigma-de-programación?)
+  * [Lenguajes imperativos](#imperative-languages)
+  * [Lenguajes procedimentales](#lenguajes-procedimentales)
+  * [Lenguajes funcionales](#lenguajes-funcionales)
+  * [Lenguajes declarativos](#lenguajes-declarativos)
+  * [Lenguajes orientados a objetos](#lenguajes-orientados-a-objetos)
+5.  [Conclusión](#conclusión)
+6.  [Referencias](#referencias)
+
+## Clasificación por propósito
+
+### Lenguajes de propósito general
+
+Estos son lenguajes de programación que se pueden utilizar para una amplia variedad de tareas. Son como "navajas suizas" de la codificación, capaces de manejar muchos tipos diferentes de programas. Algunos ejemplos incluyen `Python`, `Java`, and `C++`.
+
+```python:python
+print("Hello, World!")
+```
+
+### Lenguajes específicos del dominio
+
+Estos lenguajes están diseñados para tareas o industrias específicas. Son como herramientas diseñadas para un trabajo particular. Ejemplos incluyen SQL para trabajar con bases de datos y HTML para construir páginas web.
+
+```sql:sql
+SELECT * FROM customers;
+```
+
+## Clasificación por nivel
+
+### Lenguaje de máquina
+
+Este es el lenguaje de nivel más bajo que las computadoras entienden directamente. Está compuesto por código binario (0s y 1s) y controla el hardware. Esta es una instrucción "simple" de lenguaje de máquina para sumar dos números:
+
+```binary:binary
+00011001 00000010 00000011
+```
+
+### Lenguajes de bajo nivel
+
+Estos son versiones más legibles para los humanos del lenguaje de máquina. Todavía tratan con detalles específicos del hardware pero utilizan palabras y símbolos. El lenguaje `Assembly` o `Ensamblador` es un ejemplo:
+
+```sh:assembly
+org  0x100        ; .com files always start 256 bytes into the segment
+
+; int 21h is going to want...
+
+mov  dx, msg      ; the address of or message in dx
+mov  ah, 9        ; ah=9 - "print string" sub-function
+int  0x21         ; call dos services
+
+mov  ah, 0x4c     ; "terminate program" sub-function
+int  0x21         ; call dos services
+
+msg  db 'Hello, World!', 0x0d, 0x0a, '$'   ; $-terminated message
+```
+
+### Lenguajes de alto nivel
+
+Estos lenguajes son más parecidos al lenguaje humano y abstraen los detalles del hardware. Son más fáciles de usar para los programadores. Este es un ejemplo en Python:
+
+```python:python
+x = 5
+y = 3
+result = x + y
+```
+
+## Clasificación por compilación
+
+### Lenguajes interpretados
+
+En estos lenguajes, el código se ejecuta línea por línea mediante un intérprete. Lee el código y realiza acciones de inmediato. JavaScript es un lenguaje interpretado:
+
+```js:JavaScript
+console.log("Hello, World!");
+```
+
+### Lenguajes compilados
+
+El código en estos lenguajes debe traducirse a lenguaje de máquina antes de ejecutarse. Este paso de compilación ocurre antes de la ejecución. Un ejemplo es C:
+
+```C:C
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+```
+
+## Clasificación por paradigma
+
+### ¿Qué es un paradigma de programación?
+
+Imagina los paradigmas de programación como recetas diferentes para cocinar. Cada receta sigue un método específico, utiliza ciertos ingredientes y tiene su propio estilo. De manera similar, los paradigmas de programación proporcionan pautas para crear software de diferentes maneras, según lo que estás tratando de lograr y cómo prefieres trabajar.
+
+Un paradigma de programación es como un conjunto de reglas y enfoques que te ayudan a resolver problemas con código. Es como elegir una forma específica de pensar y construir tus programas.
+
+Algunos de los paradigmas más famosos se explican a continuación.
+
+### Lenguajes imperativos
+
+Estos lenguajes le dicen a la computadora cómo hacer algo paso a paso. Das instrucciones explícitas. `C` es un lenguaje imperativo:
+
+```C:C
+int main() {
+    int x = 5;
+    int y = 3;
+    int result = x + y;
+    return 0;
+}
+```
+
+### Lenguajes procedimentales
+
+Organizan el código en procedimientos o funciones. Cada función realiza una tarea específica. `Pascal` es un lenguaje procedural:
+
+```pascal:pascal
+program AddNumbers;
+var
+  x, y, result: integer;
+begin
+  x := 5;
+  y := 3;
+  result := x + y;
+end.
+```
+
+### Lenguajes funcionales
+
+Estos se centran en las funciones como los principales bloques de construcción de programas. Las funciones no pueden cambiar datos; devuelven nuevos valores. Un ejemplo es `Haskell`:
+
+```haskell:haskell
+addNumbers :: Int -> Int -> Int
+addNumbers x y = x + y
+```
+
+### Lenguajes declarativos
+
+Estos se centran en objetos que representan cosas del mundo real y sus interacciones. `Java` es un lenguaje orientado a objetos:
+
+```sql:SQL
+SELECT name FROM customers WHERE age > 18;
+```
+
+### Object-oriented languages
+
+These focus on objects that represent real-world things and their interactions. `Java` is an object-oriented language:
+
+```java:Java
+class Animal {
+    String name;
+    
+    void speak() {
+        System.out.println("Animal sound");
+    }
+}
+```
+
+## Conclusión
+
+* `Los lenguajes de programación a menudo pueden admitir múltiples paradigmas o encajar en diferentes tipos de clasificación`. Un lenguaje de programación puede ser flexible y adaptable, permitiendo a los programadores utilizar diferentes estilos de programación dentro del mismo lenguaje.
+
+* Por ejemplo, un lenguaje de programación como Python puede usarse tanto en paradigmas de programación imperativos como orientados a objetos. Admite diferentes formas de resolver problemas según lo que el programador quiera lograr. De manera similar, un lenguaje puede ser tanto compilado como interpretado, según cómo se utilice.
+
+*     Esta flexibilidad permite a los programadores elegir el mejor enfoque para sus tareas y proyectos específicos.
+
+¡Gracias por leer!
+
+## Referencias
+
+* [FreeCodeCamp Blog - Programming Languages](https://www.freecodecamp.org/news/an-introduction-to-programming-paradigms/)
+* [Code Learn Blog - Classification of Programming Languages](https://codelearn.com/blog/classification-of-programming-languages/)
+* [Loyola Marymount University Notes - Classifying Programming Languages](https://cs.lmu.edu/~ray/notes/pltypes/)

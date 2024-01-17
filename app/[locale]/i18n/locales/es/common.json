@@ -1,0 +1,16 @@
+{
+  "home": "Inicio",
+  "blog": "Blog",
+  "tags": "Etiquetas",
+  "projects": "Proyectos",
+  "about": "Acerca de mi",
+  "lang": "Idioma",
+  "showmenu": "Mostrar menú",
+  "scrollcomment": "Desplazarse hacia el comentario",
+  "scrolltop": "Volver al principio",
+  "darkmode": "Cambiar modo oscuro",
+  "content": "Contenido",
+  "kbarplaceholder": "Escribe un comando o busca",
+  "loading": "Cargando...",
+  "noresults": "No hay resultados para tu búsqueda..."
+}

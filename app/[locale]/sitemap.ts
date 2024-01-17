@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/${fallbackLng}/${post.path}`,
       lastModified: post.lastmod || post.date,
     }))
-  // blog route for french (or your own second language)
+  // blog route for Spanish (or your own second language)
   const secondBlogRoutes = allBlogs
     .filter((p) => p.language === secondLng)
     .map((post) => ({
@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}/${fallbackLng}/${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))
-  // all routes for french (or your own second language)
+  // all routes for Spanish (or your own second language)
   const secondRoutes = ['', 'blog', 'projects', 'tags', 'about'].map((route) => ({
     url: `${siteUrl}/${secondLng}/${route}`,
     lastModified: new Date().toISOString().split('T')[0],

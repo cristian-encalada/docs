@@ -2,7 +2,7 @@ import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
-import NewsletterForm from '@/components/NewsletterForm'
+// import NewsletterForm from '@/components/NewsletterForm'
 import { createTranslation } from './i18n/server'
 import { LocaleTypes } from './i18n/settings'
 
@@ -102,11 +102,12 @@ export default async function Home({ posts, params: { locale } }: HomeProps) {
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter?.provider && (
+      {/*
+      siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
-      )}
+      )*/}
     </>
   )
 }

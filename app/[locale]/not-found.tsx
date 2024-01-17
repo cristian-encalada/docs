@@ -3,7 +3,7 @@ import { createTranslation } from './i18n/server'
 import i18next from 'i18next'
 
 export default async function NotFound() {
-  const locale: 'en' | 'fr' = i18next.language as 'en' | 'fr'
+  const locale: 'en' | 'es' = i18next.language as 'en' | 'es'
   const { t } = await createTranslation(locale, '404')
   return (
     <div className="flex flex-col items-start justify-start md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6">

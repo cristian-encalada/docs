@@ -1,0 +1,132 @@
+---
+title: Entornos de Escritorio vs Gestores de Ventanas - Linux
+date: '2023-09-15'
+language: es
+localeid: 'linuxwmvsde'
+tags: ['linux']
+authors: ['default']
+draft: false
+summary: ¿Cuáles son las diferencias entre los Entornos de Escritorio y los Gestores de Ventanas en Linux?
+---
+
+<div className="flex justify-center">
+  <div className="w-full max-w-screen-md overflow-hidden">
+    <img
+      src="/static/images/2023-09-15-linux-desktop-environments-vs-window-managers/budgie-desktop.jpg"
+      alt="Linux - Desktop environments vs Windows managers"
+      className="mx-auto"
+    />
+  </div>
+</div>
+
+¿Cuáles son las diferencias entre los Entornos de Escritorio y los Gestores de Ventanas en Linux? Vamos a revisarlo.
+
+## Índice
+
+* [Sistema X Window](#sistema-x-window)
+* [Gestores de Ventanas (WM)](#gestores-de-ventanas)
+* [Entornos de Escritorio (DE)](#entornos-de-escritorio)
+* [¿Por qué usar un Entorno de Escritorio?](#¿por-qué-usar-un-entorno-de-escritorio?)
+* [¿Por qué usar un Gestor de Ventanas?](#¿por-qué-usar-un-gestor-de-ventanas?)
+* [¿Cuál elegir?](#¿cuál-elegir?)
+* [Referencias](#referencias)
+
+
+Si eres usuario de Linux, probablemente hayas escuchado los términos `"Entorno de Escritorio (DE)"` y `"Gestor de Ventanas (WM)"`. Estos son como la cara de tu sistema Linux, pero ¿cuál es la diferencia real y cómo afectan tu experiencia? Vamos a analizarlo en este artículo.
+
+Básicamente, hay `tres capas` que pueden incluirse en un `escritorio de Linux`:
+
+## Sistema X Window
+
+El Sistema X Window (X11 o X Windows) es un sistema de software de código abierto, multiplataforma y cliente-servidor que proporciona una interfaz gráfica de usuario en un entorno de red distribuida.
+
+Esta es la base que permite dibujar elementos gráficos en la pantalla. [X Windows](https://en.wikipedia.org/wiki/X_Window_System) construye el marco primitivo que permite mover ventanas, interactuar con el teclado y el mouse, y dibujar ventanas. Esto es necesario para cualquier escritorio gráfico.
+
+## Gestores de Ventanas
+
+El Gestor de Ventanas (WM) es la pieza del rompecabezas que controla la ubicación y apariencia de las ventanas. Los gestores de ventanas requieren X Windows pero no un entorno de escritorio.
+
+Hay 2 tipos de Gestores de Ventanas:
+
+* __Gestores de Ventanas Tiling:__ Estos ensamblan las ventanas de manera ordenada, como bloques de construcción. Ninguna ventana cubre a otra.
+
+![Qtile tiling WM](/static/images/2023-09-15-linux-desktop-environments-vs-window-managers/qtile_tiling_WM.png)
+
+Qtile - Tiling Window Manager
+
+Algunos ejemplos de gestores de ventanas Tiling son: 
+* [qtile](https://qtile.org/)
+* [i3](https://i3wm.org/)
+* [bspwm](https://github.com/baskerville/bspwm)
+* [dwm](https://dwm.suckless.org/)
+* [xmonad](https://xmonad.org/)
+
+* __Gestores de Ventanas Stacking:__ Permiten que las ventanas se superpongan como hojas de papel. La mayoría de los entornos de escritorio utilizan estos.
+
+![Kwin stack WM](/static/images/2023-09-15-linux-desktop-environments-vs-window-managers/kwin_stacl_WM.png)
+
+KWin 5.24 (stack Window Manager) with Cover Switch effect.
+
+Algunos ejemplos de gestores de ventanas stacking incluyen:
+* [Fluxbox](http://fluxbox.org/)
+* [Openbox](http://openbox.org/wiki/Main_Page)
+* [KWin](https://en.wikipedia.org/wiki/KWin)
+
+## Entornos de Escritorio
+
+Un Entorno de Escritorio (DE) incluye un Gestor de Ventanas pero se construye sobre él. El Entorno de Escritorio suele ser un sistema mucho más integrado que un Gestor de Ventanas. Los Entornos de Escritorio requieren tanto X Windows como un Gestor de Ventanas.
+
+Nota: Es importante mencionar que, si bien los entornos de escritorio no son completamente independientes de las distribuciones de Linux, no están vinculados exclusivamente a una distribución. Los usuarios tienen la libertad de elegir e instalar su entorno de escritorio preferido en varias distribuciones de Linux, haciendo de Linux una plataforma versátil que se adapta a una amplia gama de preferencias y necesidades.
+
+Cada Entorno de Escritorio tiene su propio estilo. Algunos ejemplos de Entornos de Escritorio Linux Desktop Environments (DEs) son:
+
+* [GNOME](https://www.gnome.org/getting-gnome/)
+
+![Gnome DE](/static/images/2023-09-15-linux-desktop-environments-vs-window-managers/GNOME_DE.webp)
+
+* [KDE](https://kde.org/)
+
+![KDE DE](/static/images/2023-09-15-linux-desktop-environments-vs-window-managers/KDE_DE.png)
+
+* [Cinnamon](https://en.wikipedia.org/wiki/Cinnamon_(desktop_environment))
+
+![Cinnamon DE](/static/images/2023-09-15-linux-desktop-environments-vs-window-managers/Cinnamon_5.2.png)
+
+* [XFCE](https://www.xfce.org/)
+
+![XFCE DE](/static/images/2023-09-15-linux-desktop-environments-vs-window-managers/Xfce-Desktop-Environment.png)
+
+* [MATE](https://mate-desktop.org/)
+
+![XFCE DE](/static/images/2023-09-15-linux-desktop-environments-vs-window-managers/MATE-DE.jpg)
+
+
+## ¿Por qué usar un Entorno de Escritorio?
+
+* __Fácil para nuevos usuarios__: Los Entornos de Escritorio son fáciles de usar y requieren menos configuración.
+* __Fácil de configurar el aspecto y la sensación__: Suelen tener herramientas incorporadas que te permiten ajustar la apariencia de tu sistema.
+* __Muchas opciones para elegir__: Diferentes versiones de Linux vienen con varios Entornos de Escritorio para adaptarse a diferentes gustos.
+
+## ¿Por qué usar un Gestor de Ventanas?
+
+* __Ahorra recursos__: Los Gestores de Ventanas utilizan menos potencia informática que los Entornos de Escritorio.
+* __Elige lo que quieres en tu sistema__: A diferencia de los Entornos de Escritorio que vienen con muchas cosas ya instaladas.
+* __Trabaja más rápido__: Después de un poco de configuración, los Gestores de Ventanas pueden ser muy rápidos, gracias a los atajos de teclado.
+
+## ¿Cuál elegir?
+
+La elección depende de lo que necesitas y te gusta. Si eres nuevo en Linux, quieres comenzar rápidamente o te gustan las cosas listas para usar, elige un Entorno de Escritorio. Si quieres un sistema más personalizado y eficiente, prueba un Gestor de Ventanas.
+
+En última instancia, Linux te permite elegir entre un Entorno de Escritorio, un Gestor de Ventanas o incluso solo comandos de texto plano. Tú eliges lo que se adapta a tu estilo y necesidades.
+
+En conclusión, los Entornos de Escritorio (DE) son más pesados que los Gestores de Ventanas (WM).
+
+Los Entornos de Escritorio actúan como un puente valioso para aquellos que migran de Windows/Mac, que generalmente dependen en gran medida de la interfaz gráfica de usuario (GUI), al mundo GNU/Linux, que históricamente está más orientado a la interfaz de línea de comandos (CLI).
+
+¡Gracias por leer!
+
+## Referencias
+
+- [Desktop Environment vs Window Manager – Explained](https://www.linuxfordevices.com/tutorials/linux/desktop-environment-vs-window-manager)
+- [Difference Between Desktop Environment VS Window Manager in Linux](https://www.geeksforgeeks.org/difference-between-desktop-environment-vs-window-manager-in-linux/)
+- [What is the difference between a desktop environment and a window manager?](https://askubuntu.com/questions/18078/what-is-the-difference-between-a-desktop-environment-and-a-window-manager)

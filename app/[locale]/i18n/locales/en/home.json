@@ -1,6 +1,6 @@
 {
-    "greeting": "Latest",
-    "description": "A blog created with Next.js, i18n and Tailwind.css",
+    "greeting": "Latest posts",
+    "description": "Personal blog created with Next.js, i18n and Tailwind.css",
     "more": "Read more",
     "all": "All posts",
 

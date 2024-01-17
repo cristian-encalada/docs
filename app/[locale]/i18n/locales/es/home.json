@@ -1,0 +1,28 @@
+{
+    "greeting": "Últimos artículos",
+    "description": "Blog personal creado con Next.js, i18n y Tailwind.css",
+    "more": "Leer más",
+    "all": "Todos los artículos",
+  
+    "moreaboutme": "Más sobre mí",
+    "featured": "Destacados",
+    "morefeatured": "Más artículos destacados",
+    "morerecent": "Más artículos recientes",
+  
+    "search": "Buscar artículos",
+    "comment": "Cargar comentarios",
+    "pub": "Publicado el",
+    "authors": "Autores",
+    "name": "Nombre",
+    "nexta": "Siguiente Artículo",
+    "preva": "Artículo Anterior",
+    "nextp": "Siguiente",
+    "prevp": "Anterior",
+    "of": "de",
+    "back": "Volver al blog",
+    "twitter": "Discutir en Twitter",
+    "github": "Ver en GitHub",
+    "draft": "En Construcción",
+    "noposts": "No se encontraron artículos"
+  }
+  

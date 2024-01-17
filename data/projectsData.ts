@@ -12,38 +12,44 @@ type ProjectsData = {
 const projectsData: ProjectsData = {
   en: [
     {
-      title: 'A Search Engine',
-      description: `What if you could look up any information in the world? Webpages, images, videos
-        and more. Google has many features to help you find exactly what you're looking
-        for.`,
-      imgSrc: '/static/images/google.png',
-      href: 'https://www.google.com',
+      title: 'Alquivago',
+      description: `Web app that compares long-term rental prices from multiple sources in Montevideo - Uruguay`,
+      imgSrc: '/static/images/projects/alquivago/map.gif',
+      href: 'https://alquivago-landing.vercel.app/',
     },
     {
-      title: 'The Time Machine',
-      description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-        to the desired date and press "Go". No more worrying about lost keys or
-        forgotten headphones with this simple yet affordable solution.`,
-      imgSrc: '/static/images/time-machine.jpg',
-      href: '/blog/the-time-machine',
+      title: 'Personal Blog',
+      description: `Personal blog site to share articles and notes along my path learning about software development.`,
+      imgSrc: '/static/images/projects/blog/PersonalBlog.gif',
+      href: 'https://cristian-encalada.vercel.app/',
+    },
+    {
+      title: 'Command Line Interpreter',
+      description: `Tool taking as reference the UNIX shell, it allows the user to type in and then executes commands 
+      within the operating system.`,
+      imgSrc: '/static/images/projects/cli_interpreter/CCli.gif',
+      href: 'https://replit.com/@cristian-encala/holbertonschool-simpleshell',
     },
   ],
 
-  fr: [
+  es: [
     {
-      title: 'Un moteur de recherche',
-      description: `Et si vous pouviez rechercher n'importe quelle information dans le monde ? Pages Web, images, vidéos
-        et plus. Google propose de nombreuses fonctionnalités pour vous aider à trouver exactement ce que vous cherchez.`,
-      imgSrc: '/static/images/google.png',
-      href: 'https://www.google.com',
+      title: 'Alquivago',
+      description: `Aplicación web que compara los precios de alquiler a largo plazo de varias fuentes en Montevideo - Uruguay`,
+      imgSrc: '/static/images/projects/alquivago/map.gif',
+      href: 'https://alquivago-landing.vercel.app/',
     },
     {
-      title: 'La Machine à remonter le temps',
-      description: `Imaginez pouvoir voyager dans le temps ou vers le futur. Tournez simplement le bouton
-        à la date souhaitée et appuyez sur "Go". Ne vous inquiétez plus des clés perdues ou
-        écouteurs oubliés avec cette solution simple mais abordable.`,
-      imgSrc: '/static/images/time-machine.jpg',
-      href: '/blog/la-machine-a-remonter-le-temps',
+      title: 'Blog Personal',
+      description: `Mi blog personal para compartir artículos y notas a lo largo de mi camino aprendiendo sobre desarrollo de software.`,
+      imgSrc: '/static/images/projects/blog/PersonalBlog.gif',
+      href: 'https://cristian-encalada.vercel.app/',
+    },
+    {
+      title: 'Intérprete de Línea de Comando',
+      description: `Herramienta que, tomando como referencia el shell de UNIX, permite al usuario escribir y luego ejecutar comandos dentro del sistema operativo.`,
+      imgSrc: '/static/images/projects/cli_interpreter/CCli.gif',
+      href: 'https://replit.com/@cristian-encala/holbertonschool-simpleshell',
     },
   ],
 }
