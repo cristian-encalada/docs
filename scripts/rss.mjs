@@ -1,13 +1,15 @@
-import { writeFileSync, mkdirSync } from 'fs'
+import { writeFileSync, mkdirSync, promises as fs } from 'fs'
 import path from 'path'
 import GithubSlugger from 'github-slugger'
 import { escape } from 'pliny/utils/htmlEscaper.js'
 import siteMetadata from '../data/siteMetadata.js'
-import tagData from '../app/[locale]/tag-data.json' with { type: 'json' }
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import { sortPosts } from 'pliny/utils/contentlayer.js'
 
 const defaultLocale = 'en'
+
+// Load tag data dynamically
+const tagData = JSON.parse(await fs.readFile(path.join(process.cwd(), 'app/[locale]/tag-data.json'), 'utf-8'))
 
 const generateRssItem = (config, post, locale) => `
   <item>
