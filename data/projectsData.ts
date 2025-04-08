@@ -1,7 +1,7 @@
 type Project = {
   title: string
   description: string
-  imgSrc: string
+  video: string
   href: string
 }
 
@@ -12,44 +12,43 @@ type ProjectsData = {
 const projectsData: ProjectsData = {
   en: [
     {
+      title: 'TagNCount',
+      description: `Web app that uses computer vision to detect, label, and count objects in images `,
+      video: '/static/videos/projects/tagncount/tagncount.webm',
+      href: 'https://tagncount-front-a2fyfceabqbph4f9.eastus-01.azurewebsites.net/',
+    },
+    {
       title: 'Alquivago',
       description: `Web app that compares long-term rental prices from multiple sources in Montevideo - Uruguay`,
-      imgSrc: '/static/images/projects/alquivago/map.gif',
+      video: '/static/videos/projects/alquivago/alquivago.webm',
       href: 'https://alquivago-landing.vercel.app/',
     },
     {
-      title: 'Personal Blog',
-      description: `Personal blog site to share articles and notes along my path learning about software development.`,
-      imgSrc: '/static/images/projects/blog/PersonalBlog.gif',
-      href: 'https://cristian-encalada.vercel.app/',
-    },
-    {
-      title: 'Command Line Interpreter',
-      description: `Tool taking as reference the UNIX shell, it allows the user to type in and then executes commands 
-      within the operating system.`,
-      imgSrc: '/static/images/projects/cli_interpreter/CCli.gif',
-      href: 'https://replit.com/@cristian-encala/holbertonschool-simpleshell',
+      title: '3D Web App',
+      description: `An interactive 3D page, built as a tribute to "The Little Prince", novella by Antoine de Saint-Exupéry.`,
+      video: '/static/videos/projects/app_3d/app_3d.webm',
+      href: 'https://thelittleprince-tribute.vercel.app/',
     },
   ],
 
   es: [
     {
+      title: 'TagNCount',
+      description: `Aplicación web que usa visión por computadora para detectar, etiquetar y contar objetos en imágenes`,
+      video: '/static/videos/projects/tagncount/tagncount.webm',
+      href: 'https://tagncount-front-a2fyfceabqbph4f9.eastus-01.azurewebsites.net/',
+    },
+    {
       title: 'Alquivago',
       description: `Aplicación web que compara los precios de alquiler a largo plazo de varias fuentes en Montevideo - Uruguay`,
-      imgSrc: '/static/images/projects/alquivago/map.gif',
+      video: '/static/videos/projects/alquivago/alquivago.webm',
       href: 'https://alquivago-landing.vercel.app/',
     },
     {
-      title: 'Blog Personal',
-      description: `Mi blog personal para compartir artículos y notas a lo largo de mi camino aprendiendo sobre desarrollo de software.`,
-      imgSrc: '/static/images/projects/blog/PersonalBlog.gif',
-      href: 'https://cristian-encalada.vercel.app/',
-    },
-    {
-      title: 'Intérprete de Línea de Comando',
-      description: `Herramienta que, tomando como referencia el shell de UNIX, permite al usuario escribir y luego ejecutar comandos dentro del sistema operativo.`,
-      imgSrc: '/static/images/projects/cli_interpreter/CCli.gif',
-      href: 'https://replit.com/@cristian-encala/holbertonschool-simpleshell',
+      title: '3D Web App',
+      description: `Web 3D interactiva, construida como homenaje a "El Principito", novela de Antoine de Saint-Exupéry.`,
+      video: '/static/videos/projects/app_3d/app_3d.webm',
+      href: 'https://thelittleprince-tribute.vercel.app/',
     },
   ],
 }

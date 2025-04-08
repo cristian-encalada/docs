@@ -2,8 +2,8 @@
 const siteMetadata = {
   title: 'Uruguay',
   author: 'Cristian Encalada',
-  headerTitle: 'Cristian Encalada | Developer',
-  description: 'Personal blog created with Next.js, i18n and Tailwind.css',
+  headerTitle: ['Cristian Encalada', 'Software & AI Developer | Electronics Engineer'],
+  description: 'Personal blog & website to share my projects and thoughts',
   language: 'en',
   theme: 'system', // system, dark or light
   siteUrl: 'https://cristian-encalada-blog.vercel.app/',
@@ -16,7 +16,7 @@ const siteMetadata = {
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com/in/cristian-encalada-45099616a/',
+  linkedin: 'https://www.linkedin.com/in/cristian-encalada/',
   locale: 'en',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
