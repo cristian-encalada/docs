@@ -36,7 +36,7 @@ export default async function Projects({ params: { locale } }: Props) {
                 key={project.title}
                 title={project.title}
                 description={project.description}
-                imgSrc={project.imgSrc}
+                video={project.video}
                 href={project.href}
                 t={t}
                 params={{ locale: locale }}

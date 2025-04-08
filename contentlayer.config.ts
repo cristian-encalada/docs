@@ -3,6 +3,7 @@ import { writeFileSync } from 'fs'
 import readingTime from 'reading-time'
 import GithubSlugger from 'github-slugger'
 import path from 'path'
+import fs from 'fs'
 // Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
@@ -87,7 +88,14 @@ function createTagCount(allBlogs) {
     }
   })
 
-  writeFileSync('./app/[locale]/tag-data.json', JSON.stringify(tagCount))
+  // Ensure the directory exists
+  const dir = path.dirname('./app/[locale]/tag-data.json')
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true })
+  }
+
+  // Write the JSON file with proper formatting
+  writeFileSync('./app/[locale]/tag-data.json', JSON.stringify(tagCount, null, 2))
 }
 
 function createSearchIndex(allBlogs) {

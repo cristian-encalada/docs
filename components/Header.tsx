@@ -32,7 +32,10 @@ const Header = () => {
                   {siteMetadata.headerTitle}
                 </div>
               ) : (
-                siteMetadata.headerTitle
+                <div className="hidden text-2xl font-semibold sm:block">
+                  <div>{siteMetadata.headerTitle[0]}</div>
+                  <div className="text-lg">{siteMetadata.headerTitle[1]}</div>
+                </div>
               )}
             </div>
           </Link>

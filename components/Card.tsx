@@ -1,46 +1,51 @@
 import React from 'react'
-import Image from './Image'
 import Link from './Link'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 
 interface CardProps {
   title: string
   description: string
-  imgSrc?: string
+  video: string
   href?: string
   t: (key: string) => string
   params: { locale: LocaleTypes }
 }
 
-const Card: React.FC<CardProps> = ({ title, description, imgSrc, href, t, params: { locale } }) => (
+const Card: React.FC<CardProps> = ({ title, description, video, href, t, params: { locale } }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
-    <div
-      className={`${
-        imgSrc && 'h-full'
-      }  overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
-    >
-      {imgSrc &&
+    <div className="overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700">
+      {video &&
         (href ? (
           <Link
             href={href.startsWith('http') ? href : `/${locale}${href}`}
             aria-label={`${t('linkto')}${title}`}
           >
-            <Image
-              alt={title}
-              src={imgSrc}
+            <video
+              width="100%"
+              height="165"
+              autoPlay
+              muted
+              loop
+              playsInline
               className="object-cover object-center md:h-36 lg:h-48"
-              width={544}
-              height={306}
-            />
+            >
+              <source src={video} type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
           </Link>
         ) : (
-          <Image
-            alt={title}
-            src={imgSrc}
+          <video
+            width="100%"
+            height="165"
+            autoPlay
+            muted
+            loop
+            playsInline
             className="object-cover object-center md:h-36 lg:h-48"
-            width={544}
-            height={306}
-          />
+          >
+            <source src={video} type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         ))}
       <div className="p-6">
         <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
