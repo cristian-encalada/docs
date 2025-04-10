@@ -40,6 +40,9 @@ export default async function Projects({ params: { locale } }: Props) {
                 href={project.href}
                 t={t}
                 params={{ locale: locale }}
+                techStack={project.techStack}
+                githubUrl={project.githubUrl}
+                previewUrl={project.previewUrl}
               />
             ))}
           </div>
