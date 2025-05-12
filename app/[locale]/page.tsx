@@ -1,6 +1,4 @@
-import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
-import Main from './Main'
+import { redirect } from 'next/navigation'
 import { LocaleTypes } from './i18n/settings'
 
 type Props = {
@@ -8,7 +6,5 @@ type Props = {
 }
 
 export default async function Page({ params: { locale } }: Props) {
-  const sortedPosts = sortPosts(allBlogs)
-  const posts = allCoreContent(sortedPosts)
-  return <Main posts={posts} params={{ locale: locale }} />
+  redirect(`/${locale}/about`)
 }
