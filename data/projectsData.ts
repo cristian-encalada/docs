@@ -22,13 +22,13 @@ const projectsData: ProjectsData = {
       title: 'TagNCount',
       description: `Web app that uses computer vision to detect, label, and count objects in images `,
       video: '/static/videos/projects/tagncount/tagncount.webm',
-      href: 'https://tagncount-front-a2fyfceabqbph4f9.eastus-01.azurewebsites.net/',
+      href: 'https://tag-n-count.vercel.app/',
       githubUrl: 'https://github.com/cristian-encalada/TagNCount',
-      previewUrl: 'https://tagncount-front-a2fyfceabqbph4f9.eastus-01.azurewebsites.net/',
+      previewUrl: 'https://tag-n-count.vercel.app/',
       techStack: [
         { name: 'React', color: '#61DAFB' },
         { name: 'TypeScript', color: '#3178C6' },
-        { name: 'Azure', color: '#0078D4' },
+        { name: 'Vercel', color: '#000000' },
         { name: 'FastAPI', color: '#009688' }
       ]
     },
@@ -67,13 +67,13 @@ const projectsData: ProjectsData = {
       title: 'TagNCount',
       description: `Aplicación web que usa visión por computadora para detectar, etiquetar y contar objetos en imágenes`,
       video: '/static/videos/projects/tagncount/tagncount.webm',
-      href: 'https://tagncount-front-a2fyfceabqbph4f9.eastus-01.azurewebsites.net/',
+      href: 'https://tag-n-count.vercel.app/',
       githubUrl: 'https://github.com/cristian-encalada/TagNCount',
-      previewUrl: 'https://tagncount-front-a2fyfceabqbph4f9.eastus-01.azurewebsites.net/',
+      previewUrl: 'https://tag-n-count.vercel.app/',
       techStack: [
         { name: 'React', color: '#61DAFB' },
         { name: 'TypeScript', color: '#3178C6' },
-        { name: 'Azure', color: '#0078D4' },
+        { name: 'Vercel', color: '#000000' },
         { name: 'FastAPI', color: '#009688' }
       ]
     },
