@@ -1,0 +1,102 @@
+---
+title: Estadística vs. Probabilidad
+date: '2025-04-21'
+language: es
+localeid: 'statsvsprob'
+tags: ['conocimiento-general', 'estadística', 'probabilidad', 'ciencia-de-datos']
+authors: ['default']
+draft: false
+summary: En esta publicación exploramos las diferencias y conexiones entre estadística y probabilidad, dos pilares fundamentales de la ciencia de datos y el aprendizaje automático.
+---
+
+<div className="flex justify-center">
+  <div className="w-full max-w-screen-md overflow-hidden">
+    <img
+      src="/static/images/2025-04-21-statistics-vs-probability/probability-vs-statistics-1024x576.jpg"
+      alt="Diagrama conceptual: Estadística vs. Probabilidad"
+      className="mx-auto"
+    />
+  </div>
+</div>
+
+Comprender la diferencia entre **estadística** y **probabilidad** es clave para navegar con soltura en el mundo de la ciencia de datos y el aprendizaje automático. Aunque están estrechamente relacionadas, cada una aborda la incertidumbre desde una dirección opuesta.
+
+---
+
+## 🧬 ¿Por Qué Existen?
+
+Tanto la estadística como la probabilidad surgieron por **necesidades prácticas**:
+
+- 📈 **La estadística** nació para **resumir y analizar datos del mundo real**. Desde el siglo XVII, los estados comenzaron a recolectar datos sobre sus poblaciones para tomar decisiones (de ahí el nombre *estadística*, derivado de *estado*).
+
+- 🎲 **La probabilidad**, en cambio, se desarrolló para **entender la incertidumbre futura**, especialmente en juegos de azar. Matemáticos como Pascal y Fermat la fundaron intentando responder preguntas como: *¿Cuál es la probabilidad de ganar un juego de dados bajo ciertas reglas?*
+
+Así que, en cierto modo:
+> 🏛 La estadística nació para gobernar.  
+> 🎰 La probabilidad nació para apostar.
+
+---
+
+## 🧠 Probabilidad: Pensamiento hacia Adelante
+
+La probabilidad busca **predecir resultados**. Si conocemos las reglas del sistema, podemos calcular cuán probable es que ocurra algo.
+
+- Parte de un modelo conocido.  
+- Va de lo **general** a lo **específico**.  
+- Ejemplo: Si una moneda es justa, ¿cuál es la probabilidad de obtener 3 caras al lanzarla 5 veces?
+
+Esto es un *problema directo* — sabemos cómo funciona el proceso y calculamos posibles resultados.
+
+---
+
+## 📊 Estadística: Ingeniería Inversa
+
+La estadística hace lo contrario: **usa los datos para inferir el modelo que los generó**.
+
+- Parte de datos observados.  
+- Va de lo **específico** a lo **general**.  
+- Ejemplo: Lanzamos una moneda 100 veces y obtenemos 73 caras. ¿Está sesgada?
+
+Esto es un *problema inverso* — observamos lo que ocurrió y tratamos de entender qué lo causó.
+
+---
+
+## 🕵️‍♂️ Una Analogía: Adivino vs. Detective
+
+Una forma sencilla de entender la diferencia:
+
+| Rol              | Descripción                                                                 |
+|------------------|------------------------------------------------------------------------------|
+| 🔮 **Probabilidad** | Como un **adivino**. Conoces las reglas del universo (por ejemplo, un dado equilibrado) e intentas **predecir qué pasará**. |
+| 🕵️ **Estadística**   | Como un **detective**. Algo ya ocurrió y ahora intentas **descubrir cómo y por qué**, a partir de las pistas (datos). |
+
+Ambas trabajan con incertidumbre, pero desde **direcciones opuestas**.
+
+---
+
+## 🔁 Dos Caras de la Misma Moneda
+
+| Concepto     | Probabilidad                          | Estadística                             |
+|--------------|----------------------------------------|------------------------------------------|
+| Dirección    | Modelo → Datos                         | Datos → Modelo                           |
+| Ejemplo      | Predecir el resultado de un lanzamiento | Estimar el sesgo de una moneda           |
+| Aplicación   | Simulación, modelado                   | Pruebas de hipótesis, estimación         |
+| Uso en ML    | Modelos generativos, funciones de pérdida | Evaluación de modelos, inferencia, EDA |
+
+Muchos métodos modernos —como la inferencia bayesiana— combinan ambas perspectivas para lograr un análisis más robusto.
+
+---
+
+## 🧭 ¿Por Qué Importa?
+
+Entender ambas disciplinas te permite:
+
+- Elegir entre un enfoque **teórico** o **empírico** según el problema.  
+- Medir mejor la **incertidumbre y el riesgo** en tus modelos.  
+- Fortalecer tu base en ML, especialmente en temas como **métodos bayesianos**, **pruebas A/B** y **algoritmos aleatorizados**.
+
+---
+
+## Conclusiones
+
+La probabilidad y la estadística son dos formas de ver el mundo. La primera predice el futuro basándose en reglas; la segunda descifra el pasado a través de datos.

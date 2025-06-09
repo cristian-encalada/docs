@@ -1,0 +1,106 @@
+---
+title: Statistics vs. Probability
+date: '2025-04-21'
+language: en
+localeid: 'statsvsprob'
+tags: ['general-knowledge', 'statistics', 'probability', 'data-science']
+authors: ['default']
+draft: false
+summary: In this post, we’ll explore the differences and relationships between statistics and probability—two foundational pillars of data science and machine learning.
+---
+
+<div className="flex justify-center">
+  <div className="w-full max-w-screen-md overflow-hidden">
+    <img
+      src="/static/images/2025-04-21-statistics-vs-probability/probability-vs-statistics-1024x576.jpg"
+      alt="Statistics vs. Probability Conceptual Diagram"
+      className="mx-auto"
+    />
+  </div>
+</div>
+
+Understanding the difference between **statistics** and **probability** is crucial when diving into the world of data science and machine learning. Although they're deeply interconnected, they approach uncertainty from opposite directions.
+
+---
+
+## 🧬 Why Were They Created?
+
+Both statistics and probability were born out of **real-world needs**:
+
+- 📈 **Statistics** was developed for practical use — to summarize data, track populations, and guide decision-making in governance and science. Its roots go back to the 17th century when states began using data to understand their populations (hence the name *statistics* from *state*).
+  
+- 🎲 **Probability**, on the other hand, arose from attempts to **analyze games of chance**. Mathematicians like Pascal and Fermat laid the foundation trying to answer questions like: *What's the chance of winning a dice game under certain conditions?*
+
+So in a way:
+> 🏛 Statistics was born in government.  
+> 🎰 Probability was born in gambling.
+
+---
+
+## 🧠 Probability: Forward Thinking
+
+Probability is about **predicting outcomes**. Given a known model or process, we use probability to calculate the likelihood of various results.
+
+- It starts with known parameters.
+- It moves from the **general** to the **specific**.
+- Example: If we assume a coin is fair, what is the probability of getting 3 heads in 5 tosses?
+
+This is a *forward problem* — we know the mechanics of the system, and we’re estimating the outcomes.
+
+---
+
+## 📊 Statistics: Reverse Engineering
+
+Statistics, on the other hand, is about **inferring the model** from observed data.
+
+- It starts with **data** and tries to estimate underlying parameters.
+- It moves from the **specific** to the **general**.
+- Example: We toss a coin 100 times and get 73 heads. Is the coin fair?
+
+This is a *reverse problem* — we’re using real-world outcomes to estimate what’s going on behind the scenes.
+
+---
+
+## 🕵️‍♂️ An Analogy: Detective vs. Fortune Teller
+
+Here’s a mental model that helps clarify the difference:
+
+| Role           | Description                                                                 |
+|----------------|-----------------------------------------------------------------------------|
+| 🔮 **Probability** | Like a **fortune teller**. We know the rules of the universe (e.g., dice odds) and try to **predict what will happen next**. |
+| 🕵️ **Statistics**   | Like a **detective**. Something already happened, and now we’re **trying to figure out how and why**, based on clues (data). |
+
+Both deal with uncertainty — but from **opposite directions**.
+
+---
+
+## 🔁 Two Sides of the Same Coin
+
+| Concept       | Probability                           | Statistics                             |
+|---------------|----------------------------------------|----------------------------------------|
+| Direction     | Model → Data                          | Data → Model                           |
+| Example       | Predict next toss outcome             | Estimate bias of the coin              |
+| Application   | Simulation, modeling                  | Hypothesis testing, estimation         |
+| Usage in ML   | Generative models, loss functions     | Model evaluation, inference, EDA       |
+
+Many ML concepts — like Bayesian inference — blur the lines and use both perspectives simultaneously.
+
+---
+
+## 🧭 Why It Matters
+
+Understanding both helps us:
+
+- Know when to use a **theoretical** vs. **empirical** approach.
+- Better evaluate uncertainty and risk in models.
+- Build stronger foundations for ML, especially in areas like **Bayesian methods**, **A/B testing**, and **randomized algorithms**.
+
+---
+
+## Final Thoughts
+
+Probability and statistics are like two lenses for looking at the same reality. Mastering both gives us a more complete toolkit for solving data-driven problems.
+
+---
+
+> “Probability is deductive; statistics is inductive.”
