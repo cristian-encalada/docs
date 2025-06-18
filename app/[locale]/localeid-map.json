@@ -1,37 +1,45 @@
 {
-  "markdownguide": {
-    "en": "en/2019-10-11-github-markdown-cheatsheet",
-    "es": "es/2019-10-11-github-markdown-cheatsheet-es"
+  "statsoverview": {
+    "en": "en/2025-04-28-statistics-overview",
+    "es": "es/2025-04-28-statistics-overview"
   },
-  "snakegraph": {
-    "en": "en/2023-08-11-generate-snake-graph-github-actions",
-    "es": "es/2023-08-11-generate-snake-graph-github-actions-es"
+  "probdistributions": {
+    "en": "en/2025-04-23-probability-distributions",
+    "es": "es/2025-04-23-probability-distributions"
   },
-  "proglangclassification": {
-    "en": "en/2023-08-18-programming-languages-classification",
-    "es": "es/2023-08-18-programming-languages-classification-es"
-  },
-  "gitsshkey": {
-    "en": "en/2023-08-25-configure-git-github-ssh-key",
-    "es": "es/2023-08-25-configure-git-github-ssh-key-es"
-  },
-  "itseries": {
-    "en": "en/2023-09-01-programming-related-series",
-    "es": "es/2023-09-01-programming-related-series-es"
-  },
-  "archlinuxdualboot": {
-    "en": "en/2023-09-08-install-arch-linux-dual-boot-win10-UEFI"
-  },
-  "linuxwmvsde": {
-    "en": "en/2023-09-15-linux-desktop-environments-vs-window-managers",
-    "es": "es/2023-09-15-linux-desktop-environments-vs-window-managers-es"
+  "statsvsprob": {
+    "en": "en/2025-04-21-statistics-vs-probability",
+    "es": "es/2025-04-21-statistics-vs-probability"
   },
   "awsecsvsfargate": {
     "en": "en/2023-09-22-AWS-ECS-vs-Fargate",
     "es": "es/2023-09-22-AWS-ECS-vs-Fargate-es"
   },
-  "statsvsprob": {
-    "en": "en/2025-04-21-statistics-vs-probability",
-    "es": "es/2025-04-21-statistics-vs-probability"
+  "linuxwmvsde": {
+    "en": "en/2023-09-15-linux-desktop-environments-vs-window-managers",
+    "es": "es/2023-09-15-linux-desktop-environments-vs-window-managers-es"
+  },
+  "archlinuxdualboot": {
+    "en": "en/2023-09-08-install-arch-linux-dual-boot-win10-UEFI"
+  },
+  "itseries": {
+    "en": "en/2023-09-01-programming-related-series",
+    "es": "es/2023-09-01-programming-related-series-es"
+  },
+  "gitsshkey": {
+    "en": "en/2023-08-25-configure-git-github-ssh-key",
+    "es": "es/2023-08-25-configure-git-github-ssh-key-es"
+  },
+  "proglangclassification": {
+    "en": "en/2023-08-18-programming-languages-classification",
+    "es": "es/2023-08-18-programming-languages-classification-es"
+  },
+  "snakegraph": {
+    "en": "en/2023-08-11-generate-snake-graph-github-actions",
+    "es": "es/2023-08-11-generate-snake-graph-github-actions-es"
+  },
+  "markdownguide": {
+    "en": "en/2019-10-11-github-markdown-cheatsheet",
+    "es": "es/2019-10-11-github-markdown-cheatsheet-es"
   }
 }
