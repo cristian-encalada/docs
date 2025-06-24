@@ -1,0 +1,355 @@
+---
+title: Algoritmo K-Nearest Neighbors (KNN) - Guía Completa para Entender e Implementar
+date: '2025-06-05'
+language: es
+localeid: 'knn'
+tags: ['machine-learning', 'knn', 'k-nearest-neighbors', 'classification', 'regression', 'algorithms']
+authors: ['default']
+draft: false
+summary: Una guía completa del algoritmo K-Nearest Neighbors (KNN), cubriendo teoría, implementación, métricas de distancia, ajuste de parámetros y aplicaciones prácticas con ejemplos del mundo real.
+---
+
+<div className="flex justify-center">
+  <div className="w-full max-w-screen-md overflow-hidden">
+    <img
+      src="/static/images/2025-06-05-knn-algorithm-machine-learning/knn-example.svg"
+      alt="Ejemplo del Algoritmo K-Nearest Neighbors"
+      className="mx-auto"
+    />
+  </div>
+</div>
+
+K-Nearest Neighbors (KNN) es uno de los algoritmos de machine learning más simples pero efectivos. A menudo llamado algoritmo de "aprendizaje perezoso", KNN hace predicciones basándose en la similitud de nuevos puntos de datos con puntos de datos existentes en el conjunto de entrenamiento. Esta guía completa te llevará por todo lo que necesitas saber sobre KNN.
+
+---
+
+## 🎯 ¿Qué es K-Nearest Neighbors (KNN)?
+
+K-Nearest Neighbors es un algoritmo de aprendizaje **no paramétrico** y **basado en instancias** que puede usarse tanto para tareas de **clasificación** como de **regresión**. Funciona bajo el principio de que puntos de datos similares tienden a tener resultados similares.
+
+### 🔑 Características Clave
+
+- **Aprendizaje Perezoso**: Sin fase de entrenamiento explícita, almacena todos los datos de entrenamiento
+- **No paramétrico**: No hace suposiciones sobre la distribución de datos
+- **Basado en instancias**: Usa instancias específicas para predicciones
+- **Simple**: Fácil de entender e implementar
+- **Versátil**: Funciona tanto para clasificación como regresión
+
+---
+
+## 🏗️ Cómo Funciona KNN
+
+### 📊 Pasos del Algoritmo
+
+1. **Almacenar** todos los puntos de datos de entrenamiento
+2. **Calcular distancia** desde el punto de consulta a todos los puntos de entrenamiento
+3. **Encontrar K vecinos** más cercanos basándose en la distancia
+4. **Hacer predicción**:
+   - **Clasificación**: Voto mayoritario entre K vecinos
+   - **Regresión**: Promedio de los valores de K vecinos
+
+### 📐 Métricas de Distancia
+
+KNN depende fuertemente de cálculos de distancia. Métricas comunes incluyen:
+
+| Métrica de Distancia | Fórmula | Caso de Uso |
+|---------------------|---------|-------------|
+| **Euclidiana** | √(Σ(xi - yi)²) | Características continuas, clusters esféricos |
+| **Manhattan** | Σ\|xi - yi\| | Datos de alta dimensión, patrones tipo grilla |
+| **Minkowski** | (Σ\|xi - yi\|^p)^(1/p) | Generalización de Euclidiana y Manhattan |
+| **Hamming** | Σ(xi ≠ yi) | Características categóricas |
+| **Coseno** | 1 - (A·B)/(||A|| ||B||) | Análisis de texto, datos dispersos |
+
+### 🎯 KNN para Clasificación
+
+**Proceso**:
+1. Encontrar K vecinos más cercanos
+2. Contar votos para cada clase
+3. Asignar clase mayoritaria al punto de consulta
+
+**Ejemplo**: Si K=5 y los vecinos tienen clases [A, A, B, A, C], predecir clase A (3 votos)
+
+### 📈 KNN para Regresión
+
+**Proceso**:
+1. Encontrar K vecinos más cercanos
+2. Calcular promedio de sus valores objetivo
+3. Asignar promedio como predicción
+
+**Ejemplo**: Si K=3 y los vecinos tienen valores [10, 15, 20], predecir (10+15+20)/3 = 15
+
+---
+
+## 💻 Ejemplos de Implementación
+
+### 🐍 Implementación en Python con Scikit-learn
+
+```python
+# Importar librerías necesarias
+from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import make_classification, make_regression
+import numpy as np
+import pandas as pd
+
+# Generar datos de clasificación de muestra
+X_class, y_class = make_classification(n_samples=1000, n_features=4, 
+                                      n_classes=3, random_state=42)
+
+# Dividir los datos
+X_train, X_test, y_train, y_test = train_test_split(
+    X_class, y_class, test_size=0.2, random_state=42)
+
+# Escalar las características (importante para KNN)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Crear y entrenar clasificador KNN
+knn_classifier = KNeighborsClassifier(
+    n_neighbors=5,
+    weights='uniform',
+    metric='euclidean'
+)
+
+knn_classifier.fit(X_train_scaled, y_train)
+
+# Hacer predicciones
+y_pred = knn_classifier.predict(X_test_scaled)
+
+# Evaluar el modelo
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Precisión: {accuracy:.4f}")
+print("\nReporte de Clasificación:")
+print(classification_report(y_test, y_pred))
+```
+
+### 🔍 Encontrando el Valor Óptimo de K
+
+```python
+from sklearn.model_selection import cross_val_score
+import matplotlib.pyplot as plt
+
+# Probar diferentes valores de K
+k_range = range(1, 31)
+k_scores = []
+
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    scores = cross_val_score(knn, X_train_scaled, y_train, cv=5, scoring='accuracy')
+    k_scores.append(scores.mean())
+
+# Graficar resultados
+plt.figure(figsize=(10, 6))
+plt.plot(k_range, k_scores, marker='o')
+plt.xlabel('Valor de K')
+plt.ylabel('Precisión de Validación Cruzada')
+plt.title('KNN: Variando Valor de K')
+plt.grid(True)
+plt.show()
+
+# Encontrar K óptimo
+optimal_k = k_range[np.argmax(k_scores)]
+print(f"K Óptimo: {optimal_k}")
+```
+
+---
+
+## ⚖️ Ventajas y Desventajas
+
+### ✅ Ventajas
+
+#### **1. Simplicidad**
+- Fácil de entender e implementar
+- Sin conceptos matemáticos complejos
+- Proceso de toma de decisiones intuitivo
+
+#### **2. Sin Período de Entrenamiento**
+- Sin parámetros de modelo que aprender
+- Rápido de configurar y ejecutar
+- Bueno para conjuntos de datos dinámicos
+
+#### **3. Versatilidad**
+- Funciona para clasificación y regresión
+- Maneja problemas multi-clase naturalmente
+- Puede modelar límites de decisión complejos
+
+#### **4. Sin Suposiciones**
+- Algoritmo no paramétrico
+- Sin suposiciones sobre distribución de datos
+- Se adapta a patrones locales en los datos
+
+### ❌ Desventajas
+
+#### **1. Complejidad Computacional**
+- Tiempo de predicción lento O(n*d) para cada consulta
+- Almacena todo el conjunto de datos de entrenamiento
+- Se vuelve impracticable con conjuntos de datos grandes
+
+#### **2. Maldición de la Dimensionalidad**
+- El rendimiento se degrada en altas dimensiones
+- La distancia se vuelve menos significativa
+- Todos los puntos se vuelven equidistantes
+
+#### **3. Sensible al Escalado de Características**
+- Características con escalas más grandes dominan la distancia
+- Requiere preprocesamiento y normalización
+- Los resultados pueden variar significativamente sin escalado
+
+#### **4. Sensible a Características Irrelevantes**
+- Características de ruido afectan cálculos de distancia
+- Sin selección automática de características
+- Requiere ingeniería manual de características
+
+---
+
+## 🛠️ Parámetros Importantes y Ajuste
+
+### 🎛️ Parámetros Clave
+
+| Parámetro | Descripción | Impacto | Valores Típicos |
+|-----------|-------------|---------|----------------|
+| **n_neighbors (K)** | Número de vecinos a considerar | Parámetro central que afecta sesgo-varianza | 3-15 (números impares para clasificación) |
+| **weights** | Cómo ponderar vecinos | Influencia igual vs basada en distancia | 'uniform', 'distance' |
+| **metric** | Método de cálculo de distancia | Comportamiento del algoritmo | 'euclidean', 'manhattan', 'minkowski' |
+| **algorithm** | Algoritmo de implementación | Eficiencia computacional | 'auto', 'ball_tree', 'kd_tree', 'brute' |
+| **p** | Parámetro de potencia para métrica Minkowski | Cálculo de distancia | 1 (Manhattan), 2 (Euclidiana) |
+
+---
+
+## 🎯 Aplicaciones del Mundo Real
+
+### 🏥 Diagnóstico Médico
+
+**Escenario**: Diagnosticar enfermedades basándose en síntomas del paciente y resultados de pruebas
+
+```python
+# Ejemplo: Predicción de diabetes basada en métricas de salud
+características = ['nivel_glucosa', 'imc', 'edad', 'presión_arterial', 
+                  'nivel_insulina', 'grosor_piel']
+
+# KNN puede encontrar pacientes con perfiles de salud similares
+# y hacer predicciones basadas en sus resultados conocidos
+
+knn_medico = KNeighborsClassifier(
+    n_neighbors=7,  # Considerar 7 pacientes más similares
+    weights='distance',  # Pacientes más cercanos tienen más influencia
+    metric='euclidean'
+)
+```
+
+### 🎬 Sistemas de Recomendación
+
+**Escenario**: Recomendaciones de películas basadas en preferencias del usuario
+
+```python
+# Ejemplo: Sistema de recomendación de películas
+class RecomendadorPelículas:
+    def __init__(self, k=10):
+        self.k = k
+        self.knn = KNeighborsClassifier(n_neighbors=k, weights='distance')
+    
+    def fit(self, perfiles_usuarios, calificaciones_películas):
+        """Ajustar el modelo con perfiles de usuarios y sus calificaciones"""
+        self.knn.fit(perfiles_usuarios, calificaciones_películas)
+        
+    def recomendar_películas(self, perfil_usuario):
+        """Encontrar usuarios similares y recomendar películas que les gustaron"""
+        distancias, índices = self.knn.kneighbors([perfil_usuario])
+        usuarios_similares = índices[0]
+        recomendaciones = self.obtener_recomendaciones_usuarios_similares(usuarios_similares)
+        return recomendaciones
+```
+
+### 🏠 Predicción de Precios Inmobiliarios
+
+**Escenario**: Predecir precios de casas basándose en características de la propiedad
+
+```python
+# Ejemplo: Predicción de precios de casas
+características_casa = ['dormitorios', 'baños', 'metros_cuadrados', 'tamaño_lote',
+                       'antigüedad', 'espacios_garaje', 'puntuación_vecindario']
+
+# KNN encuentra casas similares y promedia sus precios
+knn_precios_casa = KNeighborsRegressor(
+    n_neighbors=5,
+    weights='distance',  # Coincidencias más cercanas tienen más influencia
+    metric='euclidean'
+)
+```
+
+---
+
+## 🎯 Cuándo Usar KNN
+
+### ✅ Usar KNN Cuando:
+
+- **Conjuntos de datos pequeños a medianos**: Complejidad computacional manejable
+- **Patrones locales importan**: Límites de decisión son irregulares
+- **Relaciones no lineales**: Patrones complejos en los datos
+- **Sin tiempo de entrenamiento disponible**: Necesitas predicciones inmediatas
+- **Resultados interpretables**: Necesitas explicar predicciones con ejemplos
+- **Problemas multi-clase**: Manejo natural de múltiples clases
+
+### ❌ Evitar KNN Cuando:
+
+- **Conjuntos de datos grandes**: Restricciones computacionales y de memoria
+- **Datos de alta dimensión**: Problemas de maldición de dimensionalidad
+- **Predicciones en tiempo real**: Tiempo de predicción lento inaceptable
+- **Relaciones lineales**: Algoritmos más simples funcionarían mejor
+- **Datos ruidosos**: Sensible a valores atípicos y ruido
+- **Restricciones de memoria**: No se puede almacenar todo el conjunto de entrenamiento
+
+---
+
+## 🛠️ Mejores Prácticas
+
+### 📋 Flujo de Trabajo de Desarrollo
+
+1. **Preprocesamiento de Datos**
+   - Manejar valores faltantes
+   - Escalar/normalizar características
+   - Remover o manejar valores atípicos
+
+2. **Ingeniería de Características**
+   - Seleccionar características relevantes
+   - Crear combinaciones significativas de características
+   - Aplicar reducción de dimensionalidad si es necesario
+
+3. **Ajuste de Parámetros**
+   - Encontrar valor óptimo de K
+   - Elegir métrica de distancia apropiada
+   - Decidir esquema de ponderación
+
+4. **Validación**
+   - Usar validación cruzada
+   - Probar en conjunto de holdout
+   - Verificar sobreajuste/subajuste
+
+5. **Optimización**
+   - Elegir algoritmos eficientes
+   - Considerar métodos aproximados para datos grandes
+   - Implementar caché para consultas repetidas
+
+---
+
+## Reflexiones Finales
+
+K-Nearest Neighbors es un algoritmo fundamental que proporciona un enfoque intuitivo al machine learning. Aunque tiene limitaciones en términos de complejidad computacional y sensibilidad a la dimensionalidad, su simplicidad y efectividad lo convierten en una herramienta valiosa para muchas aplicaciones.
+
+Puntos clave:
+- **Entiende tus datos**: KNN funciona mejor con métricas de distancia significativas
+- **Preprocesa cuidadosamente**: El escalado de características es crucial para buen rendimiento
+- **Elige K sabiamente**: Equilibra entre sobreajuste y subajuste
+- **Considera alternativas**: Para conjuntos de datos grandes, busca métodos aproximados
+- **Valida exhaustivamente**: Usa validación cruzada para asegurar resultados robustos
+
+KNN sirve como un excelente algoritmo base y puede proporcionar insights sobre patrones de datos que informan la elección de algoritmos más sofisticados.
+
+---
+
+> "La belleza de KNN radica en su simplicidad - asume que las cosas similares están cerca unas de otras." — Sabiduría de Machine Learning
+
+> "En KNN, eres el promedio de tus K vecinos más cercanos." — Proverbio de Data Science 

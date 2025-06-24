@@ -1,0 +1,92 @@
+<svg width="600" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="450" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="300" y="25" text-anchor="middle" fill="#333" font-family="Arial" font-size="18" font-weight="bold">K-Nearest Neighbors (KNN) Algorithm Example</text>
+  <text x="300" y="45" text-anchor="middle" fill="#666" font-family="Arial" font-size="14">K=5 Classification Example</text>
+  
+  <!-- Coordinate system -->
+  <line x1="80" y1="380" x2="520" y2="380" stroke="#ddd" stroke-width="1"/>
+  <line x1="80" y1="380" x2="80" y2="80" stroke="#ddd" stroke-width="1"/>
+  
+  <!-- Grid lines -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#eee" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="80" y="80" width="440" height="300" fill="url(#grid)"/>
+  
+  <!-- Class A points (blue circles) -->
+  <circle cx="150" cy="150" r="8" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+  <circle cx="180" cy="120" r="8" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+  <circle cx="200" cy="180" r="8" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+  <circle cx="220" cy="140" r="8" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+  <circle cx="160" cy="200" r="8" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+  <circle cx="130" cy="170" r="8" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+  
+  <!-- Class B points (red squares) -->
+  <rect x="342" y="242" width="16" height="16" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  <rect x="372" y="222" width="16" height="16" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  <rect x="392" y="272" width="16" height="16" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  <rect x="422" y="242" width="16" height="16" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  <rect x="362" y="292" width="16" height="16" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  <rect x="410" y="300" width="16" height="16" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  
+  <!-- Query point (green diamond) -->
+  <polygon points="280,230 290,220 280,210 270,220" fill="#28a745" stroke="#1e7e34" stroke-width="3"/>
+  
+  <!-- Distance lines to K=5 nearest neighbors -->
+  <line x1="280" y1="220" x2="220" y2="140" stroke="#ffc107" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="280" y1="220" x2="200" y2="180" stroke="#ffc107" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="280" y1="220" x2="160" y2="200" stroke="#ffc107" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="280" y1="220" x2="350" y2="250" stroke="#ffc107" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="280" y1="220" x2="380" y2="230" stroke="#ffc107" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Highlight the 5 nearest neighbors -->
+  <circle cx="220" cy="140" r="12" fill="none" stroke="#ffc107" stroke-width="3"/>
+  <circle cx="200" cy="180" r="12" fill="none" stroke="#ffc107" stroke-width="3"/>
+  <circle cx="160" cy="200" r="12" fill="none" stroke="#ffc107" stroke-width="3"/>
+  <rect x="338" y="238" width="24" height="24" fill="none" stroke="#ffc107" stroke-width="3"/>
+  <rect x="368" y="218" width="24" height="24" fill="none" stroke="#ffc107" stroke-width="3"/>
+  
+  <!-- Labels -->
+  <text x="150" y="135" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">A</text>
+  <text x="180" y="107" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">A</text>
+  <text x="200" y="167" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">A</text>
+  <text x="220" y="127" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">A</text>
+  <text x="160" y="187" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">A</text>
+  <text x="130" y="157" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">A</text>
+  
+  <text x="350" y="255" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">B</text>
+  <text x="380" y="235" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">B</text>
+  <text x="400" y="285" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">B</text>
+  <text x="430" y="255" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">B</text>
+  <text x="370" y="305" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">B</text>
+  <text x="418" y="313" text-anchor="middle" fill="#fff" font-family="Arial" font-size="10" font-weight="bold">B</text>
+  
+  <text x="285" y="215" text-anchor="start" fill="#333" font-family="Arial" font-size="12" font-weight="bold">?</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="400" width="500" height="40" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  
+  <circle cx="80" cy="415" r="6" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+  <text x="95" y="420" fill="#333" font-family="Arial" font-size="12">Class A</text>
+  
+  <rect x="164" y="409" width="12" height="12" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  <text x="185" y="420" fill="#333" font-family="Arial" font-size="12">Class B</text>
+  
+  <polygon points="250,415 258,407 250,399 242,407" fill="#28a745" stroke="#1e7e34" stroke-width="2"/>
+  <text x="270" y="420" fill="#333" font-family="Arial" font-size="12">Query Point</text>
+  
+  <line x1="380" y1="415" x2="400" y2="415" stroke="#ffc107" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="410" y="420" fill="#333" font-family="Arial" font-size="12">K=5 Neighbors</text>
+  
+  <!-- Result box -->
+  <rect x="450" y="90" width="120" height="80" fill="#e9ecef" stroke="#6c757d" stroke-width="1" rx="5"/>
+  <text x="510" y="110" text-anchor="middle" fill="#333" font-family="Arial" font-size="14" font-weight="bold">KNN Result</text>
+  <text x="510" y="130" text-anchor="middle" fill="#333" font-family="Arial" font-size="12">Class A: 3 votes</text>
+  <text x="510" y="145" text-anchor="middle" fill="#333" font-family="Arial" font-size="12">Class B: 2 votes</text>
+  <text x="510" y="165" text-anchor="middle" fill="#28a745" font-family="Arial" font-size="12" font-weight="bold">Prediction: A</text>
+</svg> 

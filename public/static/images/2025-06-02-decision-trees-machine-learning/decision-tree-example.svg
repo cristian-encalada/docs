@@ -1,0 +1,66 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8f9fa"/>
+  
+  <!-- Root Node -->
+  <rect x="250" y="30" width="100" height="40" rx="5" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+  <text x="300" y="52" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="bold">Age > 30?</text>
+  
+  <!-- Left Branch -->
+  <line x1="275" y1="70" x2="150" y2="130" stroke="#333" stroke-width="2"/>
+  <text x="200" y="95" text-anchor="middle" fill="#333" font-family="Arial" font-size="10">No</text>
+  
+  <!-- Right Branch -->
+  <line x1="325" y1="70" x2="450" y2="130" stroke="#333" stroke-width="2"/>
+  <text x="400" y="95" text-anchor="middle" fill="#333" font-family="Arial" font-size="10">Yes</text>
+  
+  <!-- Left Internal Node -->
+  <rect x="100" y="130" width="100" height="40" rx="5" fill="#28a745" stroke="#1e7e34" stroke-width="2"/>
+  <text x="150" y="152" text-anchor="middle" fill="white" font-family="Arial" font-size="11">Income > 40k?</text>
+  
+  <!-- Right Internal Node -->
+  <rect x="400" y="130" width="100" height="40" rx="5" fill="#28a745" stroke="#1e7e34" stroke-width="2"/>
+  <text x="450" y="152" text-anchor="middle" fill="white" font-family="Arial" font-size="11">Score > 650?</text>
+  
+  <!-- Left-Left Branch -->
+  <line x1="125" y1="170" x2="75" y2="230" stroke="#333" stroke-width="2"/>
+  <text x="90" y="195" text-anchor="middle" fill="#333" font-family="Arial" font-size="10">No</text>
+  
+  <!-- Left-Right Branch -->
+  <line x1="175" y1="170" x2="225" y2="230" stroke="#333" stroke-width="2"/>
+  <text x="210" y="195" text-anchor="middle" fill="#333" font-family="Arial" font-size="10">Yes</text>
+  
+  <!-- Right-Left Branch -->
+  <line x1="425" y1="170" x2="375" y2="230" stroke="#333" stroke-width="2"/>
+  <text x="390" y="195" text-anchor="middle" fill="#333" font-family="Arial" font-size="10">No</text>
+  
+  <!-- Right-Right Branch -->
+  <line x1="475" y1="170" x2="525" y2="230" stroke="#333" stroke-width="2"/>
+  <text x="510" y="195" text-anchor="middle" fill="#333" font-family="Arial" font-size="10">Yes</text>
+  
+  <!-- Leaf Nodes -->
+  <ellipse cx="75" cy="250" rx="40" ry="20" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+  <text x="75" y="255" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">DENY</text>
+  
+  <ellipse cx="225" cy="250" rx="50" ry="20" fill="#ffc107" stroke="#e0a800" stroke-width="2"/>
+  <text x="225" y="255" text-anchor="middle" fill="#333" font-family="Arial" font-size="10" font-weight="bold">REVIEW</text>
+  
+  <ellipse cx="375" cy="250" rx="50" ry="20" fill="#ffc107" stroke="#e0a800" stroke-width="2"/>
+  <text x="375" y="255" text-anchor="middle" fill="#333" font-family="Arial" font-size="10" font-weight="bold">REVIEW</text>
+  
+  <ellipse cx="525" cy="250" rx="55" ry="20" fill="#28a745" stroke="#1e7e34" stroke-width="2"/>
+  <text x="525" y="255" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">APPROVE</text>
+  
+  <!-- Title -->
+  <text x="300" y="320" text-anchor="middle" fill="#333" font-family="Arial" font-size="16" font-weight="bold">Decision Tree Example: Loan Approval</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="340" width="15" height="15" fill="#007bff"/>
+  <text x="75" y="352" fill="#333" font-family="Arial" font-size="12">Root Node</text>
+  
+  <rect x="180" y="340" width="15" height="15" fill="#28a745"/>
+  <text x="205" y="352" fill="#333" font-family="Arial" font-size="12">Internal Node</text>
+  
+  <ellipse cx="350" cy="347" rx="7" ry="7" fill="#dc3545"/>
+  <text x="365" y="352" fill="#333" font-family="Arial" font-size="12">Leaf Node</text>
+</svg> 

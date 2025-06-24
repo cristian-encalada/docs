@@ -1,4 +1,12 @@
 {
+  "decisiontrees": {
+    "en": "en/2025-06-02-decision-trees-machine-learning",
+    "es": "es/2025-06-02-decision-trees-machine-learning"
+  },
+  "mlapproaches": {
+    "en": "en/2025-05-30-machine-learning-approaches-comparison",
+    "es": "es/2025-05-30-machine-learning-approaches-comparison"
+  },
   "mloverview": {
     "en": "en/2025-05-26-machine-learning-overview",
     "es": "es/2025-05-26-machine-learning-overview"
