@@ -1,0 +1,233 @@
+<svg width="1000" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" fill="#333" font-family="Arial" font-size="24" font-weight="bold">Artificial Neural Networks - Types Overview</text>
+  
+  <!-- Feedforward Neural Network -->
+  <rect x="50" y="60" width="180" height="140" fill="#fff" stroke="#007bff" stroke-width="2" rx="8"/>
+  <text x="140" y="80" text-anchor="middle" fill="#007bff" font-family="Arial" font-size="14" font-weight="bold">Feedforward NN</text>
+  
+  <!-- Feedforward layers -->
+  <circle cx="80" cy="110" r="8" fill="#007bff"/>
+  <circle cx="80" cy="130" r="8" fill="#007bff"/>
+  <circle cx="80" cy="150" r="8" fill="#007bff"/>
+  
+  <circle cx="140" cy="100" r="8" fill="#28a745"/>
+  <circle cx="140" cy="120" r="8" fill="#28a745"/>
+  <circle cx="140" cy="140" r="8" fill="#28a745"/>
+  <circle cx="140" cy="160" r="8" fill="#28a745"/>
+  
+  <circle cx="200" cy="130" r="8" fill="#dc3545"/>
+  
+  <!-- Feedforward connections -->
+  <line x1="88" y1="110" x2="132" y2="100" stroke="#666" stroke-width="1"/>
+  <line x1="88" y1="110" x2="132" y2="120" stroke="#666" stroke-width="1"/>
+  <line x1="88" y1="130" x2="132" y2="140" stroke="#666" stroke-width="1"/>
+  <line x1="88" y1="150" x2="132" y2="160" stroke="#666" stroke-width="1"/>
+  <line x1="148" y1="120" x2="192" y2="130" stroke="#666" stroke-width="1"/>
+  <line x1="148" y1="140" x2="192" y2="130" stroke="#666" stroke-width="1"/>
+  
+  <text x="140" y="190" text-anchor="middle" fill="#666" font-family="Arial" font-size="11">Classification/Regression</text>
+  
+  <!-- CNN -->
+  <rect x="270" y="60" width="180" height="140" fill="#fff" stroke="#17a2b8" stroke-width="2" rx="8"/>
+  <text x="360" y="80" text-anchor="middle" fill="#17a2b8" font-family="Arial" font-size="14" font-weight="bold">CNN</text>
+  
+  <!-- CNN feature maps -->
+  <rect x="290" y="100" width="25" height="25" fill="#17a2b8" opacity="0.3" stroke="#17a2b8"/>
+  <rect x="320" y="105" width="20" height="20" fill="#17a2b8" opacity="0.5" stroke="#17a2b8"/>
+  <rect x="345" y="110" width="15" height="15" fill="#17a2b8" opacity="0.7" stroke="#17a2b8"/>
+  
+  <!-- CNN pooling -->
+  <rect x="370" y="115" width="10" height="10" fill="#17a2b8" stroke="#17a2b8"/>
+  <rect x="370" y="125" width="10" height="10" fill="#17a2b8" stroke="#17a2b8"/>
+  
+  <!-- CNN fully connected -->
+  <circle cx="400" cy="120" r="6" fill="#17a2b8"/>
+  <circle cx="400" cy="135" r="6" fill="#17a2b8"/>
+  <circle cx="420" cy="127" r="6" fill="#dc3545"/>
+  
+  <text x="360" y="190" text-anchor="middle" fill="#666" font-family="Arial" font-size="11">Image Processing</text>
+  
+  <!-- RNN -->
+  <rect x="490" y="60" width="180" height="140" fill="#fff" stroke="#28a745" stroke-width="2" rx="8"/>
+  <text x="580" y="80" text-anchor="middle" fill="#28a745" font-family="Arial" font-size="14" font-weight="bold">RNN</text>
+  
+  <!-- RNN cells -->
+  <rect x="520" y="110" width="20" height="20" fill="#28a745" opacity="0.7" rx="3"/>
+  <rect x="550" y="110" width="20" height="20" fill="#28a745" opacity="0.7" rx="3"/>
+  <rect x="580" y="110" width="20" height="20" fill="#28a745" opacity="0.7" rx="3"/>
+  <rect x="610" y="110" width="20" height="20" fill="#28a745" opacity="0.7" rx="3"/>
+  
+  <!-- RNN connections -->
+  <path d="M 530 110 Q 530 95 550 110" stroke="#28a745" stroke-width="2" fill="none"/>
+  <path d="M 560 110 Q 560 95 580 110" stroke="#28a745" stroke-width="2" fill="none"/>
+  <path d="M 590 110 Q 590 95 610 110" stroke="#28a745" stroke-width="2" fill="none"/>
+  
+  <!-- RNN arrows -->
+  <polygon points="545,113 550,110 545,107" fill="#28a745"/>
+  <polygon points="575,113 580,110 575,107" fill="#28a745"/>
+  <polygon points="605,113 610,110 605,107" fill="#28a745"/>
+  
+  <text x="580" y="190" text-anchor="middle" fill="#666" font-family="Arial" font-size="11">Sequential Data</text>
+  
+  <!-- LSTM -->
+  <rect x="710" y="60" width="180" height="140" fill="#fff" stroke="#6f42c1" stroke-width="2" rx="8"/>
+  <text x="800" y="80" text-anchor="middle" fill="#6f42c1" font-family="Arial" font-size="14" font-weight="bold">LSTM</text>
+  
+  <!-- LSTM cell -->
+  <rect x="770" y="100" width="60" height="40" fill="#6f42c1" opacity="0.2" stroke="#6f42c1" rx="5"/>
+  
+  <!-- LSTM gates -->
+  <circle cx="780" cy="110" r="3" fill="#ffc107"/>
+  <circle cx="790" cy="110" r="3" fill="#dc3545"/>
+  <circle cx="800" cy="110" r="3" fill="#28a745"/>
+  <circle cx="810" cy="110" r="3" fill="#17a2b8"/>
+  
+  <!-- LSTM labels -->
+  <text x="780" y="125" text-anchor="middle" fill="#666" font-family="Arial" font-size="8">f</text>
+  <text x="790" y="125" text-anchor="middle" fill="#666" font-family="Arial" font-size="8">i</text>
+  <text x="800" y="125" text-anchor="middle" fill="#666" font-family="Arial" font-size="8">C</text>
+  <text x="810" y="125" text-anchor="middle" fill="#666" font-family="Arial" font-size="8">o</text>
+  
+  <text x="800" y="190" text-anchor="middle" fill="#666" font-family="Arial" font-size="11">Long Dependencies</text>
+  
+  <!-- Autoencoder -->
+  <rect x="50" y="250" width="180" height="140" fill="#fff" stroke="#fd7e14" stroke-width="2" rx="8"/>
+  <text x="140" y="270" text-anchor="middle" fill="#fd7e14" font-family="Arial" font-size="14" font-weight="bold">Autoencoder</text>
+  
+  <!-- Encoder -->
+  <circle cx="80" cy="300" r="6" fill="#fd7e14"/>
+  <circle cx="80" cy="315" r="6" fill="#fd7e14"/>
+  <circle cx="80" cy="330" r="6" fill="#fd7e14"/>
+  
+  <circle cx="120" cy="310" r="5" fill="#fd7e14"/>
+  <circle cx="120" cy="320" r="5" fill="#fd7e14"/>
+  
+  <circle cx="140" cy="315" r="4" fill="#dc3545"/>
+  
+  <!-- Decoder -->
+  <circle cx="160" cy="310" r="5" fill="#fd7e14"/>
+  <circle cx="160" cy="320" r="5" fill="#fd7e14"/>
+  
+  <circle cx="200" cy="300" r="6" fill="#fd7e14"/>
+  <circle cx="200" cy="315" r="6" fill="#fd7e14"/>
+  <circle cx="200" cy="330" r="6" fill="#fd7e14"/>
+  
+  <!-- Encoder/Decoder connections -->
+  <line x1="86" y1="300" x2="114" y2="310" stroke="#666" stroke-width="1"/>
+  <line x1="86" y1="315" x2="114" y2="315" stroke="#666" stroke-width="1"/>
+  <line x1="126" y1="315" x2="134" y2="315" stroke="#666" stroke-width="1"/>
+  <line x1="146" y1="315" x2="154" y2="315" stroke="#666" stroke-width="1"/>
+  <line x1="166" y1="315" x2="194" y2="315" stroke="#666" stroke-width="1"/>
+  
+  <text x="140" y="380" text-anchor="middle" fill="#666" font-family="Arial" font-size="11">Compression/Denoising</text>
+  
+  <!-- GAN -->
+  <rect x="270" y="250" width="180" height="140" fill="#fff" stroke="#e83e8c" stroke-width="2" rx="8"/>
+  <text x="360" y="270" text-anchor="middle" fill="#e83e8c" font-family="Arial" font-size="14" font-weight="bold">GAN</text>
+  
+  <!-- Generator -->
+  <rect x="290" y="290" width="50" height="30" fill="#28a745" opacity="0.3" stroke="#28a745" rx="3"/>
+  <text x="315" y="308" text-anchor="middle" fill="#28a745" font-family="Arial" font-size="10" font-weight="bold">G</text>
+  
+  <!-- Discriminator -->
+  <rect x="380" y="290" width="50" height="30" fill="#dc3545" opacity="0.3" stroke="#dc3545" rx="3"/>
+  <text x="405" y="308" text-anchor="middle" fill="#dc3545" font-family="Arial" font-size="10" font-weight="bold">D</text>
+  
+  <!-- GAN arrows -->
+  <path d="M 340 305 Q 360 295 380 305" stroke="#e83e8c" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 380 315 Q 360 325 340 315" stroke="#e83e8c" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <text x="360" y="340" text-anchor="middle" fill="#666" font-family="Arial" font-size="10">Real/Fake?</text>
+  <text x="360" y="380" text-anchor="middle" fill="#666" font-family="Arial" font-size="11">Data Generation</text>
+  
+  <!-- Transformer -->
+  <rect x="490" y="250" width="180" height="140" fill="#fff" stroke="#20c997" stroke-width="2" rx="8"/>
+  <text x="580" y="270" text-anchor="middle" fill="#20c997" font-family="Arial" font-size="14" font-weight="bold">Transformer</text>
+  
+  <!-- Multi-head attention -->
+  <rect x="520" y="290" width="40" height="15" fill="#20c997" opacity="0.3" stroke="#20c997" rx="2"/>
+  <text x="540" y="300" text-anchor="middle" fill="#20c997" font-family="Arial" font-size="8">Attention</text>
+  
+  <rect x="520" y="310" width="40" height="15" fill="#20c997" opacity="0.3" stroke="#20c997" rx="2"/>
+  <text x="540" y="320" text-anchor="middle" fill="#20c997" font-family="Arial" font-size="8">Attention</text>
+  
+  <rect x="520" y="330" width="40" height="15" fill="#20c997" opacity="0.3" stroke="#20c997" rx="2"/>
+  <text x="540" y="340" text-anchor="middle" fill="#20c997" font-family="Arial" font-size="8">Attention</text>
+  
+  <!-- Feed forward -->
+  <rect x="580" y="310" width="40" height="15" fill="#ffc107" opacity="0.3" stroke="#ffc107" rx="2"/>
+  <text x="600" y="320" text-anchor="middle" fill="#ffc107" font-family="Arial" font-size="8">FFN</text>
+  
+  <text x="580" y="380" text-anchor="middle" fill="#666" font-family="Arial" font-size="11">Language/Attention</text>
+  
+  <!-- Convolutional Autoencoder -->
+  <rect x="710" y="250" width="180" height="140" fill="#fff" stroke="#6610f2" stroke-width="2" rx="8"/>
+  <text x="800" y="270" text-anchor="middle" fill="#6610f2" font-family="Arial" font-size="14" font-weight="bold">Conv. Autoencoder</text>
+  
+  <!-- Conv layers visualization -->
+  <rect x="730" y="290" width="20" height="20" fill="#6610f2" opacity="0.3" stroke="#6610f2"/>
+  <rect x="755" y="295" width="15" height="15" fill="#6610f2" opacity="0.5" stroke="#6610f2"/>
+  <rect x="775" y="300" width="10" height="10" fill="#6610f2" opacity="0.7" stroke="#6610f2"/>
+  <rect x="790" y="302" width="8" height="8" fill="#dc3545" stroke="#dc3545"/>
+  <rect x="805" y="300" width="10" height="10" fill="#6610f2" opacity="0.7" stroke="#6610f2"/>
+  <rect x="820" y="295" width="15" height="15" fill="#6610f2" opacity="0.5" stroke="#6610f2"/>
+  <rect x="840" y="290" width="20" height="20" fill="#6610f2" opacity="0.3" stroke="#6610f2"/>
+  
+  <text x="800" y="380" text-anchor="middle" fill="#666" font-family="Arial" font-size="11">Image Reconstruction</text>
+  
+  <!-- Applications section -->
+  <rect x="50" y="440" width="900" height="120" fill="#e9ecef" stroke="#6c757d" stroke-width="1" rx="8"/>
+  <text x="500" y="465" text-anchor="middle" fill="#333" font-family="Arial" font-size="18" font-weight="bold">Applications by Type</text>
+  
+  <!-- Application boxes -->
+  <rect x="70" y="480" width="120" height="25" fill="#007bff" opacity="0.1" stroke="#007bff" rx="3"/>
+  <text x="130" y="497" text-anchor="middle" fill="#007bff" font-family="Arial" font-size="11" font-weight="bold">Classification</text>
+  
+  <rect x="210" y="480" width="120" height="25" fill="#17a2b8" opacity="0.1" stroke="#17a2b8" rx="3"/>
+  <text x="270" y="497" text-anchor="middle" fill="#17a2b8" font-family="Arial" font-size="11" font-weight="bold">Computer Vision</text>
+  
+  <rect x="350" y="480" width="120" height="25" fill="#28a745" opacity="0.1" stroke="#28a745" rx="3"/>
+  <text x="410" y="497" text-anchor="middle" fill="#28a745" font-family="Arial" font-size="11" font-weight="bold">NLP/Speech</text>
+  
+  <rect x="490" y="480" width="120" height="25" fill="#6f42c1" opacity="0.1" stroke="#6f42c1" rx="3"/>
+  <text x="550" y="497" text-anchor="middle" fill="#6f42c1" font-family="Arial" font-size="11" font-weight="bold">Time Series</text>
+  
+  <rect x="630" y="480" width="120" height="25" fill="#fd7e14" opacity="0.1" stroke="#fd7e14" rx="3"/>
+  <text x="690" y="497" text-anchor="middle" fill="#fd7e14" font-family="Arial" font-size="11" font-weight="bold">Dimensionality</text>
+  
+  <rect x="70" y="515" width="120" height="25" fill="#e83e8c" opacity="0.1" stroke="#e83e8c" rx="3"/>
+  <text x="130" y="532" text-anchor="middle" fill="#e83e8c" font-family="Arial" font-size="11" font-weight="bold">Generation</text>
+  
+  <rect x="210" y="515" width="120" height="25" fill="#20c997" opacity="0.1" stroke="#20c997" rx="3"/>
+  <text x="270" y="532" text-anchor="middle" fill="#20c997" font-family="Arial" font-size="11" font-weight="bold">Translation</text>
+  
+  <rect x="350" y="515" width="120" height="25" fill="#6610f2" opacity="0.1" stroke="#6610f2" rx="3"/>
+  <text x="410" y="532" text-anchor="middle" fill="#6610f2" font-family="Arial" font-size="11" font-weight="bold">Denoising</text>
+  
+  <!-- Key features section -->
+  <text x="500" y="590" text-anchor="middle" fill="#333" font-family="Arial" font-size="16" font-weight="bold">Key Features</text>
+  
+  <text x="150" y="615" text-anchor="middle" fill="#666" font-family="Arial" font-size="12">• Universal Approximators</text>
+  <text x="350" y="615" text-anchor="middle" fill="#666" font-family="Arial" font-size="12">• Automatic Feature Learning</text>
+  <text x="550" y="615" text-anchor="middle" fill="#666" font-family="Arial" font-size="12">• Parallel Processing</text>
+  <text x="750" y="615" text-anchor="middle" fill="#666" font-family="Arial" font-size="12">• Adaptive Learning</text>
+  
+  <text x="150" y="635" text-anchor="middle" fill="#666" font-family="Arial" font-size="12">• Non-linear Modeling</text>
+  <text x="350" y="635" text-anchor="middle" fill="#666" font-family="Arial" font-size="12">• Pattern Recognition</text>
+  <text x="550" y="635" text-anchor="middle" fill="#666" font-family="Arial" font-size="12">• Noise Tolerance</text>
+  <text x="750" y="635" text-anchor="middle" fill="#666" font-family="Arial" font-size="12">• Scalable Architecture</text>
+  
+  <!-- Selection guide -->
+  <text x="500" y="665" text-anchor="middle" fill="#333" font-family="Arial" font-size="14" font-weight="bold">Choose Based On: Data Type → Problem → Architecture → Application</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e83e8c"/>
+    </marker>
+  </defs>
+</svg> 

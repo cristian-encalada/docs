@@ -1,4 +1,12 @@
 {
+  "linearvslogistic": {
+    "en": "en/2025-06-09-linear-vs-logistic-regression",
+    "es": "es/2025-06-09-linear-vs-logistic-regression"
+  },
+  "knn": {
+    "en": "en/2025-06-05-knn-algorithm-machine-learning",
+    "es": "es/2025-06-05-knn-algorithm-machine-learning"
+  },
   "decisiontrees": {
     "en": "en/2025-06-02-decision-trees-machine-learning",
     "es": "es/2025-06-02-decision-trees-machine-learning"

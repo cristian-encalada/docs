@@ -1,0 +1,339 @@
+---
+title: Regresión Lineal vs Regresión Logística - Entendiendo las Diferencias Clave y Cuándo Usar Cada Una
+date: '2025-06-09'
+language: es
+localeid: 'linearvslogistic'
+tags: ['machine-learning', 'linear-regression', 'logistic-regression', 'comparison', 'algorithms', 'statistics']
+authors: ['default']
+draft: false
+summary: Una comparación completa entre Regresión Lineal y Regresión Logística, cubriendo diferencias clave, fundamentos matemáticos, ejemplos de implementación y guía práctica sobre cuándo usar cada algoritmo.
+---
+
+<div className="flex justify-center">
+  <div className="w-full max-w-screen-md overflow-hidden">
+    <img
+      src="/static/images/2025-06-09-linear-vs-logistic-regression/linear-vs-logistic-comparison.svg"
+      alt="Comparación entre Regresión Lineal y Regresión Logística"
+      className="mx-auto"
+    />
+  </div>
+</div>
+
+La Regresión Lineal y la Regresión Logística son dos de los algoritmos más fundamentales en machine learning y estadística. A pesar de sus nombres similares, sirven para propósitos diferentes y tienen características distintas. Esta guía completa te ayudará a entender cuándo usar cada algoritmo y cómo difieren en la práctica.
+
+---
+
+## 🎯 Resumen: Regresión Lineal vs Logística
+
+### 📊 Tabla de Comparación Rápida
+
+| Aspecto | Regresión Lineal | Regresión Logística |
+|---------|------------------|-------------------|
+| **Propósito** | Predecir valores continuos | Predecir probabilidades/categorías |
+| **Rango de Salida** | (-∞, +∞) | [0, 1] para binaria, probabilidades para multi-clase |
+| **Tipo de Función** | Función lineal | Función sigmoide (logística) |
+| **Variable Dependiente** | Continua | Categórica (binaria/multi-clase) |
+| **Métrica de Error** | Error Cuadrático Medio (MSE) | Log-verosimilitud/Entropía cruzada |
+| **Suposiciones** | Relación lineal, normalidad | Independencia, linealidad de log-odds |
+
+---
+
+## 📈 Análisis Profundo de Regresión Lineal
+
+### 🔍 ¿Qué es la Regresión Lineal?
+
+La Regresión Lineal es un método estadístico usado para modelar la relación entre una **variable dependiente continua** y una o más **variables independientes** ajustando una ecuación lineal a los datos observados.
+
+### 📐 Fundamento Matemático
+
+#### **Regresión Lineal Simple**
+```
+y = β₀ + β₁x + ε
+```
+
+#### **Regresión Lineal Múltiple**
+```
+y = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ + ε
+```
+
+Donde:
+- `y` = variable dependiente (objetivo)
+- `β₀` = intercepto en y
+- `β₁, β₂, ..., βₙ` = coeficientes (pendientes)
+- `x₁, x₂, ..., xₙ` = variables independientes (características)
+- `ε` = término de error
+
+### 💻 Ejemplo de Implementación
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+import matplotlib.pyplot as plt
+
+# Generar datos de muestra
+np.random.seed(42)
+X = np.random.randn(100, 1)
+y = 2 * X.ravel() + 3 + np.random.randn(100) * 0.5
+
+# Dividir los datos
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Crear y entrenar el modelo
+linear_reg = LinearRegression()
+linear_reg.fit(X_train, y_train)
+
+# Hacer predicciones
+y_pred = linear_reg.predict(X_test)
+
+# Evaluar el modelo
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"Resultados de Regresión Lineal:")
+print(f"Coeficiente: {linear_reg.coef_[0]:.3f}")
+print(f"Intercepto: {linear_reg.intercept_:.3f}")
+print(f"MSE: {mse:.3f}")
+print(f"Puntuación R²: {r2:.3f}")
+```
+
+---
+
+## 📊 Análisis Profundo de Regresión Logística
+
+### 🔍 ¿Qué es la Regresión Logística?
+
+La Regresión Logística es un método estadístico usado para problemas de **clasificación binaria**. Utiliza la función logística para modelar la probabilidad de que una instancia pertenezca a una categoría particular.
+
+### 📐 Fundamento Matemático
+
+#### **Función Logística (Sigmoide)**
+```
+p = 1 / (1 + e^(-z))
+```
+
+Donde:
+```
+z = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ
+```
+
+#### **Odds y Log-Odds**
+```
+Odds = p / (1 - p)
+Log-Odds = ln(p / (1 - p)) = z
+```
+
+### 💻 Ejemplo de Implementación
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import make_classification
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import seaborn as sns
+
+# Generar datos de clasificación binaria de muestra
+X, y = make_classification(n_samples=1000, n_features=2, n_redundant=0, 
+                          n_informative=2, n_clusters_per_class=1, random_state=42)
+
+# Dividir los datos
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Crear y entrenar el modelo
+logistic_reg = LogisticRegression()
+logistic_reg.fit(X_train, y_train)
+
+# Hacer predicciones
+y_pred = logistic_reg.predict(X_test)
+y_proba = logistic_reg.predict_proba(X_test)
+
+# Evaluar el modelo
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Resultados de Regresión Logística:")
+print(f"Precisión: {accuracy:.3f}")
+print(f"Coeficientes: {logistic_reg.coef_[0]}")
+print(f"Intercepto: {logistic_reg.intercept_[0]:.3f}")
+```
+
+---
+
+## 🔄 Diferencias Clave Explicadas
+
+### 1. **Tipo de Problema**
+
+#### Regresión Lineal
+- **Problemas de regresión**: Predecir valores continuos
+- **Ejemplos**: Precios de casas, temperatura, ingresos por ventas, precios de acciones
+
+#### Regresión Logística
+- **Problemas de clasificación**: Predecir categorías
+- **Ejemplos**: Detección de spam, diagnóstico médico, predicciones de aprobado/reprobado
+
+### 2. **Interpretación de Salida**
+
+#### Regresión Lineal
+```python
+# La regresión lineal predice valores exactos
+predicción = 45.7  # Puede ser cualquier número real
+print(f"Precio de casa predicho: ${predicción}k")
+```
+
+#### Regresión Logística
+```python
+# La regresión logística predice probabilidades
+probabilidad = 0.73  # Siempre entre 0 y 1
+predicción = 1 if probabilidad > 0.5 else 0
+print(f"Probabilidad de spam: {probabilidad:.2f}")
+print(f"Predicción: {'Spam' if predicción == 1 else 'No Spam'}")
+```
+
+---
+
+## 📊 Comparación de Aplicaciones del Mundo Real
+
+### 🏠 Aplicaciones de Regresión Lineal
+
+#### **Predicción de Precios de Casas**
+```python
+# Características: tamaño, dormitorios, baños, antigüedad
+# Objetivo: precio (continuo)
+
+características = ['metros_cuadrados', 'dormitorios', 'baños', 'antigüedad', 'puntuación_ubicación']
+modelo = LinearRegression()
+
+# Ejemplo de predicción
+precio_predicho = modelo.predict([[200, 3, 2, 5, 8.5]])
+print(f"Precio predicho: ${precio_predicho[0]:,.2f}")
+```
+
+### 🎯 Aplicaciones de Regresión Logística
+
+#### **Detección de Spam en Correos**
+```python
+# Características: frecuencias de palabras, info del remitente, metadatos
+# Objetivo: spam (0) o no spam (1)
+
+características = ['palabras_urgentes', 'palabras_dinero', 'ratio_mayúsculas', 'cuenta_enlaces']
+modelo = LogisticRegression()
+
+# Ejemplo de predicción
+probabilidad_spam = modelo.predict_proba([vector_características])[0][1]
+es_spam = probabilidad_spam > 0.5
+print(f"Probabilidad de spam: {probabilidad_spam:.2f}")
+print(f"Clasificación: {'Spam' if es_spam else 'No Spam'}")
+```
+
+---
+
+## ⚖️ Ventajas y Desventajas
+
+### 📈 Regresión Lineal
+
+#### ✅ Ventajas
+- **Simple e interpretable**: Fácil entender coeficientes
+- **Entrenamiento y predicción rápidos**: Computacionalmente eficiente
+- **Sin hiperparámetros**: Mínimo ajuste requerido
+- **Importancia de características**: Coeficientes muestran importancia de variables
+- **Inferencia estadística**: Proporciona intervalos de confianza y p-valores
+
+#### ❌ Desventajas
+- **Solo relaciones lineales**: No puede capturar patrones no lineales
+- **Sensible a valores atípicos**: Los outliers influyen mucho en el modelo
+- **Asume normalidad**: Los residuos deben estar normalmente distribuidos
+- **Problemas de multicolinealidad**: Características correlacionadas causan problemas
+
+### 📊 Regresión Logística
+
+#### ✅ Ventajas
+- **Salida probabilística**: Proporciona confianza en predicciones
+- **Sin suposiciones distribucionales**: Sobre variable dependiente
+- **Menos sensible a outliers**: Comparado con regresión lineal
+- **Importancia de características**: Coeficientes muestran influencia de variables
+- **Soporte de regularización**: Ridge y Lasso disponibles
+
+#### ❌ Desventajas
+- **Límite de decisión lineal**: No puede capturar relaciones complejas
+- **Tamaño de muestra grande necesario**: Para resultados estables
+- **Sensible a outliers**: En el espacio de características
+- **Problemas de separación perfecta**: Cuando las clases son perfectamente separables
+
+---
+
+## 🎯 Cuándo Usar Cada Algoritmo
+
+### 📈 Usar Regresión Lineal Cuando:
+
+- **Predecir valores continuos**: Precios de casas, temperaturas, ventas
+- **Entender relaciones**: Entre variables y objetivo
+- **Necesitas línea base simple**: Modelo rápido para establecer rendimiento
+- **Interpretabilidad es crucial**: Necesitas explicar coeficientes del modelo
+- **Conjuntos de datos pequeños**: Funciona bien con datos limitados
+- **Existen relaciones lineales**: Entre características y objetivo
+
+### 📊 Usar Regresión Logística Cuando:
+
+- **Clasificación binaria**: Sí/no, spam/no spam, aprobado/reprobado
+- **Predicciones probabilísticas necesarias**: Quieres puntuaciones de confianza
+- **Clasificación interpretable**: Necesitas explicar influencia de características
+- **Modelo de clasificación base**: Punto de partida simple
+- **Selección de características**: Quieres identificar características importantes
+- **Problemas multi-clase**: Con extensión multinomial
+
+---
+
+## 🛠️ Mejores Prácticas
+
+### 📋 Directrices Generales
+
+1. **Empezar Simple**: Comenzar con versiones básicas antes de agregar complejidad
+2. **Verificar Suposiciones**: Verificar que los datos cumplan suposiciones del algoritmo
+3. **Ingeniería de Características**: Crear características significativas de datos raw
+4. **Validación Cruzada**: Usar técnicas de validación apropiadas
+5. **Regularización**: Aplicar cuando se trata con sobreajuste
+
+### 🔧 Consejos de Implementación
+
+```python
+# Ejemplo de pipeline completo
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import cross_val_score
+
+# Pipeline de Regresión Lineal
+pipeline_lineal = Pipeline([
+    ('escalador', StandardScaler()),
+    ('regresor', LinearRegression())
+])
+
+# Pipeline de Regresión Logística
+pipeline_logístico = Pipeline([
+    ('escalador', StandardScaler()),
+    ('clasificador', LogisticRegression())
+])
+
+# Validación cruzada
+puntuaciones_lineales = cross_val_score(pipeline_lineal, X, y, cv=5, scoring='r2')
+puntuaciones_logísticas = cross_val_score(pipeline_logístico, X, y, cv=5, scoring='accuracy')
+```
+
+---
+
+## Reflexiones Finales
+
+La Regresión Lineal y la Regresión Logística son algoritmos fundamentales que todo practicante de machine learning debe dominar. Aunque pueden parecer simples, proporcionan líneas base poderosas e insights que a menudo guían decisiones de modelado más complejas.
+
+Puntos clave:
+- **Regresión Lineal**: Para predicciones continuas y entender relaciones
+- **Regresión Logística**: Para clasificación y predicciones probabilísticas
+- **Empezar simple**: Estos algoritmos a menudo proporcionan resultados sorprendentemente buenos
+- **Verificar suposiciones**: Asegurar que tus datos cumplan requisitos del algoritmo
+- **Considerar extensiones**: Regularización y características polinomiales pueden ayudar
+
+¡Recuerda, el mejor algoritmo es a menudo el más simple que resuelve tu problema efectivamente!
+
+---
+
+> "Todos los modelos están equivocados, pero algunos son útiles. La regresión lineal y logística están entre los más útiles." — Adaptado de George Box
+
+> "La belleza de la regresión no radica en la complejidad, sino en la claridad de los insights que proporciona." — Sabiduría de Data Science 
