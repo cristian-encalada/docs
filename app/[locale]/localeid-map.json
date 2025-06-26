@@ -1,65 +1,77 @@
 {
+  "classification-methodology": {
+    "es": "es/2025-06-20-classification-methodology-supervised-learning",
+    "en": "en/2025-06-20-classification-methodology-supervised-learning"
+  },
+  "clustering": {
+    "es": "es/2025-06-16-unsupervised-learning-clustering",
+    "en": "en/2025-06-16-unsupervised-learning-clustering"
+  },
+  "annoverviw": {
+    "es": "es/2025-06-13-artificial-neural-networks-overview",
+    "en": "en/2025-06-13-artificial-neural-networks-overview"
+  },
   "linearvslogistic": {
-    "en": "en/2025-06-09-linear-vs-logistic-regression",
-    "es": "es/2025-06-09-linear-vs-logistic-regression"
+    "es": "es/2025-06-09-linear-vs-logistic-regression",
+    "en": "en/2025-06-09-linear-vs-logistic-regression"
   },
   "knn": {
-    "en": "en/2025-06-05-knn-algorithm-machine-learning",
-    "es": "es/2025-06-05-knn-algorithm-machine-learning"
+    "es": "es/2025-06-05-knn-algorithm-machine-learning",
+    "en": "en/2025-06-05-knn-algorithm-machine-learning"
   },
   "decisiontrees": {
-    "en": "en/2025-06-02-decision-trees-machine-learning",
-    "es": "es/2025-06-02-decision-trees-machine-learning"
+    "es": "es/2025-06-02-decision-trees-machine-learning",
+    "en": "en/2025-06-02-decision-trees-machine-learning"
   },
   "mlapproaches": {
-    "en": "en/2025-05-30-machine-learning-approaches-comparison",
-    "es": "es/2025-05-30-machine-learning-approaches-comparison"
+    "es": "es/2025-05-30-machine-learning-approaches-comparison",
+    "en": "en/2025-05-30-machine-learning-approaches-comparison"
   },
   "mloverview": {
-    "en": "en/2025-05-26-machine-learning-overview",
-    "es": "es/2025-05-26-machine-learning-overview"
+    "es": "es/2025-05-26-machine-learning-overview",
+    "en": "en/2025-05-26-machine-learning-overview"
   },
   "probdistributions": {
-    "en": "en/2025-05-05-probability-distributions",
-    "es": "es/2025-05-05-probability-distributions"
+    "es": "es/2025-05-05-probability-distributions",
+    "en": "en/2025-05-05-probability-distributions"
   },
   "statsoverview": {
-    "en": "en/2025-04-28-statistics-overview",
-    "es": "es/2025-04-28-statistics-overview"
+    "es": "es/2025-04-28-statistics-overview",
+    "en": "en/2025-04-28-statistics-overview"
   },
   "statsvsprob": {
-    "en": "en/2025-04-21-statistics-vs-probability",
-    "es": "es/2025-04-21-statistics-vs-probability"
+    "es": "es/2025-04-21-statistics-vs-probability",
+    "en": "en/2025-04-21-statistics-vs-probability"
   },
   "awsecsvsfargate": {
-    "en": "en/2023-09-22-AWS-ECS-vs-Fargate",
-    "es": "es/2023-09-22-AWS-ECS-vs-Fargate-es"
+    "es": "es/2023-09-22-AWS-ECS-vs-Fargate-es",
+    "en": "en/2023-09-22-AWS-ECS-vs-Fargate"
   },
   "linuxwmvsde": {
-    "en": "en/2023-09-15-linux-desktop-environments-vs-window-managers",
-    "es": "es/2023-09-15-linux-desktop-environments-vs-window-managers-es"
+    "es": "es/2023-09-15-linux-desktop-environments-vs-window-managers-es",
+    "en": "en/2023-09-15-linux-desktop-environments-vs-window-managers"
   },
   "archlinuxdualboot": {
     "en": "en/2023-09-08-install-arch-linux-dual-boot-win10-UEFI"
   },
   "itseries": {
-    "en": "en/2023-09-01-programming-related-series",
-    "es": "es/2023-09-01-programming-related-series-es"
+    "es": "es/2023-09-01-programming-related-series-es",
+    "en": "en/2023-09-01-programming-related-series"
   },
   "gitsshkey": {
-    "en": "en/2023-08-25-configure-git-github-ssh-key",
-    "es": "es/2023-08-25-configure-git-github-ssh-key-es"
+    "es": "es/2023-08-25-configure-git-github-ssh-key-es",
+    "en": "en/2023-08-25-configure-git-github-ssh-key"
   },
   "proglangclassification": {
-    "en": "en/2023-08-18-programming-languages-classification",
-    "es": "es/2023-08-18-programming-languages-classification-es"
+    "es": "es/2023-08-18-programming-languages-classification-es",
+    "en": "en/2023-08-18-programming-languages-classification"
   },
   "snakegraph": {
-    "en": "en/2023-08-11-generate-snake-graph-github-actions",
-    "es": "es/2023-08-11-generate-snake-graph-github-actions-es"
+    "es": "es/2023-08-11-generate-snake-graph-github-actions-es",
+    "en": "en/2023-08-11-generate-snake-graph-github-actions"
   },
   "markdownguide": {
-    "en": "en/2019-10-11-github-markdown-cheatsheet",
-    "es": "es/2019-10-11-github-markdown-cheatsheet-es"
+    "es": "es/2019-10-11-github-markdown-cheatsheet-es",
+    "en": "en/2019-10-11-github-markdown-cheatsheet"
   }
 }

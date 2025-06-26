@@ -1,0 +1,168 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 24px sans-serif; text-anchor: middle; fill: #2563eb; }
+      .subtitle { font: bold 18px sans-serif; text-anchor: middle; fill: #1e40af; }
+      .algorithm { font: 14px sans-serif; text-anchor: middle; fill: #374151; }
+      .category { font: bold 16px sans-serif; text-anchor: middle; fill: #059669; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 8; }
+      .category-box { fill: #ecfdf5; stroke: #059669; stroke-width: 2; rx: 8; }
+      .algorithm-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 1.5; rx: 6; }
+      .connector { stroke: #6b7280; stroke-width: 2; fill: none; }
+      .data-point { fill: #3b82f6; opacity: 0.7; }
+      .cluster1 { fill: #ef4444; }
+      .cluster2 { fill: #10b981; }
+      .cluster3 { fill: #8b5cf6; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" class="title">Unsupervised Learning: Clustering Overview</text>
+  
+  <!-- Main clustering categories -->
+  <rect x="50" y="80" width="160" height="480" class="category-box"/>
+  <text x="130" y="105" class="category">Partitional</text>
+  <text x="130" y="125" class="algorithm">Non-overlapping clusters</text>
+  
+  <rect x="230" y="80" width="160" height="480" class="category-box"/>
+  <text x="310" y="105" class="category">Hierarchical</text>
+  <text x="310" y="125" class="algorithm">Tree-like structures</text>
+  
+  <rect x="410" y="80" width="160" height="480" class="category-box"/>
+  <text x="490" y="105" class="category">Density-based</text>
+  <text x="490" y="125" class="algorithm">Based on data density</text>
+  
+  <rect x="590" y="80" width="160" height="480" class="category-box"/>
+  <text x="670" y="105" class="category">Model-based</text>
+  <text x="670" y="125" class="algorithm">Probability models</text>
+  
+  <!-- Algorithm boxes -->
+  <!-- Partitional -->
+  <rect x="60" y="150" width="140" height="50" class="algorithm-box"/>
+  <text x="130" y="170" class="algorithm">K-Means</text>
+  <text x="130" y="185" class="algorithm">Most popular</text>
+  <text x="130" y="195" class="algorithm">Spherical clusters</text>
+  
+  <rect x="60" y="220" width="140" height="40" class="algorithm-box"/>
+  <text x="130" y="240" class="algorithm">K-Medoids</text>
+  <text x="130" y="250" class="algorithm">Robust to outliers</text>
+  
+  <!-- Hierarchical -->
+  <rect x="240" y="150" width="140" height="50" class="algorithm-box"/>
+  <text x="310" y="170" class="algorithm">Agglomerative</text>
+  <text x="310" y="185" class="algorithm">Bottom-up approach</text>
+  <text x="310" y="195" class="algorithm">Merge clusters</text>
+  
+  <rect x="240" y="220" width="140" height="40" class="algorithm-box"/>
+  <text x="310" y="240" class="algorithm">Divisive</text>
+  <text x="310" y="250" class="algorithm">Top-down approach</text>
+  
+  <!-- Density-based -->
+  <rect x="420" y="150" width="140" height="50" class="algorithm-box"/>
+  <text x="490" y="170" class="algorithm">DBSCAN</text>
+  <text x="490" y="185" class="algorithm">Arbitrary shapes</text>
+  <text x="490" y="195" class="algorithm">Noise detection</text>
+  
+  <rect x="420" y="220" width="140" height="40" class="algorithm-box"/>
+  <text x="490" y="240" class="algorithm">OPTICS</text>
+  <text x="490" y="250" class="algorithm">Varying densities</text>
+  
+  <!-- Model-based -->
+  <rect x="600" y="150" width="140" height="50" class="algorithm-box"/>
+  <text x="670" y="170" class="algorithm">Gaussian Mixture</text>
+  <text x="670" y="185" class="algorithm">Probabilistic</text>
+  <text x="670" y="195" class="algorithm">Soft clustering</text>
+  
+  <!-- Validation section -->
+  <rect x="50" y="290" width="700" height="120" class="box"/>
+  <text x="400" y="315" class="subtitle">Clustering Validation Methods</text>
+  
+  <!-- Internal validation -->
+  <rect x="70" y="330" width="200" height="70" class="algorithm-box"/>
+  <text x="170" y="350" class="category">Internal Validation</text>
+  <text x="170" y="365" class="algorithm">• Silhouette Score</text>
+  <text x="170" y="378" class="algorithm">• Calinski-Harabasz Index</text>
+  <text x="170" y="391" class="algorithm">• Davies-Bouldin Index</text>
+  
+  <!-- External validation -->
+  <rect x="290" y="330" width="200" height="70" class="algorithm-box"/>
+  <text x="390" y="350" class="category">External Validation</text>
+  <text x="390" y="365" class="algorithm">• Adjusted Rand Index</text>
+  <text x="390" y="378" class="algorithm">• Normalized Mutual Info</text>
+  <text x="390" y="391" class="algorithm">• Fowlkes-Mallows Index</text>
+  
+  <!-- Visual validation -->
+  <rect x="510" y="330" width="180" height="70" class="algorithm-box"/>
+  <text x="600" y="350" class="category">Visual Validation</text>
+  <text x="600" y="365" class="algorithm">• Scatter plots</text>
+  <text x="600" y="378" class="algorithm">• Dendrograms</text>
+  <text x="600" y="391" class="algorithm">• Silhouette plots</text>
+  
+  <!-- Example clustering visualization -->
+  <text x="400" y="445" class="subtitle">Example: K-Means Clustering</text>
+  
+  <!-- Before clustering -->
+  <text x="200" y="470" class="algorithm">Before Clustering</text>
+  <circle cx="150" cy="490" r="3" class="data-point"/>
+  <circle cx="160" cy="485" r="3" class="data-point"/>
+  <circle cx="145" cy="495" r="3" class="data-point"/>
+  <circle cx="180" cy="500" r="3" class="data-point"/>
+  <circle cx="185" cy="490" r="3" class="data-point"/>
+  <circle cx="190" cy="495" r="3" class="data-point"/>
+  <circle cx="220" cy="485" r="3" class="data-point"/>
+  <circle cx="225" cy="495" r="3" class="data-point"/>
+  <circle cx="230" cy="490" r="3" class="data-point"/>
+  <circle cx="250" cy="500" r="3" class="data-point"/>
+  <circle cx="255" cy="485" r="3" class="data-point"/>
+  <circle cx="260" cy="495" r="3" class="data-point"/>
+  
+  <!-- Arrow -->
+  <path d="M 280 490 L 320 490" class="connector" marker-end="url(#arrowhead)"/>
+  
+  <!-- After clustering -->
+  <text x="500" y="470" class="algorithm">After K-Means (K=3)</text>
+  <!-- Cluster 1 -->
+  <circle cx="450" cy="490" r="3" class="cluster1"/>
+  <circle cx="460" cy="485" r="3" class="cluster1"/>
+  <circle cx="445" cy="495" r="3" class="cluster1"/>
+  <circle cx="455" cy="492" r="3" class="cluster1"/>
+  
+  <!-- Cluster 2 -->
+  <circle cx="480" cy="500" r="3" class="cluster2"/>
+  <circle cx="485" cy="490" r="3" class="cluster2"/>
+  <circle cx="490" cy="495" r="3" class="cluster2"/>
+  <circle cx="475" cy="485" r="3" class="cluster2"/>
+  
+  <!-- Cluster 3 -->
+  <circle cx="520" cy="485" r="3" class="cluster3"/>
+  <circle cx="525" cy="495" r="3" class="cluster3"/>
+  <circle cx="530" cy="490" r="3" class="cluster3"/>
+  <circle cx="535" cy="500" r="3" class="cluster3"/>
+  
+  <!-- Centroids -->
+  <text x="452" cy="475" class="algorithm">×</text>
+  <text x="482" cy="475" class="algorithm">×</text>
+  <text x="527" cy="475" class="algorithm">×</text>
+  
+  <!-- Legend -->
+  <rect x="550" y="510" width="200" height="60" class="box"/>
+  <text x="600" y="530" class="algorithm">Legend</text>
+  <circle cx="565" cy="540" r="3" class="cluster1"/>
+  <text x="575" y="545" class="algorithm">Cluster 1</text>
+  <circle cx="565" cy="550" r="3" class="cluster2"/>
+  <text x="575" y="555" class="algorithm">Cluster 2</text>
+  <circle cx="565" cy="560" r="3" class="cluster3"/>
+  <text x="575" y="565" class="algorithm">Cluster 3</text>
+  <text x="650" y="545" class="algorithm">× Centroid</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+     refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+</svg> 
