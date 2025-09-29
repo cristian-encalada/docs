@@ -11,11 +11,10 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { capitalizeFirstLetter } from '@/components/util/capitalizeFirstLetter'
 
 type Props = {
-  params: Promise<{ tag: string; locale: LocaleTypes }>
+  params: { tag: string; locale: LocaleTypes }
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { tag, locale } = await params
+export async function generateMetadata({ params: { tag, locale } }: Props): Promise<Metadata> {
   const dtag = decodeURI(tag)
   const capitalizedDtag = capitalizeFirstLetter(dtag)
   return genPageMetadata({
@@ -32,22 +31,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   })
 }
 
-export const generateStaticParams = async () => {
-  const paths: { locale: string; tag: string }[] = []
-  for (const locale of ['en', 'es']) {
-    const tagCounts = tagData[locale]
-    const tagKeys = Object.keys(tagCounts)
-    const localePaths = tagKeys.map((tag) => ({
-      locale,
-      tag: encodeURI(tag),
-    }))
-    paths.push(...localePaths)
-  }
+export const generateStaticParams = async ({ params: { locale } }: Props) => {
+  const tagCounts = tagData[locale]
+  const tagKeys = Object.keys(tagCounts)
+  const paths = tagKeys.map((tag) => ({
+    tag: encodeURI(tag),
+  }))
   return paths
 }
 
-export default async function TagPage({ params }: Props) {
-  const { tag, locale } = await params
+export default async function TagPage({ params: { tag, locale } }: Props) {
   const dtag = decodeURI(tag)
   // Capitalize first letter and convert space to dash
   const title = dtag[0].toUpperCase() + dtag.split(' ').join('-').slice(1)

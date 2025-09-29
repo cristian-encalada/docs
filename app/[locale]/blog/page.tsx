@@ -7,21 +7,19 @@ import { createTranslation } from '../i18n/server'
 import { LocaleTypes } from '../i18n/settings'
 
 type Props = {
-  params: Promise<{ locale: LocaleTypes }>
+  params: { locale: LocaleTypes }
 }
 
 const POSTS_PER_PAGE = 5
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params
+export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
   return genPageMetadata({
     title: 'Blog',
     params: { locale: locale },
   })
 }
 
-export default async function BlogPage({ params }: Props) {
-  const { locale } = await params
+export default async function BlogPage({ params: { locale } }: Props) {
   const { t } = await createTranslation(locale, 'home')
   const posts = allCoreContent(sortPosts(allBlogs))
   // Filter posts based on the current locale
