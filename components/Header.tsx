@@ -1,6 +1,7 @@
 'use client'
 
 import { useParams, usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/monogram-logo.svg'
@@ -15,12 +16,67 @@ import type { LocaleTypes } from 'app/[locale]/i18n/settings'
 const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, '')
-  // Get current page path
   const pathname = usePathname()
+  const [activeSection, setActiveSection] = useState('about')
+
+  // Handle smooth scrolling to sections
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.replace('#', '')
+    const element = document.getElementById(targetId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+      // Update URL hash
+      window.history.pushState(null, '', href)
+    }
+  }
+
+  // Handle initial page load with hash
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '')
+    if (hash && ['about', 'projects', 'blog'].includes(hash)) {
+      setActiveSection(hash)
+      // Scroll to the section after a short delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    }
+  }, [])
+
+  // Update active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'projects', 'blog']
+      const scrollPosition = window.scrollY + 100
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            // Update URL hash when scrolling
+            const newHash = `#${section}`
+            if (window.location.hash !== newHash) {
+              window.history.pushState(null, '', newHash)
+            }
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header>
-      <div className="flex items-center justify-between py-10">
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 w-full">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+        <div className="flex items-center justify-between py-4">
         <div>
           <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
@@ -41,26 +97,26 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
-          {headerNavLinks
-            .filter((link) => link.href !== '/')
-            .map((link) => {
-              const isSelected = pathname.includes(link.href)
-              return (
-                <Link
-                  key={link.title}
-                  href={`/${locale}${link.href}`}
-                  className={`hidden font-medium ${
-                    isSelected ? 'text-primary-500' : 'text-gray-900 dark:text-gray-100'
-                  }  sm:block`}
-                >
-                  {t(`${link.title.toLowerCase()}`)}
-                </Link>
-              )
-            })}
+          {headerNavLinks.map((link) => {
+            const isSelected = activeSection === link.href.replace('#', '')
+            return (
+              <a
+                key={link.title}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`hidden font-medium ${
+                  isSelected ? 'text-primary-500' : 'text-gray-900 dark:text-gray-100'
+                } sm:block cursor-pointer`}
+              >
+                {t(`${link.title.toLowerCase()}`)}
+              </a>
+            )
+          })}
           <SearchButton />
           <ThemeSwitch />
           <LangSwitch />
           <MobileNav />
+        </div>
         </div>
       </div>
     </header>
@@ -68,3 +124,4 @@ const Header = () => {
 }
 
 export default Header
+

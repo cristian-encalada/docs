@@ -1,4 +1,8 @@
 {
-    "about": "About"
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "blogDescription": "Personal blog where I share my experiences and knowledge about software development, AI and electronics.",
+    "viewAllPosts": "View all posts"
   }
   
