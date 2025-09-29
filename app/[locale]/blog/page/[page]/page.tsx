@@ -5,20 +5,27 @@ import { createTranslation } from 'app/[locale]/i18n/server'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 
 type Props = {
-  params: { locale: LocaleTypes; page: string }
+  params: Promise<{ locale: LocaleTypes; page: string }>
 }
 
 const POSTS_PER_PAGE = 5
 
-export const generateStaticParams = async ({ params: { locale } }: Props) => {
-  const filteredPosts = allBlogs.filter((post) => post.language === locale)
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
-  const paths = Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }))
-
+export const generateStaticParams = async () => {
+  const paths: { locale: string; page: string }[] = []
+  for (const locale of ['en', 'es']) {
+    const filteredPosts = allBlogs.filter((post) => post.language === locale)
+    const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
+    const localePaths = Array.from({ length: totalPages }, (_, i) => ({
+      locale,
+      page: (i + 1).toString(),
+    }))
+    paths.push(...localePaths)
+  }
   return paths
 }
 
-export default async function Page({ params: { locale, page } }: Props) {
+export default async function Page({ params }: Props) {
+  const { locale, page } = await params
   const { t } = await createTranslation(locale, 'home')
   const posts = allCoreContent(sortPosts(allBlogs))
   // Filter posts based on the current locale

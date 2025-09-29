@@ -25,7 +25,7 @@ export default function SinglePageLayout({ locale }: Props) {
   const { t: tAbout } = useTranslation(locale, 'about')
   const { t: tProjects } = useTranslation(locale, 'projects')
   const { t: tHome } = useTranslation(locale, 'home')
-  
+
   // Get author data for About section
   const author = allAuthors.find(
     (a) => a.slug.includes('default') && a.language === locale
@@ -62,7 +62,9 @@ export default function SinglePageLayout({ locale }: Props) {
                   className="h-48 w-48 rounded-full"
                 />
               )}
-              <h3 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{author.name}</h3>
+              <h3 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">
+                {author.name}
+              </h3>
               <div className="text-gray-500 dark:text-gray-400">{author.occupation}</div>
               <div className="text-gray-500 dark:text-gray-400">{author.company}</div>
               <div className="flex space-x-3 pt-6">

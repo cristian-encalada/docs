@@ -74,49 +74,49 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 w-full">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/80">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <div className="flex items-center justify-between py-4">
-        <div>
-          <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
-            <div className="flex items-center justify-between">
-              <div className="mr-3">
-                <Logo />
+          <div>
+            <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
+              <div className="flex items-center justify-between">
+                <div className="mr-3">
+                  <Logo />
+                </div>
+                {typeof siteMetadata.headerTitle === 'string' ? (
+                  <div className="hidden h-6 text-2xl font-semibold sm:block">
+                    {siteMetadata.headerTitle}
+                  </div>
+                ) : (
+                  <div className="hidden text-2xl font-semibold sm:block">
+                    <div>{siteMetadata.headerTitle[0]}</div>
+                    <div className="text-lg">{siteMetadata.headerTitle[1]}</div>
+                  </div>
+                )}
               </div>
-              {typeof siteMetadata.headerTitle === 'string' ? (
-                <div className="hidden h-6 text-2xl font-semibold sm:block">
-                  {siteMetadata.headerTitle}
-                </div>
-              ) : (
-                <div className="hidden text-2xl font-semibold sm:block">
-                  <div>{siteMetadata.headerTitle[0]}</div>
-                  <div className="text-lg">{siteMetadata.headerTitle[1]}</div>
-                </div>
-              )}
-            </div>
-          </Link>
-        </div>
-        <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
-          {headerNavLinks.map((link) => {
-            const isSelected = activeSection === link.href.replace('#', '')
-            return (
-              <a
-                key={link.title}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`hidden font-medium ${
-                  isSelected ? 'text-primary-500' : 'text-gray-900 dark:text-gray-100'
-                } sm:block cursor-pointer`}
-              >
-                {t(`${link.title.toLowerCase()}`)}
-              </a>
-            )
-          })}
-          <SearchButton />
-          <ThemeSwitch />
-          <LangSwitch />
-          <MobileNav />
-        </div>
+            </Link>
+          </div>
+          <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
+            {headerNavLinks.map((link) => {
+              const isSelected = activeSection === link.href.replace('#', '')
+              return (
+                <a
+                  key={link.title}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`hidden font-medium ${
+                    isSelected ? 'text-primary-500' : 'text-gray-900 dark:text-gray-100'
+                  } cursor-pointer sm:block`}
+                >
+                  {t(`${link.title.toLowerCase()}`)}
+                </a>
+              )
+            })}
+            <SearchButton />
+            <ThemeSwitch />
+            <LangSwitch />
+            <MobileNav />
+          </div>
         </div>
       </div>
     </header>
@@ -124,4 +124,3 @@ const Header = () => {
 }
 
 export default Header
-
