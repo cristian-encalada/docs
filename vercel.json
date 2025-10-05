@@ -1,4 +1,3 @@
 {
-  "buildCommand": "yarn run build",
   "installCommand": "yarn install"
 }
