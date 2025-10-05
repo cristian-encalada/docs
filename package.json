@@ -67,7 +67,8 @@
   "resolutions": {
     "next-contentlayer": "^0.3.4",
     "kbar": "^0.1.0-beta.48",
-    "esbuild": "^0.18.20"
+    "esbuild": "^0.18.20",
+    "next": "14.2.5"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
