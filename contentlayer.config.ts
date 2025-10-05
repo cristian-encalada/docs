@@ -194,5 +194,39 @@ export default makeSource({
     generateSlugMap(allBlogs)
     createTagCount(allBlogs)
     createSearchIndex(allBlogs)
+
+    // Fix Contentlayer assert syntax for Node.js 22.x compatibility
+    try {
+      const fs = require('fs')
+      const path = require('path')
+
+      const directoryPath = path.join(process.cwd(), '.contentlayer', 'generated')
+      const fileExtension = '.mjs'
+
+      if (fs.existsSync(directoryPath)) {
+        const files = fs.readdirSync(directoryPath)
+        let filesModified = 0
+
+        files.forEach((file) => {
+          if (path.extname(file) === fileExtension) {
+            const filePath = path.join(directoryPath, file)
+            const data = fs.readFileSync(filePath, 'utf8')
+            const result = data.replace(/assert { type: 'json' }/g, "with { type: 'json' }")
+
+            if (data !== result) {
+              fs.writeFileSync(filePath, result, 'utf8')
+              filesModified++
+              console.log(`Fixed assert syntax in: ${file}`)
+            }
+          }
+        })
+
+        if (filesModified > 0) {
+          console.log(`Contentlayer fix complete. Modified ${filesModified} files.`)
+        }
+      }
+    } catch (error) {
+      console.log('Contentlayer fix completed with warnings:', error.message)
+    }
   },
 })

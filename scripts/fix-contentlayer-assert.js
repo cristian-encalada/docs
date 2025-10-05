@@ -11,44 +11,48 @@ if (!fs.existsSync(directoryPath)) {
   process.exit(0)
 }
 
-fs.readdir(directoryPath, (err, files) => {
-  if (err) {
-    console.log('Unable to scan directory: ' + err)
-    return
+function findMjsFiles(dir) {
+  const files = []
+  const items = fs.readdirSync(dir)
+
+  for (const item of items) {
+    const fullPath = path.join(dir, item)
+    const stat = fs.statSync(fullPath)
+
+    if (stat.isDirectory()) {
+      files.push(...findMjsFiles(fullPath))
+    } else if (path.extname(item) === fileExtension) {
+      files.push(fullPath)
+    }
   }
 
-  let filesProcessed = 0
-  let filesModified = 0
+  return files
+}
 
-  files.forEach((file) => {
-    if (path.extname(file) === fileExtension) {
-      const filePath = path.join(directoryPath, file)
+const mjsFiles = findMjsFiles(directoryPath)
+let filesModified = 0
 
-      fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-          console.log('Unable to read file: ' + err)
-          return
-        }
+mjsFiles.forEach((filePath) => {
+  const relativePath = path.relative(directoryPath, filePath)
 
-        const originalData = data
-        const result = data.replace(/assert { type: 'json' }/g, "with { type: 'json' }")
+  try {
+    const data = fs.readFileSync(filePath, 'utf8')
+    const hasAssert = data.includes("assert { type: 'json' }")
 
-        if (originalData !== result) {
-          fs.writeFile(filePath, result, 'utf8', (err) => {
-            if (err) {
-              console.log('Unable to write file: ' + err)
-              return
-            }
-            filesModified++
-            console.log(`Fixed assert syntax in: ${file}`)
-          })
-        }
-
-        filesProcessed++
-        if (filesProcessed === files.filter((f) => path.extname(f) === fileExtension).length) {
-          console.log(`Contentlayer fix complete. Modified ${filesModified} files.`)
-        }
-      })
+    if (hasAssert) {
+      console.log(`File ${relativePath}: has assert = ${hasAssert}`)
     }
-  })
+
+    const result = data.replace(/assert { type: 'json' }/g, "with { type: 'json' }")
+
+    if (data !== result) {
+      fs.writeFileSync(filePath, result, 'utf8')
+      filesModified++
+      console.log(`Fixed assert syntax in: ${relativePath}`)
+    }
+  } catch (err) {
+    console.log(`Unable to process file ${relativePath}: ${err.message}`)
+  }
 })
+
+console.log(`Contentlayer fix complete. Modified ${filesModified} files.`)
