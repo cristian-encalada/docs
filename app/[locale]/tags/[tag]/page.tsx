@@ -40,7 +40,7 @@ export const generateStaticParams = async ({ params: { locale } }: Props) => {
   return paths
 }
 
-export default function TagPage({ params: { tag, locale } }: Props) {
+export default async function TagPage({ params: { tag, locale } }: Props) {
   const dtag = decodeURI(tag)
   // Capitalize first letter and convert space to dash
   const title = dtag[0].toUpperCase() + dtag.split(' ').join('-').slice(1)

@@ -1,4 +1,8 @@
 {
-    "about": "Acerca de mi"
+    "about": "Acerca de mi",
+    "projects": "Proyectos",
+    "blog": "Blog",
+    "blogDescription": "Blog personal donde comparto mis experiencias y conocimientos sobre desarrollo de software, IA y electrónica.",
+    "viewAllPosts": "Ver todas las publicaciones"
   }
   

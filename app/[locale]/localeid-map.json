@@ -1,65 +1,77 @@
 {
-  "linearvslogistic": {
-    "en": "en/2025-06-09-linear-vs-logistic-regression",
-    "es": "es/2025-06-09-linear-vs-logistic-regression"
-  },
-  "knn": {
-    "en": "en/2025-06-05-knn-algorithm-machine-learning",
-    "es": "es/2025-06-05-knn-algorithm-machine-learning"
-  },
-  "decisiontrees": {
-    "en": "en/2025-06-02-decision-trees-machine-learning",
-    "es": "es/2025-06-02-decision-trees-machine-learning"
-  },
-  "mlapproaches": {
-    "en": "en/2025-05-30-machine-learning-approaches-comparison",
-    "es": "es/2025-05-30-machine-learning-approaches-comparison"
-  },
-  "mloverview": {
-    "en": "en/2025-05-26-machine-learning-overview",
-    "es": "es/2025-05-26-machine-learning-overview"
-  },
-  "probdistributions": {
-    "en": "en/2025-05-05-probability-distributions",
-    "es": "es/2025-05-05-probability-distributions"
-  },
-  "statsoverview": {
-    "en": "en/2025-04-28-statistics-overview",
-    "es": "es/2025-04-28-statistics-overview"
-  },
-  "statsvsprob": {
-    "en": "en/2025-04-21-statistics-vs-probability",
-    "es": "es/2025-04-21-statistics-vs-probability"
-  },
-  "awsecsvsfargate": {
-    "en": "en/2023-09-22-AWS-ECS-vs-Fargate",
-    "es": "es/2023-09-22-AWS-ECS-vs-Fargate-es"
-  },
-  "linuxwmvsde": {
-    "en": "en/2023-09-15-linux-desktop-environments-vs-window-managers",
-    "es": "es/2023-09-15-linux-desktop-environments-vs-window-managers-es"
-  },
-  "archlinuxdualboot": {
-    "en": "en/2023-09-08-install-arch-linux-dual-boot-win10-UEFI"
-  },
-  "itseries": {
-    "en": "en/2023-09-01-programming-related-series",
-    "es": "es/2023-09-01-programming-related-series-es"
-  },
-  "gitsshkey": {
-    "en": "en/2023-08-25-configure-git-github-ssh-key",
-    "es": "es/2023-08-25-configure-git-github-ssh-key-es"
-  },
-  "proglangclassification": {
-    "en": "en/2023-08-18-programming-languages-classification",
-    "es": "es/2023-08-18-programming-languages-classification-es"
+  "markdownguide": {
+    "en": "en/2019-10-11-github-markdown-cheatsheet",
+    "es": "es/2019-10-11-github-markdown-cheatsheet-es"
   },
   "snakegraph": {
     "en": "en/2023-08-11-generate-snake-graph-github-actions",
     "es": "es/2023-08-11-generate-snake-graph-github-actions-es"
   },
-  "markdownguide": {
-    "en": "en/2019-10-11-github-markdown-cheatsheet",
-    "es": "es/2019-10-11-github-markdown-cheatsheet-es"
+  "proglangclassification": {
+    "en": "en/2023-08-18-programming-languages-classification",
+    "es": "es/2023-08-18-programming-languages-classification-es"
+  },
+  "gitsshkey": {
+    "en": "en/2023-08-25-configure-git-github-ssh-key",
+    "es": "es/2023-08-25-configure-git-github-ssh-key-es"
+  },
+  "itseries": {
+    "en": "en/2023-09-01-programming-related-series",
+    "es": "es/2023-09-01-programming-related-series-es"
+  },
+  "archlinuxdualboot": {
+    "en": "en/2023-09-08-install-arch-linux-dual-boot-win10-UEFI"
+  },
+  "linuxwmvsde": {
+    "en": "en/2023-09-15-linux-desktop-environments-vs-window-managers",
+    "es": "es/2023-09-15-linux-desktop-environments-vs-window-managers-es"
+  },
+  "awsecsvsfargate": {
+    "en": "en/2023-09-22-AWS-ECS-vs-Fargate",
+    "es": "es/2023-09-22-AWS-ECS-vs-Fargate-es"
+  },
+  "statsvsprob": {
+    "en": "en/2025-04-21-statistics-vs-probability",
+    "es": "es/2025-04-21-statistics-vs-probability"
+  },
+  "statsoverview": {
+    "en": "en/2025-04-28-statistics-overview",
+    "es": "es/2025-04-28-statistics-overview"
+  },
+  "probdistributions": {
+    "en": "en/2025-05-05-probability-distributions",
+    "es": "es/2025-05-05-probability-distributions"
+  },
+  "mloverview": {
+    "en": "en/2025-05-26-machine-learning-overview",
+    "es": "es/2025-05-26-machine-learning-overview"
+  },
+  "mlapproaches": {
+    "en": "en/2025-05-30-machine-learning-approaches-comparison",
+    "es": "es/2025-05-30-machine-learning-approaches-comparison"
+  },
+  "decisiontrees": {
+    "en": "en/2025-06-02-decision-trees-machine-learning",
+    "es": "es/2025-06-02-decision-trees-machine-learning"
+  },
+  "knn": {
+    "en": "en/2025-06-05-knn-algorithm-machine-learning",
+    "es": "es/2025-06-05-knn-algorithm-machine-learning"
+  },
+  "linearvslogistic": {
+    "en": "en/2025-06-09-linear-vs-logistic-regression",
+    "es": "es/2025-06-09-linear-vs-logistic-regression"
+  },
+  "annoverviw": {
+    "en": "en/2025-06-13-artificial-neural-networks-overview",
+    "es": "es/2025-06-13-artificial-neural-networks-overview"
+  },
+  "clustering": {
+    "en": "en/2025-06-16-unsupervised-learning-clustering",
+    "es": "es/2025-06-16-unsupervised-learning-clustering"
+  },
+  "classification-methodology": {
+    "en": "en/2025-06-20-classification-methodology-supervised-learning",
+    "es": "es/2025-06-20-classification-methodology-supervised-learning"
   }
 }
