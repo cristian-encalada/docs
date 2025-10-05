@@ -1,13 +1,14 @@
 const fs = require('fs')
 const path = require('path')
 
-const directoryPath = path.join(__dirname, '..', '.contentlayer', 'generated')
+const generatedPath = path.join(__dirname, '..', '.contentlayer', 'generated')
+const cachePath = path.join(__dirname, '..', '.contentlayer', '.cache')
 const fileExtension = '.mjs'
 
 console.log('Fixing Contentlayer assert syntax...')
 
-if (!fs.existsSync(directoryPath)) {
-  console.log('Contentlayer generated directory not found, skipping...')
+if (!fs.existsSync(generatedPath) && !fs.existsSync(cachePath)) {
+  console.log('Contentlayer directories not found, skipping...')
   process.exit(0)
 }
 
@@ -29,11 +30,19 @@ function findMjsFiles(dir) {
   return files
 }
 
-const mjsFiles = findMjsFiles(directoryPath)
+// Process both generated and cache directories
+const allMjsFiles = []
+if (fs.existsSync(generatedPath)) {
+  allMjsFiles.push(...findMjsFiles(generatedPath))
+}
+if (fs.existsSync(cachePath)) {
+  allMjsFiles.push(...findMjsFiles(cachePath))
+}
+
 let filesModified = 0
 
-mjsFiles.forEach((filePath) => {
-  const relativePath = path.relative(directoryPath, filePath)
+allMjsFiles.forEach((filePath) => {
+  const relativePath = path.relative(process.cwd(), filePath)
 
   try {
     const data = fs.readFileSync(filePath, 'utf8')
