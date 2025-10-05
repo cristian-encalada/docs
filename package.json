@@ -53,6 +53,7 @@
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
     "cross-env": "^7.0.3",
+    "esbuild": "^0.18.20",
     "eslint": "^8.45.0",
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "^8.8.0",
@@ -65,7 +66,8 @@
   },
   "resolutions": {
     "next-contentlayer": "^0.3.4",
-    "kbar": "^0.1.0-beta.48"
+    "kbar": "^0.1.0-beta.48",
+    "esbuild": "^0.18.20"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
