@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "app/api/**/*.ts": {
-      "runtime": "nodejs21.x"
-    }
-  },
   "buildCommand": "yarn run build",
   "installCommand": "yarn install"
 }
