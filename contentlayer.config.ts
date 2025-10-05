@@ -200,24 +200,44 @@ export default makeSource({
       const fs = require('fs')
       const path = require('path')
 
+      function findMjsFiles(dir: string): string[] {
+        const files: string[] = []
+        const items = fs.readdirSync(dir)
+
+        for (const item of items) {
+          const fullPath = path.join(dir, item)
+          const stat = fs.statSync(fullPath)
+
+          if (stat.isDirectory()) {
+            files.push(...findMjsFiles(fullPath))
+          } else if (path.extname(item) === '.mjs') {
+            files.push(fullPath)
+          }
+        }
+
+        return files
+      }
+
       const directoryPath = path.join(process.cwd(), '.contentlayer', 'generated')
-      const fileExtension = '.mjs'
+      let filesModified = 0
 
       if (fs.existsSync(directoryPath)) {
-        const files = fs.readdirSync(directoryPath)
-        let filesModified = 0
+        const mjsFiles = findMjsFiles(directoryPath)
 
-        files.forEach((file) => {
-          if (path.extname(file) === fileExtension) {
-            const filePath = path.join(directoryPath, file)
+        mjsFiles.forEach((filePath) => {
+          const relativePath = path.relative(directoryPath, filePath)
+
+          try {
             const data = fs.readFileSync(filePath, 'utf8')
             const result = data.replace(/assert { type: 'json' }/g, "with { type: 'json' }")
 
             if (data !== result) {
               fs.writeFileSync(filePath, result, 'utf8')
               filesModified++
-              console.log(`Fixed assert syntax in: ${file}`)
+              console.log(`Fixed assert syntax in: ${relativePath}`)
             }
+          } catch (err) {
+            console.log(`Unable to process file ${relativePath}: ${err.message}`)
           }
         })
 
