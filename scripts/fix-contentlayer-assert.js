@@ -46,13 +46,17 @@ allMjsFiles.forEach((filePath) => {
 
   try {
     const data = fs.readFileSync(filePath, 'utf8')
-    const hasAssert = data.includes("assert { type: 'json' }")
+    const hasAssert = /assert\s*{\s*type:\s*['"]json['"]\s*}/.test(data)
 
     if (hasAssert) {
       console.log(`File ${relativePath}: has assert = ${hasAssert}`)
     }
 
-    const result = data.replace(/assert { type: 'json' }/g, "with { type: 'json' }")
+    // Fix various assert patterns that cause Node.js compatibility issues
+    let result = data
+      .replace(/assert\s*{\s*type:\s*['"]json['"]\s*}/g, "with { type: 'json' }")
+      .replace(/assert\s*\(\s*{\s*type:\s*['"]json['"]\s*}\s*\)/g, "with { type: 'json' }")
+      .replace(/assert\s*{\s*type:\s*['"]json['"]\s*}/g, "with { type: 'json' }")
 
     if (data !== result) {
       fs.writeFileSync(filePath, result, 'utf8')

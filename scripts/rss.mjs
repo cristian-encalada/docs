@@ -9,7 +9,9 @@ import { sortPosts } from 'pliny/utils/contentlayer.js'
 const defaultLocale = 'en'
 
 // Load tag data dynamically
-const tagData = JSON.parse(await fs.readFile(path.join(process.cwd(), 'app/[locale]/tag-data.json'), 'utf-8'))
+const tagData = JSON.parse(
+  await fs.readFile(path.join(process.cwd(), 'app/[locale]/tag-data.json'), 'utf-8')
+)
 
 const generateRssItem = (config, post, locale) => `
   <item>
@@ -46,9 +48,9 @@ async function generateRSS(config, allBlogs, locale, page = 'feed.xml') {
   // RSS for blog post
   if (publishPosts.length > 0) {
     const rss = generateRss(config, sortPosts(publishPosts))
-    const directoryPath = path.join('public', locale);
-    mkdirSync(directoryPath, { recursive: true }); // Create the directory if it doesn't exist
-    writeFileSync(path.join(directoryPath, page), rss);
+    const directoryPath = path.join('public', locale)
+    mkdirSync(directoryPath, { recursive: true }) // Create the directory if it doesn't exist
+    writeFileSync(path.join(directoryPath, page), rss)
   }
 
   if (publishPosts.length > 0) {
@@ -58,7 +60,7 @@ async function generateRSS(config, allBlogs, locale, page = 'feed.xml') {
       )
       const rss = generateRss(config, filteredPosts, `tags/${tag}/${page}`)
       const rssPath = path.join('public', locale, 'tags', tag)
-      mkdirSync(rssPath, { recursive: true }); // Create the directory if it doesn't exist
+      mkdirSync(rssPath, { recursive: true }) // Create the directory if it doesn't exist
       writeFileSync(path.join(rssPath, page), rss)
     }
   }

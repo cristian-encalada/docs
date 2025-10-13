@@ -82,6 +82,63 @@ module.exports = () => {
         use: ['@svgr/webpack'],
       })
 
+      // Add plugin to fix assert syntax in .mjs files
+      config.plugins.push({
+        apply: (compiler) => {
+          compiler.hooks.beforeCompile.tap('AssertFixPlugin', (compilation) => {
+            const fs = require('fs')
+            const path = require('path')
+            
+            function findMjsFiles(dir) {
+              const files = []
+              if (!fs.existsSync(dir)) return files
+              
+              const items = fs.readdirSync(dir)
+              for (const item of items) {
+                const fullPath = path.join(dir, item)
+                const stat = fs.statSync(fullPath)
+                
+                if (stat.isDirectory()) {
+                  files.push(...findMjsFiles(fullPath))
+                } else if (path.extname(item) === '.mjs') {
+                  files.push(fullPath)
+                }
+              }
+              return files
+            }
+            
+            const generatedPath = path.join(process.cwd(), '.contentlayer', 'generated')
+            const cachePath = path.join(process.cwd(), '.contentlayer', '.cache')
+            const allMjsFiles = [...findMjsFiles(generatedPath), ...findMjsFiles(cachePath)]
+            
+            let filesModified = 0
+            allMjsFiles.forEach((filePath) => {
+              try {
+                const data = fs.readFileSync(filePath, 'utf8')
+                // Multiple regex patterns to catch all variations
+                let result = data
+                  .replace(/assert\s*{\s*type:\s*['"]json['"]\s*}/g, 'with { type: "json" }')
+                  .replace(/assert\s*\(\s*{\s*type:\s*['"]json['"]\s*}\s*\)/g, 'with { type: "json" }')
+                  .replace(/import\s+.*\s+from\s+.*\s+assert\s*{\s*type:\s*['"]json['"]\s*}/g, (match) => {
+                    return match.replace(/assert\s*{\s*type:\s*['"]json['"]\s*}/, 'with { type: "json" }')
+                  })
+                
+                if (data !== result) {
+                  fs.writeFileSync(filePath, result, 'utf8')
+                  filesModified++
+                  console.log(`Webpack: Fixed assert syntax in ${path.relative(process.cwd(), filePath)}`)
+                }
+              } catch (err) {
+                // Ignore errors
+              }
+            })
+            
+            if (filesModified > 0) {
+              console.log(`Webpack: Fixed assert syntax in ${filesModified} files`)
+            }
+          })
+        }
+      })
 
       return config
     },

@@ -1,5 +1,8 @@
 {
   "installCommand": "yarn install",
   "buildCommand": "yarn run build",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "env": {
+    "NODE_OPTIONS": "--experimental-json-modules --no-warnings"
+  }
 }

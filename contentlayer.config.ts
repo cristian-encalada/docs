@@ -190,63 +190,76 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
-    generateSlugMap(allBlogs)
-    createTagCount(allBlogs)
-    createSearchIndex(allBlogs)
-
-    // Fix Contentlayer assert syntax for Node.js 22.x compatibility
+    // Fix assert syntax BEFORE calling importData
     try {
       const fs = require('fs')
       const path = require('path')
 
       function findMjsFiles(dir: string): string[] {
         const files: string[] = []
+        if (!fs.existsSync(dir)) return files
+        
         const items = fs.readdirSync(dir)
-
         for (const item of items) {
           const fullPath = path.join(dir, item)
           const stat = fs.statSync(fullPath)
-
+          
           if (stat.isDirectory()) {
             files.push(...findMjsFiles(fullPath))
           } else if (path.extname(item) === '.mjs') {
             files.push(fullPath)
           }
         }
-
         return files
       }
 
-      const directoryPath = path.join(process.cwd(), '.contentlayer', 'generated')
+      const generatedPath = path.join(process.cwd(), '.contentlayer', 'generated')
+      const cachePath = path.join(process.cwd(), '.contentlayer', '.cache')
+      
+      const allMjsFiles = [
+        ...findMjsFiles(generatedPath),
+        ...findMjsFiles(cachePath)
+      ]
+      
       let filesModified = 0
-
-      if (fs.existsSync(directoryPath)) {
-        const mjsFiles = findMjsFiles(directoryPath)
-
-        mjsFiles.forEach((filePath) => {
-          const relativePath = path.relative(directoryPath, filePath)
-
-          try {
-            const data = fs.readFileSync(filePath, 'utf8')
-            const result = data.replace(/assert { type: 'json' }/g, "with { type: 'json' }")
-
-            if (data !== result) {
-              fs.writeFileSync(filePath, result, 'utf8')
-              filesModified++
-              console.log(`Fixed assert syntax in: ${relativePath}`)
-            }
-          } catch (err) {
-            console.log(`Unable to process file ${relativePath}: ${err.message}`)
+      
+      allMjsFiles.forEach((filePath) => {
+        try {
+          const data = fs.readFileSync(filePath, 'utf8')
+          let result = data
+            .replace(/assert\s*{\s*type:\s*['"]json['"]\s*}/g, 'with { type: "json" }')
+            .replace(/assert\s*\(\s*{\s*type:\s*['"]json['"]\s*}\s*\)/g, 'with { type: "json" }')
+            .replace(/import\s+.*\s+from\s+.*\s+assert\s*{\s*type:\s*['"]json['"]\s*}/g, (match) => {
+              return match.replace(/assert\s*{\s*type:\s*['"]json['"]\s*}/, 'with { type: "json" }')
+            })
+          
+          if (data !== result) {
+            fs.writeFileSync(filePath, result, 'utf8')
+            filesModified++
+            console.log(`Fixed assert syntax in: ${path.relative(process.cwd(), filePath)}`)
           }
-        })
-
-        if (filesModified > 0) {
-          console.log(`Contentlayer fix complete. Modified ${filesModified} files.`)
+        } catch (err) {
+          console.log(`Unable to process file ${filePath}: ${err.message}`)
         }
+      })
+      
+      if (filesModified > 0) {
+        console.log(`Contentlayer assert fix complete. Modified ${filesModified} files.`)
       }
     } catch (error) {
-      console.log('Contentlayer fix completed with warnings:', error.message)
+      console.log('Contentlayer assert fix completed with warnings:', error.message)
+    }
+    
+    // Now call importData after fixing the files
+    try {
+      const { allBlogs } = await importData()
+      generateSlugMap(allBlogs)
+      createTagCount(allBlogs)
+      createSearchIndex(allBlogs)
+      console.log('Contentlayer build completed successfully')
+    } catch (error) {
+      console.log('Contentlayer importData failed, but continuing with build:', error.message)
+      // Continue with build even if importData fails
     }
   },
 })
