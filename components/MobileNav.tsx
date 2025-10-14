@@ -61,7 +61,7 @@ const MobileNav = () => {
             </svg>
           </button>
         </div>
-        <nav className="flex flex-col items-center justify-center h-full">
+        <nav className="flex h-full flex-col items-center justify-center">
           {headerNavLinks.map((link) => (
             <div key={link.title} className="py-4">
               <Link

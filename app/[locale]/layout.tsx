@@ -88,7 +88,10 @@ export default async function RootLayout({
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white" suppressHydrationWarning>
+      <body
+        className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white"
+        suppressHydrationWarning
+      >
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <div className="flex h-screen flex-col justify-between font-sans">
