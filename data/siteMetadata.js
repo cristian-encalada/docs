@@ -7,7 +7,7 @@ const siteMetadata = {
   language: 'en',
   theme: 'system', // system, dark or light
   siteUrl: 'https://cristian-encalada-blog.vercel.app/',
-  siteRepo: 'https://github.com/cristian-encalada/dev',
+  siteRepo: 'https://github.com/cristian-encalada/docs',
   siteLogo: '/static/images/monogram_logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
