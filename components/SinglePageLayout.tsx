@@ -125,22 +125,7 @@ export default function SinglePageLayout({ locale }: Props) {
             </p>
           </div>
           <div className="py-12">
-            <div className="flex sm:space-x-24">
-              <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded bg-gray-50 pt-5 shadow-md dark:bg-gray-900/70 dark:shadow-gray-800/40 sm:flex">
-                <div className="px-6 py-4">
-                  <h3 className="font-bold uppercase text-primary-500">{tHome('all')}</h3>
-                  <ul>
-                    {Object.keys(tagCountMap).map((postTag) => (
-                      <li key={postTag} className="my-3">
-                        <span className="px-3 py-2 text-sm font-medium uppercase text-gray-500 dark:text-gray-300">
-                          {postTag} ({tagCountMap[postTag]})
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div>
+            <div>
                 <ul>
                   {displayPosts.map((post) => {
                     const { path, date, title, summary, tags, language } = post
@@ -190,7 +175,6 @@ export default function SinglePageLayout({ locale }: Props) {
                     </Link>
                   </div>
                 )}
-              </div>
             </div>
           </div>
         </div>
