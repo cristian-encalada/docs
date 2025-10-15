@@ -1,13 +1,12 @@
 'use client'
 
 import { ReactNode } from 'react'
-import { useTheme } from 'next-themes'
 import { Authors, allAuthors } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import SocialIcon from '@/components/social-icons'
-import Image from '@/components/Image'
+import ThemeAwareAvatar from '@/components/ThemeAwareAvatar'
 import Card from '@/components/Card'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
@@ -23,7 +22,6 @@ interface Props {
 }
 
 export default function SinglePageLayout({ locale }: Props) {
-  const { resolvedTheme } = useTheme()
   const { t: tAbout } = useTranslation(locale, 'about')
   const { t: tProjects } = useTranslation(locale, 'projects')
   const { t: tHome } = useTranslation(locale, 'home')
@@ -56,12 +54,7 @@ export default function SinglePageLayout({ locale }: Props) {
           <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
             <div className="flex flex-col items-center space-x-2 pt-8">
               {author.avatar && (
-                <Image
-                  src={
-                    resolvedTheme === 'dark'
-                      ? '/static/images/ce_logo_dark.svg'
-                      : '/static/images/ce_logo_light.svg'
-                  }
+                <ThemeAwareAvatar
                   alt="avatar"
                   width={192}
                   height={192}
