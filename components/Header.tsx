@@ -2,9 +2,10 @@
 
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/monogram-logo.svg'
 import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
@@ -17,6 +18,7 @@ const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
   const { t } = useTranslation(locale, '')
   const pathname = usePathname()
+  const { theme, resolvedTheme } = useTheme()
   const [activeSection, setActiveSection] = useState('about')
 
   // Handle smooth scrolling to sections
@@ -74,14 +76,30 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/80">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-neutral-900/80">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <div className="flex items-center justify-between py-4">
           <div>
             <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
               <div className="flex items-center justify-between">
                 <div className="mr-3">
-                  <Logo />
+                  {resolvedTheme === 'dark' ? (
+                    <Image
+                      src="/static/images/ce_logo_dark.svg"
+                      alt="Cristian Encalada Logo"
+                      width={32}
+                      height={32}
+                      className="h-8 w-8"
+                    />
+                  ) : (
+                    <Image
+                      src="/static/images/ce_logo_light.svg"
+                      alt="Cristian Encalada Logo"
+                      width={32}
+                      height={32}
+                      className="h-8 w-8"
+                    />
+                  )}
                 </div>
                 {typeof siteMetadata.headerTitle === 'string' ? (
                   <div className="hidden h-6 text-2xl font-semibold sm:block">

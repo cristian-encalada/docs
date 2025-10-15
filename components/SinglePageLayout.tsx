@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react'
+import { useTheme } from 'next-themes'
 import { Authors, allAuthors } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
@@ -22,6 +23,7 @@ interface Props {
 }
 
 export default function SinglePageLayout({ locale }: Props) {
+  const { resolvedTheme } = useTheme()
   const { t: tAbout } = useTranslation(locale, 'about')
   const { t: tProjects } = useTranslation(locale, 'projects')
   const { t: tHome } = useTranslation(locale, 'home')
@@ -55,7 +57,11 @@ export default function SinglePageLayout({ locale }: Props) {
             <div className="flex flex-col items-center space-x-2 pt-8">
               {author.avatar && (
                 <Image
-                  src={author.avatar}
+                  src={
+                    resolvedTheme === 'dark'
+                      ? '/static/images/ce_logo_dark.svg'
+                      : '/static/images/ce_logo_light.svg'
+                  }
                   alt="avatar"
                   width={192}
                   height={192}

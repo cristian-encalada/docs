@@ -1,4 +1,7 @@
+'use client'
+
 import { ReactNode } from 'react'
+import { useTheme } from 'next-themes'
 import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
@@ -10,6 +13,7 @@ interface Props {
 }
 
 export default function AuthorLayout({ children, content, t }: Props) {
+  const { resolvedTheme } = useTheme()
   const { name, avatar, occupation, company, email, twitter, linkedin, github } = content
 
   return (
@@ -24,7 +28,11 @@ export default function AuthorLayout({ children, content, t }: Props) {
           <div className="flex flex-col items-center space-x-2 pt-8">
             {avatar && (
               <Image
-                src={avatar}
+                src={
+                  resolvedTheme === 'dark'
+                    ? '/static/images/ce_logo_dark.svg'
+                    : '/static/images/ce_logo_light.svg'
+                }
                 alt="avatar"
                 width={192}
                 height={192}
