@@ -1,8 +1,4 @@
 {
-  "markdownguide": {
-    "en": "en/2019-10-11-github-markdown-cheatsheet",
-    "es": "es/2019-10-11-github-markdown-cheatsheet-es"
-  },
   "snakegraph": {
     "en": "en/2023-08-11-generate-snake-graph-github-actions",
     "es": "es/2023-08-11-generate-snake-graph-github-actions-es"
@@ -32,46 +28,6 @@
   },
   "statsvsprob": {
     "en": "en/2025-04-21-statistics-vs-probability",
-    "es": "es/2025-04-21-statistics-vs-probability"
-  },
-  "statsoverview": {
-    "en": "en/2025-04-28-statistics-overview",
-    "es": "es/2025-04-28-statistics-overview"
-  },
-  "probdistributions": {
-    "en": "en/2025-05-05-probability-distributions",
-    "es": "es/2025-05-05-probability-distributions"
-  },
-  "mloverview": {
-    "en": "en/2025-05-26-machine-learning-overview",
-    "es": "es/2025-05-26-machine-learning-overview"
-  },
-  "mlapproaches": {
-    "en": "en/2025-05-30-machine-learning-approaches-comparison",
-    "es": "es/2025-05-30-machine-learning-approaches-comparison"
-  },
-  "decisiontrees": {
-    "en": "en/2025-06-02-decision-trees-machine-learning",
-    "es": "es/2025-06-02-decision-trees-machine-learning"
-  },
-  "knn": {
-    "en": "en/2025-06-05-knn-algorithm-machine-learning",
-    "es": "es/2025-06-05-knn-algorithm-machine-learning"
-  },
-  "linearvslogistic": {
-    "en": "en/2025-06-09-linear-vs-logistic-regression",
-    "es": "es/2025-06-09-linear-vs-logistic-regression"
-  },
-  "annoverviw": {
-    "en": "en/2025-06-13-artificial-neural-networks-overview",
-    "es": "es/2025-06-13-artificial-neural-networks-overview"
-  },
-  "clustering": {
-    "en": "en/2025-06-16-unsupervised-learning-clustering",
-    "es": "es/2025-06-16-unsupervised-learning-clustering"
-  },
-  "classification-methodology": {
-    "en": "en/2025-06-20-classification-methodology-supervised-learning",
-    "es": "es/2025-06-20-classification-methodology-supervised-learning"
+    "es": "es/2025-04-21-statistics-vs-probability-es"
   }
 }

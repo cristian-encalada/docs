@@ -3,7 +3,6 @@
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Link from './Link'
@@ -11,6 +10,7 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import LangSwitch from './LangSwitch'
 import SearchButton from './search/SearchButton'
+import ThemeAwareAvatar from './ThemeAwareAvatar'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import type { LocaleTypes } from 'app/[locale]/i18n/settings'
 
@@ -25,11 +25,21 @@ const Header = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     const targetId = href.replace('#', '')
-    const element = document.getElementById(targetId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      // Update URL hash
-      window.history.pushState(null, '', href)
+
+    // Check if we're on the home page
+    const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`
+
+    if (isHomePage) {
+      // On home page, scroll to section
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        // Update URL hash
+        window.history.pushState(null, '', href)
+      }
+    } else {
+      // On other pages, navigate to home page with hash
+      window.location.href = `/${locale}/#${targetId}`
     }
   }
 
@@ -83,23 +93,12 @@ const Header = () => {
             <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
               <div className="flex items-center justify-between">
                 <div className="mr-3">
-                  {resolvedTheme === 'dark' ? (
-                    <Image
-                      src="/static/images/ce_logo_dark.svg"
-                      alt="Cristian Encalada Logo"
-                      width={32}
-                      height={32}
-                      className="h-8 w-8"
-                    />
-                  ) : (
-                    <Image
-                      src="/static/images/ce_logo_light.svg"
-                      alt="Cristian Encalada Logo"
-                      width={32}
-                      height={32}
-                      className="h-8 w-8"
-                    />
-                  )}
+                  <ThemeAwareAvatar
+                    alt="Cristian Encalada Logo"
+                    width={32}
+                    height={32}
+                    className="h-8 w-8"
+                  />
                 </div>
                 {typeof siteMetadata.headerTitle === 'string' ? (
                   <div className="hidden h-6 text-2xl font-semibold sm:block">

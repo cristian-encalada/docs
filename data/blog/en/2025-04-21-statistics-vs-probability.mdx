@@ -21,23 +21,30 @@ summary: In this post, we’ll explore the differences and relationships between
 
 Understanding the difference between **statistics** and **probability** is crucial when diving into the world of data science and machine learning. Although they're deeply interconnected, they approach uncertainty from opposite directions.
 
----
+## Table of contents
 
-## 🧬 Why Were They Created?
+1. [Why were they created?](#why-were-they-created)
+2. [Probability: Forward thinking](#probability-forward-thinking)
+3. [Statistics: Reverse engineering](#statistics-reverse-engineering)
+4. [An analogy: Detective vs. Fortune teller](#an-analogy-detective-vs-fortune-teller)
+5. [Two sides of the same coin](#two-sides-of-the-same-coin)
+6. [Why it matters](#why-it-matters)
+7. [Conclusion](#conclusion)
+8. [References](#references)
+
+## Why were they created?
 
 Both statistics and probability were born out of **real-world needs**:
 
-- 📈 **Statistics** was developed for practical use — to summarize data, track populations, and guide decision-making in governance and science. Its roots go back to the 17th century when states began using data to understand their populations (hence the name *statistics* from *state*).
+- **Statistics** was developed for practical use — to summarize data, track populations, and guide decision-making in governance and science. Its roots go back to the 17th century when states began using data to understand their populations (hence the name *statistics* from *state*).
   
-- 🎲 **Probability**, on the other hand, arose from attempts to **analyze games of chance**. Mathematicians like Pascal and Fermat laid the foundation trying to answer questions like: *What's the chance of winning a dice game under certain conditions?*
+- **Probability**, on the other hand, arose from attempts to **analyze games of chance**. Mathematicians like Pascal and Fermat laid the foundation trying to answer questions like: *What's the chance of winning a dice game under certain conditions?*
 
 So in a way:
-> 🏛 Statistics was born in government.  
-> 🎰 Probability was born in gambling.
+> Statistics was born in government.  
+> Probability was born in gambling.
 
----
-
-## 🧠 Probability: Forward Thinking
+## Probability: Forward thinking
 
 Probability is about **predicting outcomes**. Given a known model or process, we use probability to calculate the likelihood of various results.
 
@@ -45,11 +52,9 @@ Probability is about **predicting outcomes**. Given a known model or process, we
 - It moves from the **general** to the **specific**.
 - Example: If we assume a coin is fair, what is the probability of getting 3 heads in 5 tosses?
 
-This is a *forward problem* — we know the mechanics of the system, and we’re estimating the outcomes.
+This is a *forward problem* — we know the mechanics of the system, and we're estimating the outcomes.
 
----
-
-## 📊 Statistics: Reverse Engineering
+## Statistics: Reverse engineering
 
 Statistics, on the other hand, is about **inferring the model** from observed data.
 
@@ -57,24 +62,20 @@ Statistics, on the other hand, is about **inferring the model** from observed da
 - It moves from the **specific** to the **general**.
 - Example: We toss a coin 100 times and get 73 heads. Is the coin fair?
 
-This is a *reverse problem* — we’re using real-world outcomes to estimate what’s going on behind the scenes.
+This is a *reverse problem* — we're using real-world outcomes to estimate what's going on behind the scenes.
 
----
+## An analogy: Detective vs. Fortune teller
 
-## 🕵️‍♂️ An Analogy: Detective vs. Fortune Teller
-
-Here’s a mental model that helps clarify the difference:
+Here's a mental model that helps clarify the difference:
 
 | Role           | Description                                                                 |
 |----------------|-----------------------------------------------------------------------------|
-| 🔮 **Probability** | Like a **fortune teller**. We know the rules of the universe (e.g., dice odds) and try to **predict what will happen next**. |
-| 🕵️ **Statistics**   | Like a **detective**. Something already happened, and now we’re **trying to figure out how and why**, based on clues (data). |
+| **Probability** | Like a **fortune teller**. We know the rules of the universe (e.g., dice odds) and try to **predict what will happen next**. |
+| **Statistics**   | Like a **detective**. Something already happened, and now we're **trying to figure out how and why**, based on clues (data). |
 
 Both deal with uncertainty — but from **opposite directions**.
 
----
-
-## 🔁 Two Sides of the Same Coin
+## Two sides of the same coin
 
 | Concept       | Probability                           | Statistics                             |
 |---------------|----------------------------------------|----------------------------------------|
@@ -85,9 +86,7 @@ Both deal with uncertainty — but from **opposite directions**.
 
 Many ML concepts — like Bayesian inference — blur the lines and use both perspectives simultaneously.
 
----
-
-## 🧭 Why It Matters
+## Why it matters
 
 Understanding both helps us:
 
@@ -95,12 +94,17 @@ Understanding both helps us:
 - Better evaluate uncertainty and risk in models.
 - Build stronger foundations for ML, especially in areas like **Bayesian methods**, **A/B testing**, and **randomized algorithms**.
 
----
-
-## Final Thoughts
+## Conclusion
 
 Probability and statistics are like two lenses for looking at the same reality. Mastering both gives us a more complete toolkit for solving data-driven problems.
 
----
+> "Probability is deductive; statistics is inductive."
 
-> “Probability is deductive; statistics is inductive.”
+Thanks for reading!
+
+## References
+
+- [Khan Academy - Statistics and Probability](https://www.khanacademy.org/math/statistics-probability)
+- [MIT OpenCourseWare - Introduction to Probability and Statistics](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/)
+- [Stanford CS229 - Machine Learning Course Notes](https://cs229.stanford.edu/syllabus.html)
+
