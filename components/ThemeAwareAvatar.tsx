@@ -22,13 +22,7 @@ export default function ThemeAwareAvatar({ width, height, className, alt }: Them
 
   if (!mounted) {
     // Return a placeholder with the same dimensions during SSR
-    return (
-      <div 
-        className={className}
-        style={{ width, height }}
-        aria-label={alt}
-      />
-    )
+    return <div className={className} style={{ width, height }} aria-label={alt} />
   }
 
   return (
