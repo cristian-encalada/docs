@@ -1,7 +1,37 @@
 {
   "title": "Projects",
   "description": "These are some projects that I worked on",
+  "overviewDescription": "Explore my projects across web development, electronics/IoT, AI/software engineering, and game development.",
   "learn": "View Demo",
   "subtitle": "Here you will find information about my current projects",
-  "linkto": "Link to"
+  "linkto": "Link to",
+  "all": "All",
+  "filterByTag": "Filter by tag",
+  "sortByDate": "Sort by date",
+  "sortByTitle": "Sort by title",
+  "projectCount": "projects",
+  "viewAllProjects": "View all projects",
+  "code": "Code",
+  "preview": "Preview",
+  "documentation": "Documentation",
+  "demo": "Demo",
+  "paper": "Paper",
+  "categories": {
+    "web": {
+      "title": "Web Development",
+      "description": "Full-stack web applications and modern web technologies"
+    },
+    "electronics": {
+      "title": "Electronics & IoT",
+      "description": "Arduino, Raspberry Pi, ESP32 projects and embedded systems"
+    },
+    "software": {
+      "title": "AI & Software",
+      "description": "Machine Learning, Computer Vision, and software engineering"
+    },
+    "gamedev": {
+      "title": "Game Development",
+      "description": "Game mods, add-ons, and interactive gaming experiences"
+    }
+  }
 }

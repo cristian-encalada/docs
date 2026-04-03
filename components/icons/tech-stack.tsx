@@ -231,6 +231,65 @@ export function VercelIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+export function PythonIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        fill="#3776AB"
+        d="M126.916.072c-64.832 0-60.784 26.483-60.784 26.483l.072 27.38h61.714v8.218H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.502.633 34.502-33.319V33.97S194.774.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.131 11.12 11.12 0 0 1-11.129-11.13 11.12 11.12 0 0 1 11.13-11.13z"
+      />
+      <path
+        fill="#FFD43B"
+        d="M128.757 254.126c64.832 0 60.784-26.483 60.784-26.483l-.072-27.38h-61.714v-8.218h85.278s41.486-9.225 41.486-74.64c0-65.417-36.21-63.097-36.21-63.097h-21.61v30.356s1.165 36.21-35.632 36.21h-61.362s-34.502-.633-34.502 33.319v56.413s-5.235 33.897 62.622 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.132 11.12 11.12 0 0 1 11.129 11.131 11.12 11.12 0 0 1-11.13 11.132z"
+      />
+    </svg>
+  )
+}
+
+export function ArduinoIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        fill="#00979D"
+        d="M128 32C72.8 32 32 72.8 32 128s40.8 96 96 96 96-40.8 96-96-40.8-96-96-96zm0 16c44.2 0 80 35.8 80 80s-35.8 80-80 80-80-35.8-80-80 35.8-80 80-80z"
+      />
+      <path fill="#00979D" d="M88 112h24v32H88zm56 0h24v32h-24zm-28 24h16v16h-16z" />
+    </svg>
+  )
+}
+
+export function ESP32Icon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <rect width="32" height="32" rx="4" fill="#E7352C" />
+      <path fill="#fff" d="M8 10h16v12H8V10zm2 2v8h12v-8H10zm2 2h8v4h-8v-4z" />
+    </svg>
+  )
+}
+
+export function PyTorchIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        fill="#EE4C2C"
+        d="M28 160c0-44 36-80 80-80 17 0 33 5 46 14l-24 24c-7-4-15-6-22-6-26 0-46 20-46 46s20 46 46 46 46-20 46-46c0-8-2-15-6-22l24-24c9 13 14 29 14 46 0 44-36 80-80 80s-80-36-80-80z"
+      />
+      <circle cx="200" cy="56" r="24" fill="#EE4C2C" />
+    </svg>
+  )
+}
+
+export function MqttIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        fill="#660066"
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+      />
+    </svg>
+  )
+}
+
 export const techStackIcons = {
   'Next.js': NextjsIcon,
   TypeScript: TypeScriptIcon,
@@ -240,4 +299,9 @@ export const techStackIcons = {
   FastAPI: FastAPIIcon,
   React: ReactIcon,
   Vercel: VercelIcon,
+  Python: PythonIcon,
+  Arduino: ArduinoIcon,
+  ESP32: ESP32Icon,
+  PyTorch: PyTorchIcon,
+  MQTT: MqttIcon,
 }

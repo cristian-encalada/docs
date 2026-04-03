@@ -1,7 +1,37 @@
 {
   "title": "Proyectos",
   "description": "Estos son algunos proyectos en los que he trabajado",
+  "overviewDescription": "Explora mis proyectos de desarrollo web, electrónica/IoT, ingeniería de software e IA, y desarrollo de videojuegos.",
   "learn": "Ver Demo",
   "subtitle": "Aquí encontrarás información sobre mis proyectos actuales",
-  "linkto": "Enlace a"
+  "linkto": "Enlace a",
+  "all": "Todos",
+  "filterByTag": "Filtrar por etiqueta",
+  "sortByDate": "Ordenar por fecha",
+  "sortByTitle": "Ordenar por título",
+  "projectCount": "proyectos",
+  "viewAllProjects": "Ver todos los proyectos",
+  "code": "Código",
+  "preview": "Vista previa",
+  "documentation": "Documentación",
+  "demo": "Demo",
+  "paper": "Artículo",
+  "categories": {
+    "web": {
+      "title": "Desarrollo web",
+      "description": "Aplicaciones web full stack y tecnologías web modernas"
+    },
+    "electronics": {
+      "title": "Electrónica e IoT",
+      "description": "Proyectos con Arduino, Raspberry Pi, ESP32 y sistemas embebidos"
+    },
+    "software": {
+      "title": "IA y software",
+      "description": "Aprendizaje automático, visión por computadora e ingeniería de software"
+    },
+    "gamedev": {
+      "title": "Desarrollo de videojuegos",
+      "description": "Mods, complementos y experiencias de juego interactivas"
+    }
+  }
 }

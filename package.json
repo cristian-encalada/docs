@@ -9,6 +9,7 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
+    "openspec": "openspec",
     "postinstall": "echo 'Postinstall completed successfully'"
   },
   "dependencies": {
@@ -47,6 +48,7 @@
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
+    "@fission-ai/openspec": "^1.2.0",
     "@svgr/webpack": "^8.0.1",
     "@types/mdx": "^2.0.5",
     "@types/react": "^18.2.14",

@@ -22,12 +22,27 @@ Project built with Next.js, TailwindCSS & TypeScript.
 
 [![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-blue)](https://cristianencalada-blog.vercel.app/)
 
-## Run Project 
+## Run Project
 
-Run this project with Yarn
+This repository uses **Yarn** (see `yarn.lock` and `.yarn/releases/`). Use Yarn for installs and scripts; do not use `npm install` or `npm ci` here.
 
-```bash 
-  yarn && yarn run dev
+```bash
+yarn && yarn dev
+```
+
+Other common commands:
+
+```bash
+yarn build
+yarn lint
+```
+
+### OpenSpec (optional)
+
+[OpenSpec](https://github.com/Fission-AI/OpenSpec) is a dev dependency. This repo uses Yarn Classic (no `yarn dlx`); run the CLI with:
+
+```bash
+yarn openspec --help
 ```
     
 ## Contributing

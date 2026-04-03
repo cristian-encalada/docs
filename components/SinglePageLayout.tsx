@@ -10,7 +10,9 @@ import ThemeAwareAvatar from '@/components/ThemeAwareAvatar'
 import Card from '@/components/Card'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
-import projectsData from '@/data/projectsData'
+import webProjectsData from '@/data/webProjectsData'
+import softwareProjectsData from '@/data/softwareProjectsData'
+import gamedevProjectsData from '@/data/gamedevProjectsData'
 import tagData from 'app/[locale]/tag-data.json'
 import { formatDate } from 'pliny/utils/formatDate'
 import { slug } from 'github-slugger'
@@ -31,8 +33,12 @@ export default function SinglePageLayout({ locale }: Props) {
     (a) => a.slug.includes('default') && a.language === locale
   ) as Authors
 
-  // Get projects data
-  const projectArray = projectsData[locale]
+  // Featured projects for home page: LucidNav (gamedev), TagNCount (software), 3D Web App (web)
+  const projectArray = [
+    gamedevProjectsData[locale][0], // LucidNav
+    softwareProjectsData[locale][0], // TagNCount
+    webProjectsData[locale].find((p) => p.title === '3D Web App'), // 3D Web App
+  ].filter((p): p is NonNullable<typeof p> => p !== undefined) // Remove any undefined values
 
   // Get blog posts data
   const posts = allCoreContent(sortPosts(allBlogs))
@@ -90,6 +96,14 @@ export default function SinglePageLayout({ locale }: Props) {
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
               {tProjects('description')}
             </p>
+            <p className="pt-2">
+              <Link
+                href={`/${locale}/projects`}
+                className="text-primary-500 hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-300"
+              >
+                {tProjects('viewAllProjects')} →
+              </Link>
+            </p>
           </div>
           <div className="container py-12">
             <div className="-m-4 flex flex-wrap">
@@ -99,12 +113,18 @@ export default function SinglePageLayout({ locale }: Props) {
                   title={project.title}
                   description={project.description}
                   video={project.video}
+                  image={project.thumbnail ?? project.image}
                   href={project.href}
                   t={tProjects}
                   params={{ locale: locale }}
                   techStack={project.techStack}
                   githubUrl={project.githubUrl}
                   previewUrl={project.previewUrl}
+                  demoUrl={project.category === 'software' ? project.demoUrl : undefined}
+                  paperUrl={project.category === 'software' ? project.paperUrl : undefined}
+                  downloads={project.category === 'gamedev' ? project.downloads : undefined}
+                  platform={project.category === 'gamedev' ? project.platform : undefined}
+                  gameVersion={project.category === 'gamedev' ? project.gameVersion : undefined}
                 />
               ))}
             </div>
