@@ -19,7 +19,11 @@ export async function fetchModDownloads(modId: number): Promise<number | null> {
   try {
     console.log(`[CurseForge] Fetching mod ${modId}...`)
     const response = await fetch(`https://api.curseforge.com/v1/mods/${modId}`, {
-      headers: { 'x-api-key': apiKey },
+      headers: {
+        'x-api-key': apiKey,
+        'User-Agent': 'LucidNav-Portfolio/1.0',
+        'Accept': 'application/json',
+      },
       next: { revalidate: 3600 },
     })
     if (!response.ok) {

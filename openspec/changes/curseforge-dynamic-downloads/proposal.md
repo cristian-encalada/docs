@@ -15,6 +15,7 @@ There are **two different CurseForge APIs** — do not confuse them:
    - For external tools, mod managers, and analytics
    - **This is what we use** to fetch live download counts
    - Requires application approval from CurseForge/Overwolf before the API key works (initially returns 403 Forbidden until approved)
+   - **Important**: Requires `User-Agent` header in requests (returns 403 Forbidden without it)
 
 ## What Changes
 
