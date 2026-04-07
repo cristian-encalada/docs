@@ -4,6 +4,9 @@ import { createTranslation } from '../../i18n/server'
 import { LocaleTypes } from '../../i18n/settings'
 import ProjectsLayout from '@/layouts/ProjectsLayout'
 import gamedevProjectsData from '@/data/gamedevProjectsData'
+import { fetchModDownloads } from '@/lib/curseforge'
+
+export const revalidate = 3600
 
 type Props = {
   params: { locale: LocaleTypes }
@@ -18,7 +21,13 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 }
 
 export default async function GameDevProjectsPage({ params: { locale } }: Props) {
-  return (
-    <ProjectsLayout projects={gamedevProjectsData[locale]} category="gamedev" locale={locale} />
+  const lucidNavDownloads = await fetchModDownloads(1484807)
+
+  const enrichedProjects = gamedevProjectsData[locale].map((project) =>
+    project.title === 'LucidNav' && lucidNavDownloads !== null
+      ? { ...project, downloads: lucidNavDownloads }
+      : project
   )
+
+  return <ProjectsLayout projects={enrichedProjects} category="gamedev" locale={locale} />
 }

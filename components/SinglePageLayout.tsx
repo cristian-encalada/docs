@@ -18,12 +18,14 @@ import { formatDate } from 'pliny/utils/formatDate'
 import { slug } from 'github-slugger'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
+import type { GameDevProject } from '@/data/projectTypes'
 
 interface Props {
   locale: LocaleTypes
+  enrichedGameDevProjects?: GameDevProject[]
 }
 
-export default function SinglePageLayout({ locale }: Props) {
+export default function SinglePageLayout({ locale, enrichedGameDevProjects }: Props) {
   const { t: tAbout } = useTranslation(locale, 'about')
   const { t: tProjects } = useTranslation(locale, 'projects')
   const { t: tHome } = useTranslation(locale, 'home')
@@ -33,9 +35,11 @@ export default function SinglePageLayout({ locale }: Props) {
     (a) => a.slug.includes('default') && a.language === locale
   ) as Authors
 
+  const gamedevProjects = enrichedGameDevProjects ?? gamedevProjectsData[locale]
+
   // Featured projects for home page: LucidNav (gamedev), TagNCount (software), 3D Web App (web)
   const projectArray = [
-    gamedevProjectsData[locale][0], // LucidNav
+    gamedevProjects[0], // LucidNav
     softwareProjectsData[locale][0], // TagNCount
     webProjectsData[locale].find((p) => p.title === '3D Web App'), // 3D Web App
   ].filter((p): p is NonNullable<typeof p> => p !== undefined) // Remove any undefined values
