@@ -1,6 +1,6 @@
 ## Why
 
-The LucidNav WoW addon download count shown on the portfolio is hardcoded at 280, while CurseForge already shows 337+ and continues to grow. Keeping it accurate requires manual code changes — dynamic fetching eliminates that toil and keeps the portfolio honest.
+The LucidNav WoW addon download count shown on the portfolio is hardcoded at 280, while CurseForge already shows 358+ and continues to grow. Keeping it accurate requires manual code changes — dynamic fetching eliminates that toil and keeps the portfolio honest.
 
 ## Important: Two CurseForge APIs
 
@@ -16,6 +16,27 @@ There are **two different CurseForge APIs** — do not confuse them:
    - **This is what we use** to fetch live download counts
    - Requires application approval from CurseForge/Overwolf before the API key works (initially returns 403 Forbidden until approved)
    - **Important**: Requires `User-Agent` header in requests (returns 403 Forbidden without it)
+   - **API Key Format**: CurseForge provides bcrypt-format keys (e.g., `$2a$10$...`) that contain `$` characters which must be escaped in `.env` files
+
+## Environment Variable Setup
+
+### Critical: Escaping the API Key
+
+CurseForge API keys are bcrypt hashes containing `$` characters (e.g., `$2a$10$5FCOf...`). Next.js's dotenv parser interprets `$` as variable expansion, so the key **must be escaped** in `.env` files:
+
+**❌ Wrong (key will be truncated):**
+```bash
+CURSEFORGE_API_KEY=$2a$10$EXAMPLE1234567890abcdefghijklmnopqrstuvwxyz.ABCDEFGH.
+CURSEFORGE_API_KEY="$2a$10$EXAMPLE1234567890abcdefghijklmnopqrstuvwxyz.ABCDEFGH."
+CURSEFORGE_API_KEY='$2a$10$EXAMPLE1234567890abcdefghijklmnopqrstuvwxyz.ABCDEFGH.'
+```
+
+**✅ Correct (escape each `$` with backslash):**
+```bash
+CURSEFORGE_API_KEY=\$2a\$10\$EXAMPLE1234567890abcdefghijklmnopqrstuvwxyz.ABCDEFGH.
+```
+
+**Alternative for production:** Set the environment variable directly in Vercel's dashboard (no escaping needed there).
 
 ## What Changes
 
