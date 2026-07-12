@@ -18,7 +18,6 @@ export async function fetchModDownloads(modId: number): Promise<number | null> {
 
   try {
     console.log(`[CurseForge] Fetching mod ${modId}...`)
-    console.log(`[CurseForge] API Key loaded: ${apiKey.length} chars, starts with: ${apiKey.substring(0, 10)}...`)
     const response = await fetch(`https://api.curseforge.com/v1/mods/${modId}`, {
       headers: {
         'x-api-key': apiKey,
