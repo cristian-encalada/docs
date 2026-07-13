@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Journey narrative page
-The system SHALL provide a `/journey` route presenting the Bolivia (Sucre → Cochabamba) → Uruguay → Europe-goal personal narrative as a timeline/story page, reachable by clicking the hub diagram's center overlap.
+The system SHALL provide a `/journey` route presenting the Bolivia (Sucre → Cochabamba) → Uruguay → Europe-goal personal narrative as a timeline/story page, reachable by clicking the hub's Start block or the Projects board's center identity chip.
 
 #### Scenario: Journey page renders the narrative
 - **WHEN** a visitor navigates to `/journey`

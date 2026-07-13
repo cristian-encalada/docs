@@ -6,26 +6,35 @@
 - [x] 1.1 Scaffold Astro project at `~/personal/projects/pixel-portfolio` (TypeScript strict, Tailwind v4 via `@tailwindcss/vite`, pnpm as package manager)
 - [x] 1.2 Install the `astro` skill (astrolicious/agent-skills) into the project, targeting Claude Code
 - [x] 1.3 Init git, initial commit of the scaffold
-- [ ] 1.4 New GitHub repo, connect Vercel, confirm preview deploy pipeline works end-to-end
+- [x] 1.4 Design and validate the full site map as an interactive HTML/SVG mockup (`design-mockup.html`), iterated live with the user before committing to code
+- [ ] 1.5 New GitHub repo, connect Vercel, confirm preview deploy pipeline works end-to-end
 
-- [ ] 2.1 Design the SVG Venn diagram (4 circles: Electronics, Software, AI/ML, Gamedev, overlapping, center identity zone) and build `/` (hub-diagram capability)
-- [ ] 2.2 Wire circle/center click-throughs to `/areas/<area>` and `/journey` routes
+- [ ] 2.1 Build the shared visual system (CSS custom properties for both themes, copper-trace/chip/title-block styles, monospace-label conventions) as reusable Astro/CSS, matching `design-mockup.html`
+- [ ] 2.2 Build `/`: flow-diagram hub — Start block, four section blocks in priority order (Experience, Projects, Skills, Blog), Contact terminal, all as real links (hub-diagram capability)
 
-- [ ] 3.1 Design one themed labeled illustration (SVG, "Parts of a Computer" worksheet style) per area
-- [ ] 3.2 Build the numbered-callout-pin system (positioning, keyboard focus order) reused across all 4 area routes
-- [ ] 3.3 Populate each area with generic placeholder projects (area-detail capability)
+- [ ] 3.1 Build `/experience`: horizontal milestone trace with the three career milestones, content rendered directly (no click-to-reveal) (experience-timeline capability)
 
-- [ ] 4.1 Build the project panel component (open/close, DOM content present regardless of visibility) reused by all pins (project-interaction capability)
+- [ ] 4.1 Build `/projects`: circuit board with center identity chip (→ `/journey`) and four category chips
+- [ ] 4.2 Build the in-page panel component (open/close, DOM content present regardless of visibility, focus return) and wire it to the category chips with placeholder project data (project-board capability)
 
-- [ ] 5.1 Build `/journey`: Bolivia → Uruguay → Europe-goal narrative as static/scroll-animated content (journey-story capability)
+- [ ] 5.1 Build `/skills`: five-station pipeline (Electronics, Frontend, Backend, Infrastructure, AI) with bidirectional trace arrows and distinct per-station icons
+- [ ] 5.2 Reuse the panel component from 4.2, wired to stations with placeholder tool data (skills-pipeline capability)
 
-- [ ] 6.1 Full keyboard-only pass across hub, all 4 areas, panels, and journey page
-- [ ] 6.2 Lighthouse/SEO check per route (`/`, each `/areas/<area>`, `/journey`)
-- [ ] 6.3 Playwright MCP pass: drive the site in a real browser, screenshot the hub and each area for visual review
-- [ ] 6.4 Deploy to Vercel production
+- [ ] 6.1 Build `/journey`: Bolivia → Uruguay → Europe-goal narrative as static/scroll-animated content (journey-story capability)
 
-## Superseded (from the earlier KAPLAY-based direction, kept for history)
+- [ ] 7.1 Build `/contact`: real contact channels (email, LinkedIn, schedule-a-call — confirm final channel list before launch) (contact capability)
 
-- [x] ~~Add kaplay dependency~~ — removed, no game engine in the current design
-- [x] ~~Player entity, camera, parallax, touch d-pad~~ — not applicable, no side-scrolling movement
-- [x] ~~Act transition (sprite swap), Act 3 closing scene~~ — replaced by the journey page and hub center
+- [ ] 8.1 Build `/blog`: inert stub page ("not yet populated")
+
+- [ ] 9.1 Full keyboard-only pass across every route and panel
+- [ ] 9.2 Lighthouse/SEO check per route (`/`, `/experience`, `/projects`, `/skills`, `/blog`, `/contact`, `/journey`)
+- [ ] 9.3 Playwright MCP pass: drive the site in a real browser, screenshot every route for visual review
+- [ ] 9.4 Deploy to Vercel production
+
+## Superseded (kept for history)
+
+- [x] ~~Add kaplay dependency~~ — removed; no game engine in the current design
+- [x] ~~Player entity, camera, parallax, touch d-pad~~ — not applicable; no side-scrolling movement
+- [x] ~~4-circle Venn-diagram hub~~ — replaced by the flow-diagram hub; Venn overlap didn't fit a traditional portfolio's section structure
+- [x] ~~Numbered-callout-pin "Parts of a Computer" area-detail views~~ — replaced by the circuit-board (`/projects`) and system-pipeline (`/skills`) pages, which serve the same "browse a category" job more clearly
+- [x] ~~Education section~~ — replaced by Experience; the user prioritized career history over academic credentials
