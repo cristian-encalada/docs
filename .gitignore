@@ -50,3 +50,6 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Agent skills (restorable via skills-lock.json)
+.agents/
