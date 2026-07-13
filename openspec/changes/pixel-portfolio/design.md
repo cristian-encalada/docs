@@ -1,5 +1,7 @@
 # Design: pixel-portfolio
 
+> **Note:** the site map below is superseded by `design-mockup.html` (interactive, built and iterated live with the user). Current structure: hub is a flow diagram (`/`) branching to four sections ranked by importance — **Experience** (`/experience`, milestone trace), **Projects** (`/projects`, circuit board — unchanged from below), **Skills** (`/skills`, left-to-right system pipeline: Electronics → Frontend → Backend → Infrastructure → AI, not a Venn diagram), **Blog** (`/blog`, stub) — all converging on a **Contact** (`/contact`) terminal. `/journey` is still reached from the hub's Start/identity node. The rest of this document (Stack, Accessibility/SEO, Repo/deploy) still holds; the Hub/Area-detail/Journey sections below describe the earlier Venn-diagram concept and need a rewrite to match the mockup before implementation starts.
+
 ## Stack
 
 - **Astro** — routing, SEO/meta, all rendering. No client-side framework (React/Vue/etc.) needed; interactivity is plain `<script>` (click handlers, panel toggling) processed by Astro/Vite.

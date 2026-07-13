@@ -1,0 +1,861 @@
+<title>pixel-portfolio — site map</title>
+<style>
+  :root {
+    --board: #10241d;
+    --board-deep: #0a1712;
+    --board-line: #1c3a2c;
+    --copper: #c98a4b;
+    --copper-bright: #f0b876;
+    --silk: #eef1ea;
+    --silk-dim: #a9b3ac;
+    --chip: #17181a;
+    --chip-edge: #34383a;
+    --pin: #a9adb0;
+    --paper-shadow: rgba(0, 0, 0, 0.45);
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", "Liberation Mono", monospace;
+    --font-sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --board: #f2ede0;
+      --board-deep: #e6ddc8;
+      --board-line: #d9d0ba;
+      --copper: #2f5c86;
+      --copper-bright: #1c3f60;
+      --silk: #1c2620;
+      --silk-dim: #5a6058;
+      --chip: #fffdf6;
+      --chip-edge: #c9c0a6;
+      --pin: #2f5c86;
+      --paper-shadow: rgba(60, 50, 20, 0.18);
+    }
+  }
+  :root[data-theme="dark"] {
+    --board: #10241d;
+    --board-deep: #0a1712;
+    --board-line: #1c3a2c;
+    --copper: #c98a4b;
+    --copper-bright: #f0b876;
+    --silk: #eef1ea;
+    --silk-dim: #a9b3ac;
+    --chip: #17181a;
+    --chip-edge: #34383a;
+    --pin: #a9adb0;
+    --paper-shadow: rgba(0, 0, 0, 0.45);
+  }
+  :root[data-theme="light"] {
+    --board: #f2ede0;
+    --board-deep: #e6ddc8;
+    --board-line: #d9d0ba;
+    --copper: #2f5c86;
+    --copper-bright: #1c3f60;
+    --silk: #1c2620;
+    --silk-dim: #5a6058;
+    --chip: #fffdf6;
+    --chip-edge: #c9c0a6;
+    --pin: #2f5c86;
+    --paper-shadow: rgba(60, 50, 20, 0.18);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--board-deep);
+    color: var(--silk);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--board-line);
+    padding-bottom: 1.25rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin: 0 0 0.6rem;
+  }
+
+  h1 {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+    color: var(--silk);
+  }
+
+  header p {
+    max-width: 50ch;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--silk-dim);
+    margin: 0.6rem 0 0;
+  }
+
+  .switch-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+  .switch-label {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--silk-dim);
+  }
+  .dip {
+    display: flex;
+    gap: 2px;
+    padding: 5px;
+    background: var(--chip);
+    border: 1px solid var(--chip-edge);
+    border-radius: 3px;
+    flex-wrap: wrap;
+  }
+  .dip button {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.55rem 0.75rem;
+    background: transparent;
+    color: var(--silk-dim);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+  }
+  .dip button[aria-pressed="true"] {
+    background: var(--copper);
+    color: var(--board-deep);
+  }
+  .dip button:focus-visible {
+    outline: 2px solid var(--copper-bright);
+    outline-offset: 2px;
+  }
+
+  .stage {
+    position: relative;
+    background: var(--board);
+    border: 1px solid var(--board-line);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px -30px var(--paper-shadow);
+  }
+
+  .stage-inner {
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  .stage svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .titleblock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--board-line);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--silk-dim);
+    flex-wrap: wrap;
+  }
+  .titleblock span b { color: var(--silk); font-weight: 600; }
+
+  .node { cursor: pointer; }
+  .node .chip-body {
+    fill: var(--chip);
+    stroke: var(--chip-edge);
+    stroke-width: 1.5;
+    transition: stroke 0.15s ease, filter 0.15s ease;
+  }
+  .node .pin { fill: var(--pin); }
+  .node .label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    fill: var(--silk);
+    text-transform: uppercase;
+  }
+  .node .sublabel {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    fill: var(--silk-dim);
+  }
+  .node:hover .chip-body, .node:focus .chip-body {
+    stroke: var(--copper-bright);
+    filter: drop-shadow(0 0 6px var(--copper));
+  }
+  .node:focus { outline: none; }
+
+  .trace {
+    fill: none;
+    stroke: var(--copper);
+    stroke-width: 2;
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
+  }
+  .trace-flow {
+    fill: none;
+    stroke: var(--copper-bright);
+    stroke-width: 2;
+    stroke-dasharray: 6 10;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .node:hover ~ .trace, .node:focus ~ .trace { opacity: 1; }
+  .via { fill: var(--copper); opacity: 0.8; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .node:hover ~ .trace-flow, .node:focus ~ .trace-flow {
+      opacity: 0.9;
+      animation: flow 0.9s linear infinite;
+    }
+  }
+  @keyframes flow { to { stroke-dashoffset: -32; } }
+
+  .cpu .chip-body { fill: var(--chip); stroke: var(--copper); stroke-width: 2; }
+  .cpu .label { font-size: 15px; font-weight: 600; }
+  .cpu:hover .chip-body, .cpu:focus .chip-body { filter: drop-shadow(0 0 10px var(--copper-bright)); }
+
+  .grid-dot { fill: var(--board-line); }
+
+  .venn-circle {
+    fill: var(--copper);
+    fill-opacity: 0.1;
+    stroke: var(--copper);
+    stroke-opacity: 0.65;
+    stroke-width: 1.5;
+    transition: fill-opacity 0.15s ease, stroke-opacity 0.15s ease;
+  }
+  .node:hover .venn-circle, .node:focus .venn-circle {
+    fill-opacity: 0.22;
+    stroke-opacity: 1;
+  }
+  .venn-label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    fill: var(--silk);
+    text-transform: uppercase;
+  }
+  .venn-overlap-label {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 0.05em;
+    fill: var(--silk-dim);
+    text-transform: uppercase;
+  }
+  .venn-center {
+    font-family: var(--font-mono);
+    fill: var(--silk);
+  }
+
+  .placeholder-chip {
+    fill: none;
+    stroke: var(--chip-edge);
+    stroke-width: 1.5;
+    stroke-dasharray: 4 4;
+  }
+
+  /* Drawer */
+  .drawer {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--chip);
+    border-top: 1px solid var(--chip-edge);
+    transform: translateY(100%);
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 10;
+    max-height: 46vh;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateY(0); }
+  .drawer-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .drawer-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .drawer-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin: 0 0 0.35rem;
+  }
+  .drawer-head h2 {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    margin: 0;
+    color: var(--silk);
+  }
+  .drawer-head p {
+    max-width: 58ch;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--silk-dim);
+    margin: 0.5rem 0 0;
+  }
+  .drawer-close {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--chip-edge);
+    color: var(--silk-dim);
+    padding: 0.45rem 0.75rem;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .drawer-close:hover { border-color: var(--copper); color: var(--silk); }
+  .pin-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .pin-list li {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--silk);
+    border: 1px solid var(--chip-edge);
+    border-radius: 3px;
+    padding: 0.4rem 0.65rem;
+  }
+  .pin-list li b { color: var(--copper); font-weight: 600; margin-right: 0.4rem; }
+
+  .note {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--silk-dim);
+    max-width: 72ch;
+  }
+  .note b { color: var(--silk); }
+
+  .site-map {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    color: var(--silk-dim);
+  }
+  .site-map span {
+    border: 1px solid var(--board-line);
+    border-radius: 3px;
+    padding: 0.3rem 0.55rem;
+  }
+  .site-map span b { color: var(--copper); }
+
+  [hidden] { display: none !important; }
+</style>
+
+<div class="sheet">
+  <header>
+    <div>
+      <p class="eyebrow">pixel-portfolio — site map, rev 0.4</p>
+      <h1>One drawing language, five sheets.</h1>
+      <p>The hub is a schematic flow diagram: start, branch into four sections ranked by importance, converge on contact. Experience — the most important branch — opens as a milestone trace; Projects opens as a circuit board; Skills opens as a system pipeline; Blog is stubbed for now.</p>
+      <p class="site-map" aria-hidden="true">
+        <span>Hub <b>/</b></span>
+        <span>→ Experience <b>/experience</b></span>
+        <span>→ Projects <b>/projects</b></span>
+        <span>→ Skills <b>/skills</b></span>
+        <span>→ Blog <b>/blog</b></span>
+        <span>→ Contact <b>/contact</b></span>
+        <span>Start → Journey <b>/journey</b></span>
+      </p>
+    </div>
+    <div class="switch-block">
+      <span class="switch-label">Sheet select</span>
+      <div class="dip" role="group" aria-label="Choose a page to preview">
+        <button type="button" data-target="view-hub" aria-pressed="true">Hub</button>
+        <button type="button" data-target="view-experience" aria-pressed="false">Experience</button>
+        <button type="button" data-target="view-projects" aria-pressed="false">Projects</button>
+        <button type="button" data-target="view-skills" aria-pressed="false">Skills</button>
+        <button type="button" data-target="view-blog" aria-pressed="false">Blog</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HUB -->
+  <section id="view-hub" class="stage">
+    <div class="stage-inner">
+      <svg viewBox="0 0 1000 460" role="img" aria-labelledby="hub-title hub-desc">
+        <title id="hub-title">Site hub — signal flow diagram</title>
+        <desc id="hub-desc">A start block labelled Cristian Encalada branches to four destination blocks, ranked by importance — Experience, Projects, Skills, Blog — which converge on a Contact terminal.</desc>
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+          </marker>
+        </defs>
+
+        <g style="color: var(--copper)">
+          <path class="trace" d="M 220,230 L 260,230 L 260,80 L 330,80" marker-end="url(#arrow)" />
+          <path class="trace" d="M 220,230 L 260,230 L 260,180 L 330,180" marker-end="url(#arrow)" />
+          <path class="trace" d="M 220,230 L 260,230 L 260,280 L 330,280" marker-end="url(#arrow)" />
+          <path class="trace" d="M 220,230 L 260,230 L 260,380 L 330,380" marker-end="url(#arrow)" />
+          <circle class="via" cx="260" cy="230" r="3.5" />
+        </g>
+        <g style="color: var(--copper)">
+          <path class="trace" d="M 570,80 L 700,80 L 700,230 L 760,230" marker-end="url(#arrow)" />
+          <path class="trace" d="M 570,180 L 700,180 L 700,230 L 760,230" marker-end="url(#arrow)" />
+          <path class="trace" d="M 570,280 L 700,280 L 700,230 L 760,230" marker-end="url(#arrow)" />
+          <path class="trace" d="M 570,380 L 700,380 L 700,230 L 760,230" marker-end="url(#arrow)" />
+          <circle class="via" cx="700" cy="230" r="3.5" />
+        </g>
+
+        <g class="node cpu" tabindex="0" role="link" aria-label="Cristian Encalada — open journey story"
+           data-title="Cristian Encalada" data-eyebrow="/journey"
+           data-desc="Bolivia → Uruguay → aiming for Europe. Click to read the full journey."
+           data-pins="">
+          <rect class="chip-body" x="60" y="190" width="160" height="80" rx="4" />
+          <text class="label" x="140" y="226" text-anchor="middle">START</text>
+          <text class="sublabel" x="140" y="244" text-anchor="middle">Cristian Encalada</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="Experience — open preview"
+           data-title="Experience" data-eyebrow="/experience"
+           data-desc="A milestone trace of roles: Electronics Engineer in Bolivia, the transition to Software/AI, AI/ML Engineer in Uruguay today."
+           data-pins="">
+          <rect class="chip-body" x="330" y="40" width="240" height="80" rx="4" />
+          <text class="label" x="450" y="76" text-anchor="middle">Experience</text>
+          <text class="sublabel" x="450" y="94" text-anchor="middle">milestone trace</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="Projects — open preview"
+           data-title="Projects" data-eyebrow="/projects"
+           data-desc="A circuit board — each chip is a project category: Electronics, Software, AI/ML, Gamedev."
+           data-pins="">
+          <rect class="chip-body" x="330" y="140" width="240" height="80" rx="4" />
+          <text class="label" x="450" y="176" text-anchor="middle">Projects</text>
+          <text class="sublabel" x="450" y="194" text-anchor="middle">circuit board</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="Skills — open preview"
+           data-title="Skills / Tech Stack" data-eyebrow="/skills"
+           data-desc="A system pipeline of Electronics, Frontend, Backend, Infrastructure, AI — click a station to see the tools that live there."
+           data-pins="">
+          <rect class="chip-body" x="330" y="240" width="240" height="80" rx="4" />
+          <text class="label" x="450" y="276" text-anchor="middle">Skills</text>
+          <text class="sublabel" x="450" y="294" text-anchor="middle">tech stack · pipeline</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="Blog — open preview"
+           data-title="Blog" data-eyebrow="/blog"
+           data-desc="Not yet populated — writing is a fast-follow after the core site ships."
+           data-pins="">
+          <rect class="chip-body" x="330" y="340" width="240" height="80" rx="4" />
+          <text class="label" x="450" y="376" text-anchor="middle">Blog</text>
+          <text class="sublabel" x="450" y="394" text-anchor="middle">coming soon</text>
+        </g>
+
+        <g class="node cpu" tabindex="0" role="link" aria-label="Contact — open preview"
+           data-title="Let's talk" data-eyebrow="/contact"
+           data-desc="Open to opportunities, especially roles in Europe. Reach out any of these ways."
+           data-pins="Email,LinkedIn,Schedule a call">
+          <rect class="chip-body" x="760" y="190" width="160" height="80" rx="4" />
+          <text class="label" x="840" y="226" text-anchor="middle">Contact</text>
+          <text class="sublabel" x="840" y="244" text-anchor="middle">let's talk →</text>
+        </g>
+      </svg>
+    </div>
+    <div class="titleblock">
+      <span>Sheet <b>01</b> — hub</span>
+      <span>Flow diagram, start → 4 sections → contact</span>
+      <span>Rev <b>0.3</b></span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="view-projects" class="stage" hidden>
+    <div class="stage-inner">
+      <svg viewBox="0 0 1000 560" role="img" aria-labelledby="projects-title projects-desc">
+        <title id="projects-title">Projects — circuit board</title>
+        <desc id="projects-desc">A central chip labelled CE with copper traces routed to four chips, one per project category: Electronics, Software, AI slash ML, and Gamedev.</desc>
+        <defs>
+          <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle class="grid-dot" cx="1.5" cy="1.5" r="1.2" />
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="1000" height="560" fill="url(#dots)" />
+
+        <g>
+          <path class="trace" d="M 440,240 L 340,240 L 340,160 L 296,160" />
+          <path class="trace-flow" d="M 440,240 L 340,240 L 340,160 L 296,160" />
+          <circle class="via" cx="340" cy="240" r="3.5" />
+          <circle class="via" cx="340" cy="160" r="3.5" />
+        </g>
+        <g>
+          <path class="trace" d="M 560,240 L 660,240 L 660,160 L 704,160" />
+          <path class="trace-flow" d="M 560,240 L 660,240 L 660,160 L 704,160" />
+          <circle class="via" cx="660" cy="240" r="3.5" />
+          <circle class="via" cx="660" cy="160" r="3.5" />
+        </g>
+        <g>
+          <path class="trace" d="M 440,320 L 340,320 L 340,400 L 296,400" />
+          <path class="trace-flow" d="M 440,320 L 340,320 L 340,400 L 296,400" />
+          <circle class="via" cx="340" cy="320" r="3.5" />
+          <circle class="via" cx="340" cy="400" r="3.5" />
+        </g>
+        <g>
+          <path class="trace" d="M 560,320 L 660,320 L 660,400 L 704,400" />
+          <path class="trace-flow" d="M 560,320 L 660,320 L 660,400 L 704,400" />
+          <circle class="via" cx="660" cy="320" r="3.5" />
+          <circle class="via" cx="660" cy="400" r="3.5" />
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="Electronics projects — open preview"
+           data-title="Electronics" data-eyebrow="/projects/electronics"
+           data-desc="Where it started: Sucre and Cochabamba, Bolivia."
+           data-pins="Arduino Smart Sensor,ESP32 MQTT Client,Raspberry Pi Home Hub">
+          <rect class="chip-body" x="120" y="120" width="176" height="80" rx="4" />
+          <rect class="pin" x="128" y="112" width="10" height="10" /><rect class="pin" x="150" y="112" width="10" height="10" /><rect class="pin" x="172" y="112" width="10" height="10" />
+          <rect class="pin" x="128" y="198" width="10" height="10" /><rect class="pin" x="150" y="198" width="10" height="10" /><rect class="pin" x="172" y="198" width="10" height="10" />
+          <text class="label" x="208" y="156">Electronics</text>
+          <text class="sublabel" x="208" y="172">3 projects</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="Software projects — open preview"
+           data-title="Software" data-eyebrow="/projects/software"
+           data-desc="Full-stack builds shipped from Montevideo, Uruguay."
+           data-pins="Alquivago,3D Web App">
+          <rect class="chip-body" x="704" y="120" width="176" height="80" rx="4" />
+          <rect class="pin" x="712" y="112" width="10" height="10" /><rect class="pin" x="734" y="112" width="10" height="10" /><rect class="pin" x="756" y="112" width="10" height="10" />
+          <rect class="pin" x="712" y="198" width="10" height="10" /><rect class="pin" x="734" y="198" width="10" height="10" /><rect class="pin" x="756" y="198" width="10" height="10" />
+          <text class="label" x="792" y="156">Software</text>
+          <text class="sublabel" x="792" y="172">2 projects</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="AI slash ML projects — open preview"
+           data-title="AI / ML" data-eyebrow="/projects/ai-ml"
+           data-desc="Where the electronics instinct meets computer vision."
+           data-pins="TagNCount">
+          <rect class="chip-body" x="120" y="400" width="176" height="80" rx="4" />
+          <rect class="pin" x="128" y="392" width="10" height="10" /><rect class="pin" x="150" y="392" width="10" height="10" /><rect class="pin" x="172" y="392" width="10" height="10" />
+          <rect class="pin" x="128" y="478" width="10" height="10" /><rect class="pin" x="150" y="478" width="10" height="10" /><rect class="pin" x="172" y="478" width="10" height="10" />
+          <text class="label" x="208" y="436">AI / ML</text>
+          <text class="sublabel" x="208" y="452">1 project</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="Gamedev projects — open preview"
+           data-title="Gamedev" data-eyebrow="/projects/gamedev"
+           data-desc="The hobby that never left, still shipping today."
+           data-pins="LucidNav">
+          <rect class="chip-body" x="704" y="400" width="176" height="80" rx="4" />
+          <rect class="pin" x="712" y="392" width="10" height="10" /><rect class="pin" x="734" y="392" width="10" height="10" /><rect class="pin" x="756" y="392" width="10" height="10" />
+          <rect class="pin" x="712" y="478" width="10" height="10" /><rect class="pin" x="734" y="478" width="10" height="10" /><rect class="pin" x="756" y="478" width="10" height="10" />
+          <text class="label" x="792" y="436">Gamedev</text>
+          <text class="sublabel" x="792" y="452">1 project</text>
+        </g>
+
+        <g class="node cpu" tabindex="0" role="link" aria-label="Cristian Encalada — open journey story"
+           data-title="Cristian Encalada" data-eyebrow="/journey"
+           data-desc="Bolivia → Uruguay → aiming for Europe. Click to read the full journey."
+           data-pins="">
+          <rect class="chip-body" x="440" y="240" width="120" height="80" rx="4" />
+          <rect class="pin" x="452" y="232" width="10" height="10" /><rect class="pin" x="495" y="232" width="10" height="10" /><rect class="pin" x="538" y="232" width="10" height="10" />
+          <rect class="pin" x="452" y="318" width="10" height="10" /><rect class="pin" x="495" y="318" width="10" height="10" /><rect class="pin" x="538" y="318" width="10" height="10" />
+          <text class="label" x="500" y="276" text-anchor="middle">CE</text>
+          <text class="sublabel" x="500" y="294" text-anchor="middle">the journey</text>
+        </g>
+      </svg>
+    </div>
+    <div class="titleblock">
+      <span>Sheet <b>03</b> — /projects</span>
+      <span>Circuit board, 4 categories</span>
+      <span>Rev <b>0.4</b></span>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="view-skills" class="stage" hidden>
+    <div class="stage-inner">
+      <svg viewBox="0 0 1100 300" role="img" aria-labelledby="skills-title skills-desc">
+        <title id="skills-title">Skills — system pipeline</title>
+        <desc id="skills-desc">Five stations connected by bidirectional signal lines, left to right: Electronics, Frontend, Backend, Infrastructure, AI.</desc>
+
+        <defs>
+          <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--copper)" />
+          </marker>
+        </defs>
+
+        <!-- gap 1: Electronics -> Frontend -->
+        <path class="trace" d="M 150,132 L 280,132" marker-end="url(#arrow2)" style="opacity:0.75" />
+        <path class="trace" d="M 280,150 L 150,150" marker-end="url(#arrow2)" style="opacity:0.75" />
+        <!-- gap 2: Frontend -> Backend -->
+        <path class="trace" d="M 365,132 L 500,132" marker-end="url(#arrow2)" style="opacity:0.75" />
+        <path class="trace" d="M 500,150 L 365,150" marker-end="url(#arrow2)" style="opacity:0.75" />
+        <!-- gap 3: Backend -> Infrastructure -->
+        <path class="trace" d="M 585,132 L 720,132" marker-end="url(#arrow2)" style="opacity:0.75" />
+        <path class="trace" d="M 720,150 L 585,150" marker-end="url(#arrow2)" style="opacity:0.75" />
+        <!-- gap 4: Infrastructure -> AI -->
+        <path class="trace" d="M 805,132 L 935,132" marker-end="url(#arrow2)" style="opacity:0.75" />
+        <path class="trace" d="M 935,150 L 805,150" marker-end="url(#arrow2)" style="opacity:0.75" />
+
+        <!-- Electronics -->
+        <g class="node" tabindex="0" role="link" aria-label="Electronics skills — open preview"
+           data-title="Electronics" data-eyebrow="/skills#electronics"
+           data-desc="Tools from where it started, Bolivia."
+           data-pins="Arduino,ESP32,KiCad,C++">
+          <rect class="chip-body" x="85" y="115" width="50" height="36" rx="3" />
+          <path d="M 92,133 L 100,133 L 104,123 L 112,143 L 118,133 L 128,133" fill="none" stroke="var(--copper)" stroke-width="1.6" />
+          <text class="label" x="110" y="188" text-anchor="middle" font-size="12">Electronics</text>
+          <text class="sublabel" x="110" y="204" text-anchor="middle">4 tools</text>
+        </g>
+
+        <!-- Frontend -->
+        <g class="node" tabindex="0" role="link" aria-label="Frontend skills — open preview"
+           data-title="Frontend" data-eyebrow="/skills#frontend"
+           data-desc="Tools for building what people click on."
+           data-pins="TypeScript,React,Next.js,Astro,Tailwind">
+          <rect class="chip-body" x="290" y="112" width="60" height="42" rx="3" />
+          <rect x="296" y="118" width="48" height="28" rx="1" fill="var(--board)" />
+          <rect x="312" y="154" width="16" height="8" fill="var(--chip-edge)" />
+          <path d="M 302,164 L 338,164" stroke="var(--chip-edge)" stroke-width="2" />
+          <text class="label" x="320" y="188" text-anchor="middle" font-size="12">Frontend</text>
+          <text class="sublabel" x="320" y="204" text-anchor="middle">5 tools</text>
+        </g>
+
+        <!-- Backend -->
+        <g class="node" tabindex="0" role="link" aria-label="Backend skills — open preview"
+           data-title="Backend" data-eyebrow="/skills#backend"
+           data-desc="Tools for APIs, services, and data."
+           data-pins="FastAPI,Node.js,PostgreSQL">
+          <rect class="chip-body" x="520" y="108" width="40" height="64" rx="3" />
+          <path d="M 526,126 L 554,126" stroke="var(--chip-edge)" stroke-width="1.5" />
+          <path d="M 526,146 L 554,146" stroke="var(--chip-edge)" stroke-width="1.5" />
+          <circle cx="532" cy="117" r="2" fill="var(--copper)" />
+          <circle cx="532" cy="137" r="2" fill="var(--copper)" />
+          <text class="label" x="540" y="188" text-anchor="middle" font-size="12">Backend</text>
+          <text class="sublabel" x="540" y="204" text-anchor="middle">3 tools</text>
+        </g>
+
+        <!-- Infrastructure -->
+        <g class="node" tabindex="0" role="link" aria-label="Infrastructure skills — open preview"
+           data-title="Infrastructure" data-eyebrow="/skills#infrastructure"
+           data-desc="Tools for shipping and running it all."
+           data-pins="Vercel,Docker,GitHub Actions">
+          <circle cx="745" cy="140" r="16" class="chip-body" />
+          <circle cx="765" cy="130" r="20" class="chip-body" />
+          <circle cx="785" cy="140" r="16" class="chip-body" />
+          <rect x="740" y="138" width="54" height="16" rx="8" class="chip-body" />
+          <text class="label" x="765" y="188" text-anchor="middle" font-size="12">Infra</text>
+          <text class="sublabel" x="765" y="204" text-anchor="middle">3 tools</text>
+        </g>
+
+        <!-- AI -->
+        <g class="node" tabindex="0" role="link" aria-label="AI slash ML skills — open preview"
+           data-title="AI / ML" data-eyebrow="/skills#ai"
+           data-desc="Tools for the current professional focus."
+           data-pins="Python,PyTorch,OpenCV">
+          <rect class="chip-body" x="945" y="115" width="50" height="36" rx="3" />
+          <circle cx="957" cy="127" r="2.5" fill="var(--copper)" /><circle cx="983" cy="127" r="2.5" fill="var(--copper)" />
+          <circle cx="957" cy="139" r="2.5" fill="var(--copper)" /><circle cx="983" cy="139" r="2.5" fill="var(--copper)" />
+          <path d="M 957,127 L 983,127 M 957,127 L 957,139 M 983,127 L 983,139 M 957,139 L 983,139 M 957,127 L 983,139 M 983,127 L 957,139"
+                stroke="var(--copper)" stroke-width="0.75" opacity="0.6" />
+          <text class="label" x="970" y="188" text-anchor="middle" font-size="12">AI / ML</text>
+          <text class="sublabel" x="970" y="204" text-anchor="middle">3 tools</text>
+        </g>
+      </svg>
+    </div>
+    <div class="titleblock">
+      <span>Sheet <b>04</b> — /skills</span>
+      <span>System pipeline, 5 domains</span>
+      <span>Rev <b>0.4</b></span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="view-experience" class="stage" hidden>
+    <div class="stage-inner">
+      <svg viewBox="0 0 1000 260" role="img" aria-labelledby="exp-title exp-desc">
+        <title id="exp-title">Experience — milestone trace</title>
+        <desc id="exp-desc">A horizontal trace with three career milestones: Electronics Engineer in Bolivia, the transition to Software/AI, and AI/ML Engineer in Uruguay today.</desc>
+
+        <path class="trace" d="M 80,140 L 920,140" style="opacity:0.35" />
+        <circle class="via" cx="220" cy="140" r="4" />
+        <circle class="via" cx="500" cy="140" r="4" />
+        <circle class="via" cx="780" cy="140" r="4" />
+
+        <g class="node" tabindex="0" role="link" aria-label="Electronics Engineer — open preview"
+           data-title="Electronics Engineer" data-eyebrow="Bolivia · 20XX–20XX"
+           data-desc="Placeholder milestone — real role/employer and years to be filled in." data-pins="">
+          <path class="trace" d="M 220,140 L 220,80" style="opacity:0.7" />
+          <rect class="chip-body" x="140" y="30" width="160" height="50" rx="4" />
+          <text class="label" x="220" y="50" text-anchor="middle" font-size="11">Electronics Eng.</text>
+          <text class="sublabel" x="220" y="66" text-anchor="middle">Bolivia · 20XX–20XX</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="Professional transition — open preview"
+           data-title="Professional Transition" data-eyebrow="Electronics → Software/AI · Uruguay · 20XX"
+           data-desc="Placeholder milestone — the pivot from hardware to software/AI engineering." data-pins="">
+          <path class="trace" d="M 500,140 L 500,200" style="opacity:0.7" />
+          <rect class="chip-body" x="420" y="200" width="160" height="50" rx="4" />
+          <text class="label" x="500" y="220" text-anchor="middle" font-size="11">Transition</text>
+          <text class="sublabel" x="500" y="236" text-anchor="middle">Uruguay · 20XX</text>
+        </g>
+
+        <g class="node" tabindex="0" role="link" aria-label="AI/ML Engineer — open preview"
+           data-title="AI / ML Engineer" data-eyebrow="Uruguay · 20XX–Present"
+           data-desc="Placeholder milestone — real employer and start year to be filled in. Current role." data-pins="">
+          <path class="trace" d="M 780,140 L 780,80" style="opacity:0.7" />
+          <rect class="chip-body" x="700" y="30" width="160" height="50" rx="4" />
+          <text class="label" x="780" y="50" text-anchor="middle" font-size="11">AI / ML Engineer</text>
+          <text class="sublabel" x="780" y="66" text-anchor="middle">Uruguay · 20XX–Present</text>
+        </g>
+      </svg>
+    </div>
+    <div class="titleblock">
+      <span>Sheet <b>02</b> — /experience</span>
+      <span>Milestone trace, 3 placeholder entries</span>
+      <span>Rev <b>0.4</b></span>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="view-blog" class="stage" hidden>
+    <div class="stage-inner">
+      <svg viewBox="0 0 1000 220" role="img" aria-labelledby="blog-title blog-desc">
+        <title id="blog-title">Blog — stub</title>
+        <desc id="blog-desc">A single dashed placeholder chip indicating the blog is not yet populated.</desc>
+        <rect class="placeholder-chip" x="380" y="50" width="240" height="100" rx="4" />
+        <text class="label" x="500" y="95" text-anchor="middle">Blog</text>
+        <text class="sublabel" x="500" y="115" text-anchor="middle">not yet populated</text>
+        <text class="sublabel" x="500" y="130" text-anchor="middle">fast-follow after v1</text>
+      </svg>
+    </div>
+    <div class="titleblock">
+      <span>Sheet <b>05</b> — /blog</span>
+      <span>Stub, deferred content</span>
+      <span>Rev <b>0.4</b></span>
+    </div>
+  </section>
+
+  <p class="note"><b>Reading the sheets:</b> the hub replaces a navbar with a flow diagram, bookended by Start (identity) on the left and Contact on the right — every section's path leads somewhere, ordered by importance: Experience first, then Projects, Skills, and Blog last (it's the one still deferred). Experience is a milestone trace, reusing the board's copper-line vocabulary for a career timeline instead of a product. Projects and Skills both use four-or-five-part breakdowns but for different jobs, so they're drawn two different ways: Projects is a board you route through to browse work (Electronics, Software, AI/ML, Gamedev); Skills is a left-to-right system pipeline you scan for tools (Electronics, Frontend, Backend, Infrastructure, AI) — closer to how the tech itself actually connects. Blog is intentionally inert until there's real writing to show.</p>
+</div>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-inner">
+    <div class="drawer-head">
+      <div>
+        <p class="drawer-eyebrow" id="drawer-eyebrow"></p>
+        <h2 id="drawer-title"></h2>
+        <p id="drawer-desc"></p>
+      </div>
+      <button type="button" class="drawer-close" id="drawer-close">Close</button>
+    </div>
+    <ul class="pin-list" id="drawer-pins"></ul>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.dip button');
+    var views = document.querySelectorAll('.stage');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.getAttribute('data-target');
+        views.forEach(function (v) { v.hidden = v.id !== target; });
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      });
+    });
+
+    var drawer = document.getElementById('drawer');
+    var drawerEyebrow = document.getElementById('drawer-eyebrow');
+    var drawerTitle = document.getElementById('drawer-title');
+    var drawerDesc = document.getElementById('drawer-desc');
+    var drawerPins = document.getElementById('drawer-pins');
+    var drawerClose = document.getElementById('drawer-close');
+
+    function openDrawer(node) {
+      var title = node.getAttribute('data-title');
+      var eyebrow = node.getAttribute('data-eyebrow');
+      var desc = node.getAttribute('data-desc');
+      var pins = (node.getAttribute('data-pins') || '').split(',').filter(Boolean);
+
+      drawerEyebrow.textContent = eyebrow;
+      drawerTitle.textContent = title;
+      drawerDesc.textContent = desc;
+      drawerPins.innerHTML = '';
+      pins.forEach(function (p, i) {
+        var li = document.createElement('li');
+        li.innerHTML = '<b>' + String(i + 1).padStart(2, '0') + '</b>' + p;
+        drawerPins.appendChild(li);
+      });
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+    drawerClose.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    document.querySelectorAll('.node').forEach(function (node) {
+      node.addEventListener('click', function () { openDrawer(node); });
+      node.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openDrawer(node);
+        }
+      });
+    });
+  })();
+</script>
