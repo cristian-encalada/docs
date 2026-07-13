@@ -2,39 +2,44 @@
 
 ## Stack
 
-- **Astro** — project shell, routing, SEO/meta, and the DOM UI layer (panels, HUD, touch d-pad, CTA). Tailwind integration for styling this layer.
-- **KAPLAY** (`kaplay` npm package, maintained Kaboom.js fork) — the game engine, mounted as a single client-side canvas island (`client:only`). Chosen over Phaser for its smaller API purpose-built for "walk, jump, collide, trigger" scope, and because it's the proven approach in the JSLegendDev/2d-portfolio-kaboom precedent.
-- Code split: `src/game/` (KAPLAY scenes/entities/logic) stays separate from `src/components/` + `src/pages/` (Astro DOM layer). The two communicate via a small event bridge (canvas dispatches a custom DOM event like `project:open` with a project id; the Astro/DOM layer owns rendering the panel).
+- **Astro** — routing, SEO/meta, all rendering. No client-side framework (React/Vue/etc.) needed; interactivity is plain `<script>` (click handlers, panel toggling) processed by Astro/Vite.
+- **Tailwind v4** — via `@tailwindcss/vite`, already wired in the scaffold.
+- **SVG** — the Venn diagram and each area's labeled illustration are hand-authored or generated SVG, not raster art or a canvas/game engine. This keeps everything inherently accessible (real DOM nodes, `<title>`/`aria-label` on shapes) and crawlable.
+- **pnpm** — package manager (not npm — the maintainer's explicit preference for supply-chain safety; pnpm additionally verifies lockfile supply-chain policy on install).
 
-## World / level
+## Routing
 
-- One continuous horizontal level, 3 acts in sequence (Bolivia → Uruguay → The Horizon). Camera follows the player horizontally, clamped to level bounds. No vertical level design beyond jump arcs/platform hops.
-- Parallax background: 2-3 depth layers, swapped/recolored per act to differentiate zones using a single base tileset (Kenney.nl pack) rather than bespoke per-country art.
-- Player entity: idle/walk/jump animation states via KAPLAY `sprite()`/`body()`/`area()`; horizontal input only (arrow keys/WASD + jump), plus an interact key.
-- Sprite swap (young → adult) happens once, at the Act 1→2 transition, tied to a "boarding transport" story beat (a short non-interactive cutscene-like sequence, not a separate level).
+Real Astro pages/routes per screen, not a single-page JS state machine — better for SEO/sharing and simpler than managing client-side view state:
+- `/` — the hub (Venn diagram).
+- `/areas/electronics`, `/areas/software`, `/areas/ai-ml`, `/areas/gamedev` — one detail view per circle.
+- `/journey` — the personal story, reached by clicking the diagram's center.
 
-## Interaction / project nodes
+Project panels are an in-page overlay/modal on the area-detail route (triggered by clicking a pin), not a separate route — but their content is real DOM markup present in the page (e.g. rendered but visually hidden until opened), not injected only on click, so it's crawlable without JS.
 
-- One generic **interactable node** component in `src/game/` (proximity trigger + on-screen prompt + dispatches `project:open`), reused unchanged for every project across all acts — built once in Phase 3, not rebuilt per act.
-- Project content model ported from this repo's `data/projectTypes.ts` (`ElectronicsProject | SoftwareProject | WebProject | GameDevProject` union) into `src/data/projects.ts` in the new repo — same shape, English-only (no locale keying needed for v1).
-- Opening a node renders a real DOM/HTML panel (Astro/React-free, plain component) with title/description/tech-stack/links — never drawn on canvas, so it stays crawlable and screen-reader-visible.
+## Hub diagram (`/`)
 
-## Controls
+- SVG with 4 overlapping circles: Electronics, Software, AI/ML, Gamedev, arranged so adjacent circles visually overlap (opacity/blend, not literal geometric boolean regions — labels are positioned by hand near each lens, not computed).
+- Center overlap zone: Cristian's name/identity, clickable → `/journey`.
+- Each circle is a real clickable element (`<a>` wrapping the SVG shape + label, not a bare `<circle>` with a JS-only handler) so it's keyboard-focusable and works with JS disabled.
 
-- Desktop-first: keyboard (arrow keys/WASD + interact key, e.g. `E`/`Space`).
-- Touch fallback: a simple on-screen d-pad + interact button, DOM overlay shown only when a touch-capable viewport is detected — not the primary design target for v1, just enough that mobile isn't broken.
+## Area detail view (`/areas/<area>`)
 
-## Act 3 ending
+- A labeled illustration (SVG) themed per area, with numbered callout pins in the "Parts of a Computer" worksheet style — each pin is a real link/button positioned over the illustration, connected to the project it represents.
+- v1 project content: generic placeholders (`Project A`, `Project B`, ...) per area — swappable later for the real data currently in `docs`'s `data/*ProjectsData.ts` (`ElectronicsProject | SoftwareProject | WebProject | GameDevProject` from `data/projectTypes.ts`) once the interaction design is validated. No firm mapping of real projects to the Electronics/Software/AI-ML/Gamedev circles is decided yet — deferred.
+- Clicking/activating a pin opens a project panel (title, description, tech stack, links) as an in-page overlay; closing it returns focus to the pin.
 
-- No fight/puzzle mechanic. Player reaches a cliff/dock scene facing a stylized European skyline backdrop. The same interactable-node system opens a "Continue the journey" panel containing real contact links (email, LinkedIn, resume) — this is the site's actual conversion point.
+## Journey story (`/journey`)
+
+- The Bolivia (Sucre → Cochabamba) → Uruguay → Europe-goal narrative, presented as a timeline/story page. Not a playable sequence — static content, may use scroll-triggered CSS animation/transitions for polish, but no game logic.
 
 ## Accessibility / SEO
 
-- All project and contact information must exist in real DOM markup independent of canvas state (the panels), since canvas content is invisible to search engines and screen readers.
-- Lighthouse/SEO pass in Phase 6 confirms project titles/descriptions are indexable even though gameplay itself isn't.
+- Every circle, pin, and the center node is a real focusable link/button with an accessible name — never a click-only `<div>`/canvas region.
+- Project panel content exists in the DOM regardless of open/closed state (e.g. `hidden` attribute or `display: none` toggled by JS), so crawlers seed and index it without executing JS.
+- Each area and the journey page is a real, independently linkable/shareable URL.
 
 ## Repo / deploy
 
-- New GitHub repo `pixel-portfolio`, local at `~/personal/projects/pixel-portfolio`, sibling to `docs`. `docs` is left untouched as a live fallback during development.
-- Deployed to Vercel; Phase 1 includes a preview deploy specifically to validate the pipeline before real content is built.
-- Playwright MCP (`@playwright/mcp`) installed as tooling so the game can be driven and screenshotted in a real browser during development/polish (Phase 6), rather than verifying purely from code.
+- New GitHub repo `pixel-portfolio`, local at `~/personal/projects/pixel-portfolio`, sibling to `docs`. `docs` untouched as a live fallback.
+- Deployed to Vercel (static Astro output — no SSR adapter needed for v1 since there's no dynamic/server data).
+- Playwright MCP (`@playwright/mcp`, installed at user scope) available for visually driving/screenshotting the diagram and detail views during development.

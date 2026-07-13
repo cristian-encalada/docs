@@ -1,19 +1,22 @@
 ## ADDED Requirements
 
-### Requirement: DOM content independent of canvas
-The system SHALL render all project titles, descriptions, and contact links as real DOM markup that exists independently of canvas/game state, so the content remains available to screen readers and crawlers even without canvas rendering or JS-driven gameplay.
+### Requirement: Real, keyboard-operable markup throughout
+The system SHALL implement the hub circles, the diagram center, area pins, and panel controls as real links/buttons with accessible names, never as click-only `<div>`/SVG-shape handlers with no keyboard/assistive-tech path.
 
-#### Scenario: Screen reader access
-- **WHEN** a screen reader parses the page
-- **THEN** all project titles/descriptions and the contact links are readable, regardless of canvas/game state
+#### Scenario: Full keyboard traversal
+- **WHEN** a visitor navigates the hub, an area detail view, and its panels using only the keyboard
+- **THEN** every circle, the center, every pin, and every panel close control can be reached and activated without a mouse
 
-#### Scenario: Crawler access without canvas
-- **WHEN** a crawler fetches the page without executing canvas/game logic
-- **THEN** project titles/descriptions and contact links are still present in the served/rendered HTML
+### Requirement: Independently indexable routes
+The system SHALL expose the hub, each area detail view, and the journey page as real, separately-linkable URLs (`/`, `/areas/<area>`, `/journey`), each indexable on its own.
 
-### Requirement: Indexable project content
-The system SHALL keep project titles and descriptions indexable (e.g. verified via a Lighthouse/SEO pass) even though the gameplay itself is not crawlable.
+#### Scenario: SEO audit passes per route
+- **WHEN** a Lighthouse/SEO audit runs against `/`, an area route, and `/journey`
+- **THEN** each route's core content (labels, project titles/descriptions, journey narrative) is reported as indexable
 
-#### Scenario: SEO audit passes
-- **WHEN** a Lighthouse/SEO audit runs against the deployed site
-- **THEN** project titles and descriptions are reported as indexable content
+### Requirement: No JS-only content
+The system SHALL ensure project panel content and journey narrative text exist in the served HTML independent of JavaScript execution.
+
+#### Scenario: Crawler access without JS
+- **WHEN** a crawler fetches any route without executing JavaScript
+- **THEN** the page's core text content (area labels, project details, journey narrative) is present in the HTML
