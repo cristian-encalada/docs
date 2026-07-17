@@ -1,4 +1,4 @@
-# Proposal: pixel-portfolio — a circuit-board-themed portfolio
+# Proposal: circuit-portfolio — a circuit-board-themed portfolio
 
 ## Why
 

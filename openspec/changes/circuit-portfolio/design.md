@@ -1,4 +1,4 @@
-# Design: pixel-portfolio
+# Design: circuit-portfolio
 
 See `design-mockup.html` in this folder for the interactive, built-and-iterated reference this document describes — when in doubt about exact layout/copy, defer to the mockup, this document explains the *why* and the production considerations the mockup doesn't need to handle (real routing, SEO, accessibility fallbacks).
 

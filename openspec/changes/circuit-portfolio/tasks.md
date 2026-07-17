@@ -1,4 +1,4 @@
-# Tasks: pixel-portfolio
+# Tasks: circuit-portfolio
 
 - [x] 0.1 Commit pending `docs` changes (`.gitignore` `.agents/` entry, `skills-lock.json`)
 - [x] 0.2 Install Playwright MCP (`@playwright/mcp`) for visual verification during development
@@ -9,8 +9,8 @@
 - [x] 1.4 Design and validate the full site map as an interactive HTML/SVG mockup (`design-mockup.html`), iterated live with the user before committing to code
 - [ ] 1.5 New GitHub repo, connect Vercel, confirm preview deploy pipeline works end-to-end
 
-- [ ] 2.1 Build the shared visual system (CSS custom properties for both themes, copper-trace/chip/title-block styles, monospace-label conventions) as reusable Astro/CSS, matching `design-mockup.html`
-- [ ] 2.2 Build `/`: flow-diagram hub — Start block, four section blocks in priority order (Experience, Projects, Skills, Blog), Contact terminal, all as real links (hub-diagram capability)
+- [x] 2.1 Build the shared visual system (CSS custom properties for both themes, copper-trace/chip/title-block styles, monospace-label conventions) as reusable Astro/CSS, matching `design-mockup.html`
+- [x] 2.2 Build `/`: flow-diagram hub — Start block, four section blocks in priority order (Experience, Projects, Skills, Blog), Contact terminal, all as real links (hub-diagram capability)
 
 - [ ] 3.1 Build `/experience`: horizontal milestone trace with the three career milestones, content rendered directly (no click-to-reveal) (experience-timeline capability)
 
