@@ -12,7 +12,7 @@ The Astro + Tailwind v4 + pnpm scaffold, and the accessibility-first "real DOM c
 
 ## What changes
 
-- New repo `pixel-portfolio` at `~/personal/projects/pixel-portfolio` (sibling to `docs`), deployed to Vercel. `docs` stays live untouched as a fallback during development.
+- New repo `schematic` at `~/personal/projects/schematic` (sibling to `docs`), deployed to Vercel. `docs` stays live untouched as a fallback during development.
 - Stack: **Astro** + **Tailwind v4** + hand-authored **SVG** for every diagram, plain HTML/CSS/vanilla JS for interactivity. **No game engine, no canvas.**
 - **Hub (`/`)**: a schematic flow diagram. A "Start" block (Cristian's identity, clickable → `/journey`) branches to four sections **ranked by importance**: **Experience**, **Projects**, **Skills**, **Blog** — all four converge on a **Contact** terminal (→ `/contact`).
 - **Experience (`/experience`)**: a horizontal milestone trace (same copper-line vocabulary as the rest of the site) showing career history — Electronics Engineer (Bolivia) → professional transition → AI/ML Engineer (Uruguay, current). Explicitly prioritized over a separate Education section, per the user: experience matters more than credentials here.

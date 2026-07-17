@@ -3,11 +3,13 @@
 - [x] 0.1 Commit pending `docs` changes (`.gitignore` `.agents/` entry, `skills-lock.json`)
 - [x] 0.2 Install Playwright MCP (`@playwright/mcp`) for visual verification during development
 
-- [x] 1.1 Scaffold Astro project at `~/personal/projects/pixel-portfolio` (TypeScript strict, Tailwind v4 via `@tailwindcss/vite`, pnpm as package manager)
+- [x] 1.1 Scaffold Astro project at `~/personal/projects/schematic` (TypeScript strict, Tailwind v4 via `@tailwindcss/vite`, pnpm as package manager)
 - [x] 1.2 Install the `astro` skill (astrolicious/agent-skills) into the project, targeting Claude Code
 - [x] 1.3 Init git, initial commit of the scaffold
 - [x] 1.4 Design and validate the full site map as an interactive HTML/SVG mockup (`design-mockup.html`), iterated live with the user before committing to code
 - [ ] 1.5 New GitHub repo, connect Vercel, confirm preview deploy pipeline works end-to-end
+  - [x] github.com/cristian-encalada/schematic created, local remote repointed and pushed
+  - [ ] Connect Vercel, confirm preview deploy pipeline works end-to-end
 
 - [x] 2.1 Build the shared visual system (CSS custom properties for both themes, copper-trace/chip/title-block styles, monospace-label conventions) as reusable Astro/CSS, matching `design-mockup.html`
 - [x] 2.2 Build `/`: flow-diagram hub — Start block, four section blocks in priority order (Experience, Projects, Skills, Blog), Contact terminal, all as real links (hub-diagram capability)

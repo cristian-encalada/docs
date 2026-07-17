@@ -74,6 +74,6 @@ In-page panel content (project lists on `/projects`, tool lists on `/skills`) is
 
 ## Repo / deploy
 
-- New GitHub repo `pixel-portfolio`, local at `~/personal/projects/pixel-portfolio`, sibling to `docs`. `docs` untouched as a live fallback.
+- New GitHub repo `schematic`, local at `~/personal/projects/schematic`, sibling to `docs`. `docs` untouched as a live fallback.
 - Deployed to Vercel (static Astro output — no SSR adapter needed for v1 since there's no dynamic/server data).
 - Playwright MCP (`@playwright/mcp`, installed at user scope) available for visually driving/screenshotting each page during development.
