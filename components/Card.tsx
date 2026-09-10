@@ -47,8 +47,8 @@ const Card: React.FC<CardProps> = ({
   const showDemoSeparate = demoUrl && demoUrl !== previewUrl
 
   return (
-    <article className="group mb-16 flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
-      <div className="w-full md:w-1/2">
+    <article className="group mb-16 flex min-w-0 flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
+      <div className="w-full min-w-0 md:w-1/2">
         <div className="col-span-6 row-span-5 flex transform flex-col items-center gap-8 overflow-clip rounded-xl shadow-xl transition duration-500 ease-in-out sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
           {video ? (
             <video
@@ -75,8 +75,8 @@ const Card: React.FC<CardProps> = ({
           )}
         </div>
       </div>
-      <div className="w-full md:w-1/2 md:max-w-lg">
-        <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      <div className="w-full min-w-0 md:w-1/2 md:max-w-lg">
+        <h3 className="break-words text-2xl font-bold text-gray-800 dark:text-gray-100">
           {href ? (
             <Link
               href={href.startsWith('http') ? href : `/${locale}${href}`}
@@ -124,7 +124,7 @@ const Card: React.FC<CardProps> = ({
             )}
           </div>
         )}
-        <div className="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+        <div className="mt-2 break-words text-gray-700 dark:text-gray-400">{description}</div>
         <footer className="mt-4 flex flex-wrap items-end justify-start gap-x-4 gap-y-2">
           {githubUrl && (
             <a

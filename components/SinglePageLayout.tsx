@@ -237,8 +237,8 @@ export default function SinglePageLayout({ locale, enrichedGameDevProjects }: Pr
               </Link>
             </p>
           </div>
-          <div className="container py-12">
-            <div className="-m-4 flex flex-wrap">
+          <div className="w-full min-w-0 py-12">
+            <div className="flex min-w-0 flex-col">
               {projectArray.map((project) => (
                 <Card
                   key={project.title}
