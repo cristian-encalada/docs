@@ -1,8 +1,16 @@
 {
     "about": "About",
+    "experience": "Experience",
+    "experienceDescription": "A career path from IT support and software quality assurance to software and AI engineering.",
+    "experienceTimeline": "Professional experience timeline",
+    "certifications": "Certifications",
+    "skills": "Skills",
+    "skillsDescription": "The technologies and tools I use to build, test, automate, and ship software and AI systems.",
+    "resume": "Resume",
+    "resumeEditable": "DOCX",
+    "viewCredential": "View credential",
     "projects": "Projects",
     "blog": "Blog",
     "blogDescription": "Personal blog where I share my experiences and knowledge about software development, AI and electronics.",
     "viewAllPosts": "View all posts"
   }
-  

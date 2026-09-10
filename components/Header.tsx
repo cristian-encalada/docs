@@ -46,7 +46,10 @@ const Header = () => {
   // Handle initial page load with hash
   useEffect(() => {
     const hash = window.location.hash.replace('#', '')
-    if (hash && ['about', 'projects', 'blog'].includes(hash)) {
+    if (
+      hash &&
+      ['about', 'experience', 'certifications', 'skills', 'projects', 'blog'].includes(hash)
+    ) {
       setActiveSection(hash)
       // Scroll to the section after a short delay to ensure DOM is ready
       setTimeout(() => {
@@ -61,7 +64,7 @@ const Header = () => {
   // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'projects', 'blog']
+      const sections = ['about', 'experience', 'certifications', 'skills', 'projects', 'blog']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -87,9 +90,9 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-neutral-900/80">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-7xl xl:px-0">
         <div className="flex items-center justify-between py-4">
-          <div>
+          <div className="shrink-0">
             <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
               <div className="flex items-center justify-between">
                 <div className="mr-3">
@@ -105,7 +108,7 @@ const Header = () => {
                     {siteMetadata.headerTitle}
                   </div>
                 ) : (
-                  <div className="hidden text-2xl font-semibold sm:block">
+                  <div className="hidden whitespace-nowrap text-2xl font-semibold sm:block">
                     <div>{siteMetadata.headerTitle[0]}</div>
                     <div className="text-lg">{siteMetadata.headerTitle[1]}</div>
                   </div>
@@ -121,7 +124,7 @@ const Header = () => {
                   key={link.title}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`hidden font-medium ${
+                  className={`hidden font-medium xl:block ${
                     isSelected ? 'text-primary-500' : 'text-gray-900 dark:text-gray-100'
                   } cursor-pointer sm:block`}
                 >

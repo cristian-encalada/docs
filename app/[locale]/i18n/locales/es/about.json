@@ -1,8 +1,16 @@
 {
     "about": "Acerca de mi",
+    "experience": "Experiencia",
+    "experienceDescription": "Un recorrido profesional desde el soporte de TI y el aseguramiento de calidad hasta la ingeniería de software e IA.",
+    "experienceTimeline": "Línea de tiempo de experiencia profesional",
+    "certifications": "Certificaciones",
+    "skills": "Habilidades",
+    "skillsDescription": "Las tecnologías y herramientas que utilizo para construir, probar, automatizar y desplegar software y sistemas de IA.",
+    "resume": "Currículum",
+    "resumeEditable": "DOCX",
+    "viewCredential": "Ver credencial",
     "projects": "Proyectos",
     "blog": "Blog",
     "blogDescription": "Blog personal donde comparto mis experiencias y conocimientos sobre desarrollo de software, IA y electrónica.",
     "viewAllPosts": "Ver todas las publicaciones"
   }
-  
