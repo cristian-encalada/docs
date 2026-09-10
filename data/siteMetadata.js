@@ -17,6 +17,8 @@ const siteMetadata = {
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/cristian-encalada/',
+  resume: '/static/documents/Resume_Cristian_Encalada.pdf',
+  resumeDocx: '/static/documents/Resume_Cristian_Encalada.docx',
   locale: 'en',
   analytics: {
     // If you want to use an analytics provider you have to add it to the

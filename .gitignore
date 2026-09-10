@@ -28,6 +28,9 @@ public/sitemap.xml
 # search
 /public/search.json
 
+# Private, position-specific resume deliverables
+/.private-resumes/
+
 # misc
 .DS_Store
 

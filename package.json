@@ -9,6 +9,7 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
+    "resume": "python3 scripts/generate_resumes.py",
     "openspec": "openspec",
     "postinstall": "echo 'Postinstall completed successfully'"
   },
