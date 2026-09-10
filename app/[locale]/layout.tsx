@@ -98,6 +98,7 @@ export default async function RootLayout({
           <div className="flex min-h-screen min-w-0 flex-col justify-between font-sans">
             <SearchProvider>
               <Header />
+              <div aria-hidden="true" className="h-24 shrink-0" />
               <SectionContainer>
                 <main className="mb-auto">{children}</main>
               </SectionContainer>

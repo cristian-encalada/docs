@@ -98,7 +98,7 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full overflow-x-hidden border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-neutral-900/80">
+    <header className="fixed inset-x-0 top-0 z-50 w-full overflow-x-hidden border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-neutral-900/80">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-7xl xl:px-0">
         <div className="flex items-center justify-between py-4">
           <div className="shrink-0">
