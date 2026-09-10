@@ -116,12 +116,10 @@ module.exports = () => {
               try {
                 const data = fs.readFileSync(filePath, 'utf8')
                 // Multiple regex patterns to catch all variations
-                let result = data
-                  .replace(/assert\s*{\s*type:\s*['"]json['"]\s*}/g, 'with { type: "json" }')
-                  .replace(/assert\s*\(\s*{\s*type:\s*['"]json['"]\s*}\s*\)/g, 'with { type: "json" }')
-                  .replace(/import\s+.*\s+from\s+.*\s+assert\s*{\s*type:\s*['"]json['"]\s*}/g, (match) => {
-                    return match.replace(/assert\s*{\s*type:\s*['"]json['"]\s*}/, 'with { type: "json" }')
-                  })
+                let result = data.replace(
+                  /with\s*{\s*type:\s*['"]json['"]\s*}/g,
+                  'assert { type: "json" }'
+                )
                 
                 if (data !== result) {
                   fs.writeFileSync(filePath, result, 'utf8')

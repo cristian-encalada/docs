@@ -58,6 +58,34 @@ function fixAssertSyntax() {
   }
 }
 
+// TypeScript 5.2 parses import assertions, while the Node.js process used by
+// Contentlayer expects the newer import-attributes syntax. Restore assertions
+// before Next.js performs its type check.
+function fixSyntaxForNext() {
+  const generatedPath = path.join(__dirname, '..', '.contentlayer', 'generated')
+  const cachePath = path.join(__dirname, '..', '.contentlayer', '.cache')
+
+  function findMjsFiles(dir) {
+    const files = []
+    if (!fs.existsSync(dir)) return files
+
+    for (const item of fs.readdirSync(dir)) {
+      const fullPath = path.join(dir, item)
+      const stat = fs.statSync(fullPath)
+      if (stat.isDirectory()) files.push(...findMjsFiles(fullPath))
+      else if (path.extname(item) === '.mjs') files.push(fullPath)
+    }
+    return files
+  }
+
+  const allMjsFiles = [...findMjsFiles(generatedPath), ...findMjsFiles(cachePath)]
+  allMjsFiles.forEach((filePath) => {
+    const data = fs.readFileSync(filePath, 'utf8')
+    const result = data.replace(/with\s*{\s*type:\s*["']json["']\s*}/g, 'assert { type: "json" }')
+    if (data !== result) fs.writeFileSync(filePath, result, 'utf8')
+  })
+}
+
 // Run contentlayer build
 console.log('Running Contentlayer build...')
 const contentlayerProcess = spawn(
@@ -92,6 +120,8 @@ contentlayerProcess.on('close', (code) => {
   // Always try to fix assert issues after build
   console.log('Applying assert syntax fixes...')
   fixAssertSyntax()
+  console.log('Preparing generated modules for Next.js type checking...')
+  fixSyntaxForNext()
 
   // Now run Next.js build
   console.log('Running Next.js build...')
