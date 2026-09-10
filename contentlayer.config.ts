@@ -111,6 +111,21 @@ function createSearchIndex(allBlogs) {
   }
 }
 
+function readGeneratedBlogs() {
+  const generatedBlogsPath = path.join(root, '.contentlayer', 'generated', 'Blog', '_index.json')
+
+  if (!fs.existsSync(generatedBlogsPath)) {
+    return []
+  }
+
+  try {
+    return JSON.parse(fs.readFileSync(generatedBlogsPath, 'utf8'))
+  } catch (error) {
+    console.log('Unable to read the generated blog index:', error.message)
+    return []
+  }
+}
+
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'blog/**/*.mdx',
@@ -250,16 +265,23 @@ export default makeSource({
       console.log('Contentlayer assert fix completed with warnings:', error.message)
     }
     
-    // Now call importData after fixing the files
+    // Now call importData after fixing the files. If the generated import
+    // cannot be loaded because of the Node.js import-assertion workaround,
+    // use Contentlayer's JSON index instead so derived assets are still built.
+    let allBlogs: unknown[] = []
     try {
-      const { allBlogs } = await importData()
+      const importedData = await importData()
+      allBlogs = importedData.allBlogs
+    } catch (error) {
+      console.log('Contentlayer importData failed; using the generated JSON index:', error.message)
+      allBlogs = sortPosts(readGeneratedBlogs())
+    }
+
+    if (allBlogs.length > 0) {
       generateSlugMap(allBlogs)
       createTagCount(allBlogs)
       createSearchIndex(allBlogs)
-      console.log('Contentlayer build completed successfully')
-    } catch (error) {
-      console.log('Contentlayer importData failed, but continuing with build:', error.message)
-      // Continue with build even if importData fails
+      console.log('Contentlayer-derived assets generated successfully')
     }
   },
 })
