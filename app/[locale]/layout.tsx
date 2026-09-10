@@ -95,7 +95,7 @@ export default async function RootLayout({
       >
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <div className="flex h-screen min-w-0 flex-col justify-between font-sans">
+          <div className="flex min-h-screen min-w-0 flex-col justify-between font-sans">
             <SearchProvider>
               <Header />
               <SectionContainer>
