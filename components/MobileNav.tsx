@@ -26,7 +26,14 @@ const MobileNav = () => {
 
   return (
     <>
-      <button aria-label={t('showmenu')} onClick={onToggleNav} className="xl:hidden">
+      <button
+        type="button"
+        aria-label={t('showmenu')}
+        aria-expanded={navShow}
+        aria-controls="mobile-navigation"
+        onClick={onToggleNav}
+        className="xl:hidden"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -41,9 +48,19 @@ const MobileNav = () => {
         </svg>
       </button>
       {navShow && (
-        <div className="fixed inset-0 z-[60] h-screen w-screen translate-x-0 transform bg-white duration-300 ease-in-out dark:bg-neutral-900 xl:hidden">
-          <div className="flex justify-end">
-            <button className="mr-8 mt-11 h-8 w-8" aria-label="Toggle Menu" onClick={onToggleNav}>
+        <div
+          id="mobile-navigation"
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-[60] flex h-screen w-screen flex-col bg-white duration-300 ease-in-out dark:bg-neutral-900 xl:hidden"
+        >
+          <div className="flex shrink-0 justify-end px-8 pt-11">
+            <button
+              type="button"
+              className="h-8 w-8"
+              aria-label={t('closemenu')}
+              onClick={onToggleNav}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -58,9 +75,9 @@ const MobileNav = () => {
               </svg>
             </button>
           </div>
-          <nav className="flex h-full flex-col items-center justify-center">
+          <nav className="flex min-h-0 flex-1 flex-col items-center justify-center gap-4 overflow-y-auto pb-8">
             {headerNavLinks.map((link) => (
-              <div key={link.title} className="py-4">
+              <div key={link.title}>
                 <Link
                   href={`/${locale}${link.href}`}
                   className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
