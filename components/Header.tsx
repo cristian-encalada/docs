@@ -21,6 +21,16 @@ const Header = () => {
   const { theme, resolvedTheme } = useTheme()
   const [activeSection, setActiveSection] = useState('about')
 
+  const scrollToSection = (targetId: string) => {
+    const element = document.getElementById(targetId)
+    if (!element) return
+
+    const headerHeight = document.querySelector('header')?.offsetHeight ?? 0
+    const top = Math.max(element.getBoundingClientRect().top + window.scrollY - headerHeight, 0)
+
+    window.scrollTo({ top, left: 0, behavior: 'smooth' })
+  }
+
   // Handle smooth scrolling to sections
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
@@ -31,9 +41,8 @@ const Header = () => {
 
     if (isHomePage) {
       // On home page, scroll to section
-      const element = document.getElementById(targetId)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
+      if (document.getElementById(targetId)) {
+        scrollToSection(targetId)
         // Update URL hash
         window.history.pushState(null, '', href)
       }
@@ -55,7 +64,7 @@ const Header = () => {
       setTimeout(() => {
         const element = document.getElementById(hash)
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
+          scrollToSection(hash)
         }
       }, 100)
     }
@@ -89,7 +98,7 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-neutral-900/80">
+    <header className="sticky top-0 z-50 w-full overflow-x-hidden border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-neutral-900/80">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-7xl xl:px-0">
         <div className="flex items-center justify-between py-4">
           <div className="shrink-0">

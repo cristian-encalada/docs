@@ -76,7 +76,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={dir(locale)}
-      className={`${space_grotesk.variable} scroll-smooth`}
+      className={`${space_grotesk.variable} overflow-x-hidden scroll-smooth`}
       suppressHydrationWarning
     >
       <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
@@ -90,12 +90,12 @@ export default async function RootLayout({
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body
-        className="bg-white text-black antialiased dark:bg-neutral-900 dark:text-white"
+        className="overflow-x-hidden bg-white text-black antialiased dark:bg-neutral-900 dark:text-white"
         suppressHydrationWarning
       >
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <div className="flex h-screen flex-col justify-between font-sans">
+          <div className="flex h-screen min-w-0 flex-col justify-between font-sans">
             <SearchProvider>
               <Header />
               <SectionContainer>

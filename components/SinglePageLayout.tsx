@@ -57,7 +57,7 @@ export default function SinglePageLayout({ locale, enrichedGameDevProjects }: Pr
   const tagCountMap = tagData[locale]
 
   return (
-    <div className="space-y-16 pt-20">
+    <div className="min-w-0 space-y-16 pt-20">
       {/* About Section */}
       <section id="about" className="scroll-mt-24">
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
